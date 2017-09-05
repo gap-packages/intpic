@@ -1,6 +1,6 @@
 ## The function "Splash" is temporarily borrowed from Viz, while it is in an early stage of development.
 ## 
-##
+## (I wrote this file during a visit I made to St Andrews University in January 2012)
 #############################################################################
 
 if not IsBound(VizOptionsForSplash) then 
