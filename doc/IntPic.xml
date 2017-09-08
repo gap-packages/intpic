@@ -7,7 +7,7 @@
    Text='Viz'>https://bitbucket.org/zen154115/viz</URL></Alt><Alt Only='Text'><Package>Viz</Package></Alt>">
 <!-- Reading PKGVERSIONDATA chunk from the PackageInfo.g file -->
    <#Include Label="PKGVERSIONDATA">
-<!-- the label "PKGVERSIONDATA" is contained in the "PackageInfo.g" file -->
+<!--  the label "PKGVERSIONDATA" is contained in the "PackageInfo.g" file -->
 ]>
 
 <!-- Documentation to the IntPic package. -->

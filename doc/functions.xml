@@ -79,7 +79,7 @@ The next function uses the previous one, but is called with a simpler argument. 
     <Example><![CDATA[
 gap> d := DivisorsInt(30);
 [ 1, 2, 3, 5, 6, 10, 15, 30 ]
-gap> IP_SimpleTizkArrayOfIntegers(d);;
+gap> IP_SimpleTikzArrayOfIntegers(d);;
 ]]></Example>
     <Alt Only="LaTeX">
       \begin{center}
@@ -94,7 +94,7 @@ gap> d30 := DivisorsInt(30);
 [ 1, 2, 3, 5, 6, 10, 15, 30 ]
 gap> d40 := DivisorsInt(40);
 [ 1, 2, 4, 5, 8, 10, 20, 40 ]
-gap> tkz := IP_SimpleTizkArrayOfIntegers([d30,d40]);;
+gap> tkz := IP_SimpleTikzArrayOfIntegers([d30,d40]);;
 ]]></Example>
     <Alt Only="LaTeX">
       \begin{center}
@@ -148,7 +148,7 @@ gap>   for n in [-depth..height] do
 >     Add(yaxis, origin+n*b);
 >   od;
 gap> 
-gap> table := TableWithModularOrder(origin,a,b,depth,height,false,false);;
+gap> table := IP_TableWithModularOrder(origin,a,b,depth,height,false,false);;
 gap> arr := [xaxis,yaxis,ground];
 [ [ 251, 259, 267, 275, 283, 291, 299, 307, 315, 323, 331, 339, 347, 355, 
       363, 371, 379, 387, 395 ], 

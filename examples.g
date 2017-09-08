@@ -57,7 +57,7 @@ tikzfile := "tikz_divs30.tex";;
 file := "divs30.tex";;
 
 d := DivisorsInt(30);
-tkz := IP_SimpleTizkArrayOfIntegers(d);;
+tkz := IP_SimpleTikzArrayOfIntegers(d);;
 
 FileString(tikzfile,tkz);
 FileString(file,Concatenation(IP_Preamble,tkz,IP_Closing));
@@ -68,7 +68,7 @@ file := "divs3040.tex";;
 
 d30 := DivisorsInt(30);
 d40 := DivisorsInt(40);
-tkz := IP_SimpleTizkArrayOfIntegers([d30,d40]);;
+tkz := IP_SimpleTikzArrayOfIntegers([d30,d40]);;
 
 FileString(tikzfile,tkz);
 FileString(file,Concatenation(IP_Preamble,tkz,IP_Closing));
@@ -94,7 +94,7 @@ depth:=8;;
     Add(yaxis, origin+n*b);
   od;
 
-table := IP_TableWithModularOrder(origin,a,b,depth,height,false,false);;
+  table := IP_TableWithModularOrder(origin,a,b,depth,height,false,false);;
 arr := [xaxis,yaxis,ground];
 tkz:=IP_TikzArrayOfIntegers(table,rec(highlights:=arr));;
 
