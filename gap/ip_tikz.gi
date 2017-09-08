@@ -21,6 +21,7 @@ function(arg)
   rg := StructuralCopy(First(arg, a -> IsHomogeneousList(a) and not IsList(a[1])));
   tb := StructuralCopy(First(arg, a -> IsTable(a)));
   flen := StructuralCopy(First(arg, a -> IsInt(a)));
+#  Error(" ");
   
   ## the options ##
   if opt = fail then
@@ -36,42 +37,45 @@ function(arg)
     od;
   fi;
   array := opt.highlights;
- 
+  
   if rg <> fail then
     if flen = fail then
       #     flen := Length(rg);
       # a compromise to not get too large or too high images
       flen := Minimum(30,Int(40/(LogInt(Maximum(rg),10)+1)));       
     fi;
-    #  elif tb <> fail then #201407
-    if tb <> fail then
-      lens := List(tb,Length); #the lengths of the lists
-      if flen = fail then
-        flen := Maximum(lens);
-      else
-        flen := Maximum(Maximum(lens),flen); # 
-      fi;
-      if flen = Minimum(lens) then #all the lists have the same length, which 
-        # coincides with the length given as argument  
-        rg := Concatenation(tb);
-      else # otherwise, dots (".") are used at the end of the lists in order 
-        #to produce a table where all lists have the same length
-        aux := [];
-        for l in tb do
-          Append(aux,l);
-          if Length(l) < flen then
-            r := flen - Length(l);
-            for i in [1..r] do
-              Add(aux,".");
-            od;
-          fi;
-        od;
-        rg := aux;
-      fi;
-    fi; #201407
+  fi;
 
-  else #when no list or table is given, the minimum range containing all the elements 
-    #to be highlighted is taken.
+  #  elif tb <> fail then #201407
+  if tb <> fail then
+    lens := List(tb,Length); #the lengths of the lists
+    if flen = fail then
+      flen := Maximum(lens);
+    else
+      flen := Maximum(Maximum(lens),flen); # 
+    fi;
+    if flen = Minimum(lens) then #all the lists have the same length, which 
+      # coincides with the length given as argument  
+      rg := Concatenation(tb);
+    else # otherwise, dots (".") are used at the end of the lists in order 
+      #to produce a table where all lists have the same length
+      aux := [];
+      for l in tb do
+        Append(aux,l);
+        if Length(l) < flen then
+          r := flen - Length(l);
+          for i in [1..r] do
+            Add(aux,".");
+          od;
+        fi;
+      od;
+      rg := aux;
+    fi;
+  fi; #201407
+
+   #when no list or table is given, the minimum range containing all the elements 
+  #to be highlighted is taken.
+  if rg = fail and tb = fail then
     cat := Concatenation(array);
     rg := [Minimum(cat)..Maximum(cat)];
     if flen = fail then
@@ -234,7 +238,7 @@ end);
 # a simplified version for the case a list of integers or a matrix of
 # integers is given 
 # The length of each level is Maximum(32,Int(Length(rg)/50))
-InstallGlobalFunction(IP_SimpleTizkArrayOfIntegers,
+InstallGlobalFunction(IP_SimpleTikzArrayOfIntegers,
 function(mat)
   local  rg, len, cat;
   
