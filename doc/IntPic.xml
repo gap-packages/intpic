@@ -2,7 +2,7 @@
 
 <!DOCTYPE Book SYSTEM "gapdoc.dtd"
     [<!ENTITY IntPic "<Alt Not='Text'><URL
-   Text='IntPic'>http://www.fc.up.pt/cmup/mdelgado/intpic</URL></Alt><Alt Only='Text'><Package>IntPic</Package></Alt>">
+   Text='IntPic'>https://gap-packages.github.io/intpic/</URL></Alt><Alt Only='Text'><Package>IntPic</Package></Alt>">
 <!ENTITY Viz "<Alt Not='Text'><URL
    Text='Viz'>https://bitbucket.org/zen154115/viz</URL></Alt><Alt Only='Text'><Package>Viz</Package></Alt>">
 <!-- Reading PKGVERSIONDATA chunk from the PackageInfo.g file -->
