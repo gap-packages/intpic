@@ -9,10 +9,6 @@ PackageName := "IntPic",
 Subtitle := "A package for drawing integers",
 Version := "0.2.2",
 Date := "08/09/2017",
-# <#GAPDoc Label="PKGVERSIONDATA">
-# <!ENTITY VERSION "0.2.2">
-# <!ENTITY RELEASEDATE "8 September 2017">
-# <#/GAPDoc>
         
 ##  Information about authors and maintainers.
 Persons := [
