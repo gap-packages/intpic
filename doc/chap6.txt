@@ -1,0 +1,166 @@
+  
+  [1X6 [33X[0;0YUsage of [5XIntPic[105X[101X[1X in connection with the [5Xnumericalsgps[105X[101X[1X package[133X[101X
+  
+  [33X[0;0YThis  chapter  describes  functions  to  be  used  in  connection  with  the
+  [5Xnumericalsgps[105X  package.  We  found it particularly usefull to gain intuition
+  that led to the obtention of the results stated in [DGSRP16].[133X
+  
+  
+  [1X6.1 [33X[0;0YTikz code for drawing numerical semigroups[133X[101X
+  
+  
+  [1X6.1-1 [33X[0;0YTikz code for drawing numerical semigroups[133X[101X
+  
+  [29X[2XTikzCodeForNumericalSemigroup[102X( [3Xarg[103X ) [32X function
+  
+  [33X[0;0YThe arguments (at most 4) are:[133X
+  
+  [31X1[131X   [33X[0;6Ya numerical semigroup[133X
+  
+  [31X2[131X   [33X[0;6Y(optional) a list whose elements are either[133X
+  
+        [30X    [33X[0;12Ylists of integers [13Xor[113X[133X
+  
+        [30X    [33X[0;12Yone   of   the   strings  "pseudo_frobenius",  "small_elements",
+              "min_generators",        "frobenius_number",        "conductor",
+              "special_gaps",  "fundamental_gaps"  (the  default: used when no
+              list is present) [13Xor[113X[133X
+  
+  [31X3[131X   [33X[0;6Ya record whose fields are[133X
+  
+        [30X    [33X[0;12Yfunc -- a function name[133X
+  
+        [30X    [33X[0;12Y(optional)  argument -- an argument (that may be a function name
+              also)[133X
+  
+  [31X4[131X   [33X[0;6Y(optional) a positive integer -- if it is bigger than the conductor or
+        biggest  minimal generator, it indicates the number of cells - 1 to be
+        drawn  and  these  are drawn in a single line; otherwise, it indicates
+        the maximum number of cells per line.[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27Xns1 := NumericalSemigroup(3,5);;[127X[104X
+    [4X[25Xgap>[125X [27XTikzCodeForNumericalSemigroup(ns1,[[3,4],"pseudo_frobenius"],20);[127X[104X
+    [4X[28X"%tikz\n\\begin{tikzpicture}[every node/.style={draw,scale=1pt,\nminimum width\[128X[104X
+    [4X[28X=20pt,inner sep=3pt,\nline width=0pt,draw=black}]\n\\matrix[row sep=2pt,column\[128X[104X
+    [4X[28X sep=2pt]\n{\\node[]{0};&\n\\node[]{1};&\n\\node[]{2};&\n\\node[fill=red]{3};&\[128X[104X
+    [4X[28X\n\\node[fill=red]{4};&\n\\node[]{5};&\n\\node[]{6};&\n\\node[fill=green]{7};&\[128X[104X
+    [4X[28X\n\\node[]{8};&\n\\node[]{9};&\n\\node[]{10};&\n\\node[]{11};&\n\\node[]{12};&\[128X[104X
+    [4X[28X\n\\node[]{13};&\n\\node[]{14};&\n\\node[]{15};&\n\\node[]{16};&\n\\node[]{17}\[128X[104X
+    [4X[28X;&\n\\node[]{18};&\n\\node[]{19};&\n\\node[]{20};\\\\\n};\n\\end{tikzpicture}\[128X[104X
+    [4X[28X\n"[128X[104X
+  [4X[32X[104X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27XIP_Splash(TikzCodeForNumericalSemigroup(NumericalSemigroup(7,13,19,23),[127X[104X
+    [4X[25X>[125X [27X[[3,4],"small_elements","fundamental_gaps"],20),rec(viewer := "evince"));    [127X[104X
+  [4X[32X[104X
+  
+  
+  [1X6.2 [33X[0;0YDrawing sets of numerical semigroups[133X[101X
+  
+  
+  [1X6.2-1 [33X[0;0YSet of numerical semigroups[133X[101X
+  
+  [29X[2XSetOfNumericalSemigroups[102X( [3Xarg[103X ) [32X function
+  
+  [33X[0;0YThis  function is used to produce lists of numerical semigroups with a fixed
+  genus  or  Frobenius number. They are filtered and ordered according to some
+  criteria.[133X
+  
+  [33X[0;0YThe argument is a record of options:[133X
+  
+  [31X1[131X   [33X[0;6Yset -- a record whose possible fields are genus or frobenius[133X
+  
+  [31X2[131X   [33X[0;6Y(optional)  filter  --  a record whose possible fields are genus, type
+        and/or multiplicity and/or frobenius and/or embedding_dimension[133X
+  
+  [31X3[131X   [33X[0;6Y(optional)  order  --  ("genus",  "type", "multiplicity", "frobenius",
+        "embedding_dimension")[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27XSetOfNumericalSemigroups(rec(set:=rec(genus:=6),filter:=rec(type:= 2),[127X[104X
+    [4X[25X>[125X [27Xorder:="multiplicity"));[127X[104X
+    [4X[28X[ <Numerical semigroup with 3 generators>, [128X[104X
+    [4X[28X  <Numerical semigroup with 3 generators>, [128X[104X
+    [4X[28X  <Numerical semigroup with 4 generators>, [128X[104X
+    [4X[28X  <Numerical semigroup with 5 generators>, [128X[104X
+    [4X[28X  <Numerical semigroup with 5 generators>, [128X[104X
+    [4X[28X  <Numerical semigroup with 6 generators> ][128X[104X
+    [4X[25Xgap>[125X [27XSetOfNumericalSemigroups(rec(set:=rec(genus:=6),filter:=rec(type:= 2),[127X[104X
+    [4X[25X>[125X [27Xorder:="frobenius"));                                                 [127X[104X
+    [4X[28X[ <Numerical semigroup with 3 generators>, [128X[104X
+    [4X[28X  <Numerical semigroup with 5 generators>, [128X[104X
+    [4X[28X  <Numerical semigroup with 5 generators>, [128X[104X
+    [4X[28X  <Numerical semigroup with 3 generators>, [128X[104X
+    [4X[28X  <Numerical semigroup with 4 generators>, [128X[104X
+    [4X[28X  <Numerical semigroup with 6 generators> ][128X[104X
+    [4X[25Xgap>[125X [27XList(last,MinimalGeneratingSystem);[127X[104X
+    [4X[28X[ [ 3, 10, 11 ], [ 5, 6, 7 ], [ 5, 6, 8 ], [ 3, 8, 13 ], [ 4, 7, 9 ], [128X[104X
+    [4X[28X  [ 6, 7, 8, 9, 11 ] ][128X[104X
+  [4X[32X[104X
+  
+  
+  [1X6.2-2 [33X[0;0YDraw a set of numerical semigroups[133X[101X
+  
+  [29X[2XDrawSetOfNumericalSemigroups[102X( [3Xarg[103X ) [32X function
+  
+  [33X[0;0YProduces a single image from the images of a set of numerical semigroups.[133X
+  
+  [33X[0;0YThe arguments (at most 3) are:[133X
+  
+  [31X1[131X   [33X[0;6Ya  list  of  numerical  semigroups  (given  as a list or each given as
+        argument)[133X
+  
+  [31X2[131X   [33X[0;6Y(optional)  an  integer  that  (when present) determines the length of
+        each line[133X
+  
+  [31X3[131X   [33X[0;6Y(optional) a record whose fields are[133X
+  
+        [30X    [33X[0;12Y(optional)  splash  -- which (when present) consists of a record
+              of options for the Viz Splash function[133X
+  
+        [30X    [33X[0;12Y(optional)  highlights: a list to be passed to the function that
+              produces  the tikz code for each individual semigroup (whose aim
+              is to say which elements are to be highlighted)[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27Xns1 := NumericalSemigroup(3,5);;[127X[104X
+    [4X[25Xgap>[125X [27Xns2 := NumericalSemigroup(5,7,11);;[127X[104X
+    [4X[25Xgap>[125X [27XDrawSetOfNumericalSemigroups(ns1,rec(splash:=                          [127X[104X
+    [4X[25X>[125X [27Xrec(viewer := "evince"),highlights := [127X[104X
+    [4X[25X>[125X [27X["pseudo_frobenius","small_elements","min_generators"]));[127X[104X
+    [4X[25Xgap>[125X [27XDrawSetOfNumericalSemigroups(ns1,ns2,rec(splash:= [127X[104X
+    [4X[25X>[125X [27Xrec(viewer := "evince"),highlights := [127X[104X
+    [4X[25X>[125X [27X["pseudo_frobenius","small_elements","min_generators"]));[127X[104X
+    [4X[25Xgap>[125X [27XDrawSetOfNumericalSemigroups([ns1,ns2],rec(splash:=      [127X[104X
+    [4X[25X>[125X [27Xrec(viewer := "evince"),highlights :=                    [127X[104X
+    [4X[25X>[125X [27X["small_elements","min_generators"]));                   [127X[104X
+  [4X[32X[104X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27X$lter := rec(type:= tipo),order := "embedding_dimension"));;            [127X[104X
+    [4X[25Xgap>[125X [27X$doFrobeniusOfNumericalSemigroup")]));                                  [127X[104X
+    [4X[25Xgap>[125X [27Xfrob := 15;;[127X[104X
+    [4X[25Xgap>[125X [27Xtipo := 2;;[127X[104X
+    [4X[25Xgap>[125X [27Xset := SetOfNumericalSemigroups(rec(set := rec(frobenius := frob),[127X[104X
+    [4X[25X>[125X [27Xfilter := rec(type:= tipo),order := "embedding_dimension"));;[127X[104X
+    [4X[25Xgap>[125X [27XDrawSetOfNumericalSemigroups(set,rec(splash:= rec(viewer := "evince"),[127X[104X
+    [4X[25X>[125X [27Xhighlights := ["small_elements","min_generators",[127X[104X
+    [4X[25X>[125X [27Xrec(func:= "ForcedIntegersForPseudoFrobenius", [127X[104X
+    [4X[25X>[125X [27Xargument := "PseudoFrobeniusOfNumericalSemigroup")]));[127X[104X
+  [4X[32X[104X
+  
+  [33X[0;0YThe  following  example  helps in the understanding of the colors present in
+  the first line of previous figure.[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27Xns := NumericalSemigroup(4,9,19);;[127X[104X
+    [4X[25Xgap>[125X [27XSmallElements(ns);[127X[104X
+    [4X[28X[ 0, 4, 8, 9, 12, 13, 16 ][128X[104X
+    [4X[25Xgap>[125X [27XMinimalGeneratingSystem(ns);[127X[104X
+    [4X[28X[ 4, 9, 19 ][128X[104X
+    [4X[25Xgap>[125X [27XForcedIntegersForPseudoFrobenius(PseudoFrobeniusOfNumericalSemigroup(ns));[127X[104X
+    [4X[28X[ [ 1, 2, 3, 5, 6, 7, 14, 15 ], [ 0, 8, 9, 12, 13, 16 ] ][128X[104X
+  [4X[32X[104X
+  

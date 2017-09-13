@@ -1,102 +1,84 @@
 #############################################################################
 ##  
-##  Demo PackageInfo.g for the GitHubPagesForGAP
-##
+##  PackageInfo.g for the package `IntPic'              Manuel Delgado
+##                                                    
 
 SetPackageInfo( rec(
 
-PackageName := "GitHubPagesForGAP",
-
-Subtitle := "A GitHub Pages generator for GAP packages",
-Version := "0.2",
-Date := "04/02/2017", # dd/mm/yyyy format
-
+PackageName := "IntPic",
+Subtitle := "A package for drawing integers",
+Version := "0.2.2",
+Date := "08/09/2017",
+        
+##  Information about authors and maintainers.
 Persons := [
-  rec(
-    LastName      := "Horn",
-    FirstNames    := "Max",
+ rec(
+    LastName      := "Delgado",
+    FirstNames    := "Manuel",
     IsAuthor      := true,
     IsMaintainer  := true,
-    Email         := "max.horn@math.uni-giessen.de",
-    WWWHome       := "http://www.quendi.de/math",
-    PostalAddress := Concatenation(
-                       "AG Algebra\n",
-                       "Mathematisches Institut\n",
-                       "Justus-Liebig-Universität Gießen\n",
-                       "Arndtstraße 2\n",
-                       "35392 Gießen\n",
-                       "Germany" ),
-    Place         := "Gießen",
-    Institution   := "Justus-Liebig-Universität Gießen"
-  ),
+    Email         := "mdelgado@fc.up.pt",
+    WWWHome       := "http://www.fc.up.pt/cmup/mdelgado/",
+    PostalAddress := Concatenation( [
+                   "Departamento de Matemática - Faculdade de Ciências\n",
+                   "Porto\n",
+                   "Portugal" ] ),
+    Place         := "Porto",
+    Institution   := "Faculdade de Ciências"
+           )
+            ],
 
-  rec(
-    LastName      := "Thor",
-    FirstNames    := "A. U.",
-    IsAuthor      := true,
-    IsMaintainer  := false,
-    #Email         := "author@example.com",
-  ),
+Status := "deposited",       
 
-  rec(
-    LastName      := "Itor",
-    FirstNames    := "Jan",
-    IsAuthor      := false,
-    IsMaintainer  := true,
-    #Email         := "janitor@example.com",
-  ),
-],
-
-Status := "other",
-
-# The following are not strictly necessary in your own PackageInfo.g
-# (in the sense that update.g only looks at the usual fields
-# like PackageWWWHome, ArchiveURL etc.). But they are convenient
-# if you use exactly the scheme for your package website that we propose.
-GithubUser := "gap-system",
-GithubRepository := ~.PackageName,
-GithubWWW := Concatenation("https://github.com/", ~.GithubUser, "/", ~.GithubRepository),
-
-PackageWWWHome := Concatenation("https://", ~.GithubUser, ".github.io/", ~.GithubRepository, "/"),
-README_URL     := Concatenation( ~.PackageWWWHome, "README.md" ),
-PackageInfoURL := Concatenation( ~.PackageWWWHome, "PackageInfo.g" ),
-# The following assumes you are using the Github releases system. If not, adjust
-# it accordingly.
-ArchiveURL     := Concatenation(~.GithubWWW,
-                    "/releases/download/v", ~.Version, "/",
-                    ~.GithubRepository, "-", ~.Version),
-
-ArchiveFormats := ".tar.gz .tar.bz2",
-
+SourceRepository := rec(
+  Type := "git",
+  URL := "https://github.com/gap-packages/intpic"
+),
+IssueTrackerURL := Concatenation( ~.SourceRepository.URL, "/issues" ),
+PackageWWWHome  := "https://gap-packages.github.io/intpic",
+README_URL      := Concatenation( ~.PackageWWWHome, "/README" ),
+PackageInfoURL  := Concatenation( ~.PackageWWWHome, "/PackageInfo.g" ),
+ArchiveURL      := Concatenation( ~.SourceRepository.URL,
+                                 "/releases/download/v", ~.Version,
+                                 "/", ~.PackageName, "-", ~.Version ),
+ArchiveFormats := ".tar.gz",
+        
 AbstractHTML := 
-  "This is a pseudo package that contains no actual\
-  <span class=\"pkgname\">GAP</span> code. Instead, it is a template for other\
-  GAP packages that allows to quickly setup GitHub Pages.",
+   "The <span class=\"pkgname\">IntPic</span> package, is a package for drawing integers, by emphasizing some subsets.",
+                   
 
 PackageDoc := rec(
-  BookName  := "GitHubPagesForGAP",
-  ArchiveURLSubset := ["doc"],
+  BookName  := "IntPic",
+  ArchiveURLSubset := ["doc","images"],
   HTMLStart := "doc/chap0.html",
   PDFFile   := "doc/manual.pdf",
   SixFile   := "doc/manual.six",
-  LongTitle := "A GitHub Pages generator for GAP packages",
+  LongTitle := "IntPic, a GAP package for drawing integers",
 ),
-
-# The following dependencies are fake and for testing / demo purposes
+                   
 Dependencies := rec(
-  GAP := ">=4.8.1",
-  NeededOtherPackages := [
-    ["GAPDoc", ">= 1.2"],
-    ["IO", ">= 4.1"],
-  ],
-  SuggestedOtherPackages := [["orb", ">= 4.2"]],
+  GAP := "4.7",
+  NeededOtherPackages := [["numericalsgps", "1.0"], ["GAPDoc", "1.5"]],
+  SuggestedOtherPackages := [],
   ExternalConditions := []
+
 ),
 
 AvailabilityTest := ReturnTrue,
+BannerString := Concatenation( 
+  "----------------------------------------------------------------\n",
+  "Loading  IntPic ", ~.Version, " (drawing integers)\n",
+  "by ", ~.Persons[1].FirstNames, " ", ~.Persons[1].LastName,
+        " (", ~.Persons[1].WWWHome, ")\n",
+#  "   ", ~.Persons[2].FirstNames, " ", ~.Persons[2].LastName,"\n",
+#        " (", ~.Persons[2].WWWHome, ")\n",
+#  "   ", ~.Persons[3].FirstNames, " ", ~.Persons[3].LastName,
+#        " (", ~.Persons[3].WWWHome, ")\n",
+  "For help, type: ?IntPic;\n",
+  "----------------------------------------------------------------\n" ),
 
-Keywords := ["GitHub Pages", "GAP"]
+TestFile := "tst/testall.tst",
 
-));
+Keywords := ["emphasize", "highlight", "draw", "integer", "picture"]
 
-
+                    ));
