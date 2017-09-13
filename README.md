@@ -24,31 +24,20 @@ Contents
 --------
 With this version you should have obtained the following files and
 directories:
-
-		README          	this file
-
-		examples.g		some examples
-
-		CHANGES 		changelog
-                
-                LICENSE                 Licensing information
-
-		doc             	the manual
-
-		gap             	the GAP code
-
-		tst			a test file
-
-		images			images produced using the package and
-					used in the manual
-
-		init.g          	the file that initializes this package
-
-		read.g          	the file that reads in the package
-
-		PackageInfo.g	information file for automatic processing
-
-		version				the version number
+| File/directory | Description |
+|:-----|:------|
+|README |   this file|
+|EXAMPLES|	some examples|
+|CHANGES|	changelog|
+|LICENSE|	Licensing information|
+|doc  |	the manual|
+|gap  |the GAP code|
+|tst  |	a test file|
+|images	|images produced using the package and used in the manual|
+|init.g| the file that initializes this package|
+|read.g	 |   the file that reads in the package|
+|PackageInfo.g	| information file for automatic processing|
+|version	|the version number|
 
 Usage
 -----
@@ -102,9 +91,9 @@ If the load has been successful the package banner will be shown.
 If you use a LINUX system, you may want to, in order to save typing, write
 aliases:
 
-in the file `.bashrc' (or something equivalent, maybe with another syntax):
+in the file `.bash_aliases' (or something equivalent, maybe with another syntax):
 
-alias gap='gap -l "/usr/local/lib/gap4r5;"'
+alias gap='gap -l "/usr/local/lib/gap4r8;"'
 
 and in the file `.gap/gaprc'
 
