@@ -2,7 +2,7 @@
 
 <Chapter Label="visualisation">
   <Heading>Visualization of the pictures created</Heading>
-  This chapter describes two easy ways to visualize the images created by using the &IntPic; package. Both require &LaTeX; and some &LaTeX; packages, such as <Package>Tikz</Package> and <Package>pgf</Package>, to be installed and working. One of the ways we will describe is almost completely automatic. It makes use of the function <C>Splash</C>, borrowed from the &Viz; package. The other is not so automatic but has the advantage of not requiring other packages, besides the &LaTeX; ones, and should work in any operation system.
+  This chapter describes two easy ways to visualize the images created by using the &IntPic; package. Both require &LaTeX; and some &LaTeX; packages, such as <Package>Tikz</Package> and <Package>pgf</Package>, to be installed and working. One of the ways we will describe is almost completely automatic. It makes use of the function <C>Splash</C>, borrowed from the <Package>Viz</Package> package. The other is not so automatic but has the advantage of not requiring other packages, besides the &LaTeX; ones, and should work in any operation system.
   
   <P />
 <!--  <Section>
@@ -15,7 +15,7 @@
     <Listing Type="IP\_Splash"><![CDATA[
 IP_Splash(tkz);
 ]]></Listing>
-    A picture is popped up after this use of the function <C>IP_Splash</C>.<!--<Ref Func="Splash" BookName="viz"/>-->. To see the name of the temporary directory created to perform the computations, and thus being able to copy the files involved to any other place, one should set the info level <C>InfoViz</C> to <M>1</M> or more. The following example illustrates this and the use of some options of the function  <C>IP_Splash</C>.<!--<Ref Func="Splash" BookName="viz"/> function of the &Viz; package. -->
+    A picture is popped up after this use of the function <C>IP_Splash</C>.<!--<Ref Func="Splash" BookName="viz"/>-->. To see the name of the temporary directory created to perform the computations, and thus being able to copy the files involved to any other place, one should set the info level <C>InfoViz</C> to <M>1</M> or more. The following example illustrates this and the use of some options of the function  <C>IP_Splash</C>.<!--<Ref Func="Splash" BookName="viz"/> function of the <Package>Viz</Package> package. -->
 <!--
 Setting the option <C>papersize</C> to "a0paper" may be convenient for the visualization of large images. 
 -->
@@ -33,7 +33,7 @@ gap> IP_Splash(tkz,rec(viewer:="okular"));
    </Section>    
     <Section>
       <Heading>Viewing without using <Package>Viz</Package></Heading>
-      This section describes a way to visualize images without sing &Viz;. Besides being useful in the case of not having a working copy of &Viz;, it is rather convenient when the decision of where to save the pictures is made. In this case, you may start your gap session in the desired place, the working directory. Furthermore, if your intention is, for instance, to  include the images in a document, you may just decide the name for the file containing the <C>tikz</C> code and let your document input it.
+      This section describes a way to visualize images without sing <Package>Viz</Package>. Besides being useful in the case of not having a working copy of <Package>Viz</Package>, it is rather convenient when the decision of where to save the pictures is made. In this case, you may start your gap session in the desired place, the working directory. Furthermore, if your intention is, for instance, to  include the images in a document, you may just decide the name for the file containing the <C>tikz</C> code and let your document input it.
 
 The glogal variables <C>IP_Preamble</C> and <C>Closing</C> can be used to pruduce a complete &LaTeX; document rather than only the <C>tizk</C> code for the picture. The document may then be processed by using <C>pdflatex</C> and the picture viewed by using some <C>pdf</C> viewer. The <C>pdf</C> produced can be included in a &LaTeX; document instead of the <C>tizk</C> code. In the later case, the code is processed each time the document is processed, which should perhaps be avoided in the case of large images.
 <P/>

@@ -8,7 +8,7 @@
   <Section>
     <Heading>Overview and Introduction</Heading>
     The &IntPic; package has as its main goal producing <C>Tikz</C> code for arrays of integers to be included in a &LaTeX; file, which can then be processed. Some of the integers are emphasized, by using different colors for the cells.
-<!--      When used in conjunction with the package &Viz; <Cite Key="DelgadoEgri-NagyMitchellPfeiffer2012-Viz"></Cite>, &IntPic; provides an immediate visualization.-->
+<!--      When used in conjunction with the package <Package>IntPic</Package> <Cite Key="DelgadoEgri-NagyMitchellPfeiffer2012-Viz"></Cite>, &IntPic; provides an immediate visualization.-->
     <P />
     &IntPic; grew up from my will to have a pictorial view of some sets of integers. I wanted, in particular, get a pictorial view of the results produced by the <Alt Not='Text'><URL
    Text='NumericalSgps'>http://www.fc.up.pt/cmup/mdelgado/numericalsgps</URL></Alt><Alt Only='Text'><Package>NumericalSgps</Package></Alt> package <Cite Key="DelgadoGarcia-SanchezMorais:numericalsgps"></Cite>. Effort has then been made to serve a slightly more general purpose.
@@ -28,10 +28,10 @@
     <P />
     This package contains relatively few lines of code. The heavier part is the documentation, where many examples are presented.
     <P />
-    The design of this greatly benefits from my long experience on producing visualization tools for &GAP; objects. The package <Package>sgpviz</Package> <Cite Key="DelgadoMorais:sgpviz"></Cite> is the visible part. More recently, I got involved in a more general project, the &Viz; package <Cite Key="DelgadoEgri-NagyMitchellPfeiffer2012-Viz"></Cite>.
-    The experience gained there, especially through long and fruitful discussions with J. Mitchell, influenced me a lot. This package will probably be part of that more general project. For the moment it is independent, but its use in conjunction with the &Viz; package is recommended since in this case an immediate visualization is provided.
+    The design of this greatly benefits from my long experience on producing visualization tools for &GAP; objects. The package <Package>sgpviz</Package> <Cite Key="DelgadoMorais:sgpviz"></Cite> is the visible part. More recently, I got involved in a more general project, the <Package>Viz</Package> package <Cite Key="DelgadoEgri-NagyMitchellPfeiffer2012-Viz"></Cite>.
+    The experience gained there, especially through long and fruitful discussions with J. Mitchell, influenced me a lot. This package will probably be part of that more general project. For the moment it is independent, but its use in conjunction with the <Package>Viz</Package> package is recommended since in this case an immediate visualization is provided.
     <P />
-    The package produces <C>tikz</C> code that the user may then use at his wish. In particular, he can use it in publications. But prior to obtaining results that lead to a publication, the user may benefit of viewing thousands of images. There is a (almost platform independent) function in &Viz; that is intended to make this task easy. It benefits from the &GAP; stuff on creating a temporary directory where the computations occur. The cleaning task is also left to &GAP;, which leaves the user free of the need of collecting the garbage.
+    The package produces <C>tikz</C> code that the user may then use at his wish. In particular, he can use it in publications. But prior to obtaining results that lead to a publication, the user may benefit of viewing thousands of images. There is a (almost platform independent) function in <Package>Viz</Package> that is intended to make this task easy. It benefits from the &GAP; stuff on creating a temporary directory where the computations occur. The cleaning task is also left to &GAP;, which leaves the user free of the need of collecting the garbage.
     
     In order to produce the drawings, &LaTeX;, as well as some &LaTeX; packages, in particular <C>tikz</C> and <C>pgf</C>, must be installed and working. I will assume that this is the case.
     

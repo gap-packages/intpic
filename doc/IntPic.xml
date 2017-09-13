@@ -2,13 +2,8 @@
 
 <!DOCTYPE Book SYSTEM "gapdoc.dtd"
     [<!ENTITY IntPic "<Alt Not='Text'><URL
-   Text='IntPic'>https://gap-packages.github.io/intpic/</URL></Alt><Alt Only='Text'><Package>IntPic</Package></Alt>">
-<!ENTITY Viz "<Alt Not='Text'><URL
-   Text='Viz'>https://bitbucket.org/zen154115/viz</URL></Alt><Alt Only='Text'><Package>Viz</Package></Alt>">
-<!-- Reading PKGVERSIONDATA chunk from the PackageInfo.g file -->
-   <#Include Label="PKGVERSIONDATA">
-<!--  the label "PKGVERSIONDATA" is contained in the "PackageInfo.g" file -->
-]>
+    Text='IntPic'>https://gap-packages.github.io/intpic/</URL></Alt><Alt Only='Text'><Package>IntPic</Package></Alt>">]
+>
 
 <!-- Documentation to the IntPic package. -->
 
@@ -17,8 +12,8 @@
   <TitlePage>
     <Title>&IntPic;</Title>
     <Subtitle>A &GAP; package for drawing sets of integers</Subtitle>
-    <Version>Version &VERSION;</Version>
-    <Date>&RELEASEDATE;</Date>
+  <Version> Version <#Include SYSTEM "../version">
+  </Version>
     
     <Author>Manuel Delgado 
       <Email>mdelgado@fc.up.pt</Email>
@@ -34,8 +29,7 @@
       License, or (at your option) any later version. For details, see the file 'GPL' included in the package or see the FSF's own site.
     </Copyright>
     <Colophon>
-      This manual describes the &GAP; package &IntPic; version
-      &VERSION; for visualizing and creating publication quality pictures of sets of integers. 
+      This manual describes the &GAP; package &IntPic; , Version <#Include SYSTEM "../version">, for visualizing and creating publication quality pictures of sets of integers. 
     </Colophon>
     <Acknowledgements>
       The author was partially funded by the European Regional Development Fund
