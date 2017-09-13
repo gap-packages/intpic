@@ -62,7 +62,9 @@ order to use it you just have to start GAP and type
 For updates between releases of GAP itself or in case it is not distributed
 with the main GAP archive, check the package Web page
 
-    http://www.fc.up.pt/cmup/mdelgado/intpic/
+    https://gap-packages.github.io/intpic/
+
+For the development version, please visit the repository in GitHub (https://github.com/gap-packages/intpic/)
 
 You may get `IntPic' as a compressed tar archive (file name ends with
 .tar.gz). Use the appropriate command on your system to unpack the
@@ -79,7 +81,7 @@ or, if tar on your system does not understand the option z, by
 
 which will in each case unpack the code into a directory 'intpic'
 in the current directory. We assume that the current directory is the
-directory /usr/local/lib/gap4r5/pkg/.
+directory /usr/local/lib/gap4r8/pkg/.
 
 Installation
 ------------
