@@ -28,7 +28,7 @@ directories:
 |:-----|:------|
 |README |   this file|
 |EXAMPLES|	some examples|
-|CHANGES|	changelog|
+|CHANGELOG|	changelog|
 |LICENSE|	Licensing information|
 |doc  |	the manual|
 |gap  |the GAP code|
