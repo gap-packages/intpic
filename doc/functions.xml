@@ -179,7 +179,7 @@ gap> tkz:=IP_TikzArrayOfIntegers(table,rec(highlights:=arr,shape_only:=" ",
     </Alt>
 Next, a minimum of changes, just to illustrate the effect of <A>rep</A> and <A>pos</A>.
     <Example><![CDATA[
-gap> table := TableWithModularOrder(origin,a,b,depth,50,true,true);;
+gap> table := IP_TableWithModularOrder(origin,a,b,depth,50,true,true);;
 gap> tkz:=IP_TikzArrayOfIntegers(table,rec(highlights:=arr));;
 ]]></Example>
     <Alt Only="LaTeX">

@@ -145,8 +145,6 @@ gap> DrawSetOfNumericalSemigroups([ns1,ns2],rec(splash:=
         &#60;br&#62;&#60;center&#62;&#60;img src=&#34;../images/set_3_5_and_5_7_11_v2.jpg&#34;&#62;&#60;/center&#62;&#60;br&#62;
       </Alt>
     <Example><![CDATA[
-gap> $lter := rec(type:= tipo),order := "embedding_dimension"));;            
-gap> $doFrobeniusOfNumericalSemigroup")]));                                  
 gap> frob := 15;;
 gap> tipo := 2;;
 gap> set := SetOfNumericalSemigroups(rec(set := rec(frobenius := frob),

@@ -247,7 +247,6 @@ gap> tkz := IP_TikzArrayOfIntegers(rg,flen,rec( colors := cls,highlights:=arr));
       </Alt>
       package.
       <Example><![CDATA[
-
 gap> #LoadPackage("numericalsgps");
 gap> 
 gap> ns := NumericalSemigroup(11,19,30,42,59);;
