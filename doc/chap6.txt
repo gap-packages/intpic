@@ -139,8 +139,6 @@
   [4X[32X[104X
   
   [4X[32X  Example  [32X[104X
-    [4X[25Xgap>[125X [27X$lter := rec(type:= tipo),order := "embedding_dimension"));;            [127X[104X
-    [4X[25Xgap>[125X [27X$doFrobeniusOfNumericalSemigroup")]));                                  [127X[104X
     [4X[25Xgap>[125X [27Xfrob := 15;;[127X[104X
     [4X[25Xgap>[125X [27Xtipo := 2;;[127X[104X
     [4X[25Xgap>[125X [27Xset := SetOfNumericalSemigroups(rec(set := rec(frobenius := frob),[127X[104X

@@ -188,7 +188,7 @@
   [33X[0;0YNext, a minimum of changes, just to illustrate the effect of [3Xrep[103X and [3Xpos[103X.[133X
   
   [4X[32X  Example  [32X[104X
-    [4X[25Xgap>[125X [27Xtable := TableWithModularOrder(origin,a,b,depth,50,true,true);;[127X[104X
+    [4X[25Xgap>[125X [27Xtable := IP_TableWithModularOrder(origin,a,b,depth,50,true,true);;[127X[104X
     [4X[25Xgap>[125X [27Xtkz:=IP_TikzArrayOfIntegers(table,rec(highlights:=arr));;[127X[104X
   [4X[32X[104X
   
