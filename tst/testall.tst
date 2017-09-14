@@ -95,16 +95,16 @@ gap> arr := [primes,
   [ 848, 901, 954 ] ]
 gap> 
 gap> tkz := IP_TikzArrayOfIntegers(rg,flen,rec(cell_width := "27",highlights:=arr));;
-gap> IP_Splash(tkz);;
 
-ap> $hts:=arr));;                                                           
-gap> IP_Splash(tkz);
+#gap> IP_Splash(tkz);;
+
 gap> rg := [81..89];;
 gap> len := 5;;
 gap> arr := [Filtered(rg,IsPrime),Filtered(rg,u->(u mod 2)=0),
 >         Filtered(rg,u->(u mod 3)=0)];;
 gap> tkz := IP_TikzArrayOfIntegers(rg,len,rec(highlights:=arr));;
-gap> IP_Splash(tkz);;
+
+#gap> IP_Splash(tkz);;
 
 
 #############################################################################
@@ -155,16 +155,240 @@ gap> arr := [xaxis,yaxis,ground];
       363, 371, 379, 387, 395 ], 
   [ 99, 118, 137, 156, 175, 194, 213, 232, 251, 270, 289 ], [ 251 .. 269 ] ]
 gap> tkz:=IP_TikzArrayOfIntegers(table,rec(highlights:=arr));;
-gap> IP_Splash(tkz);;
+
+#gap> IP_Splash(tkz);;
+
 gap> tkz:=IP_TikzArrayOfIntegers(table,rec(highlights:=arr,shape_only:=" ",
 >              cell_width := "6",colsep:="1",rowsep:="1",inner_sep:="2",
 >              line_color:="black!20"));;
-gap> IP_Splash(tkz);;
+
+#gap> IP_Splash(tkz);;
+
+gap> Print(tkz);
+%tikz
+\begin{tikzpicture}[every node/.style={draw,scale=1pt,
+minimum width=6pt,inner sep=2pt,
+line width=0pt,draw=black!20}]
+\matrix[row sep=1pt,column sep=1pt]
+{\node[fill=green]{ };&
+\node[]{ };&
+\node[]{ };&
+\node[]{ };&
+\node[]{ };&
+\node[]{ };&
+\node[]{ };&
+\node[]{ };&
+\node[]{ };&
+\node[]{ };&
+\node[]{ };&
+\node[]{ };&
+\node[]{ };&
+\node[]{ };&
+\node[]{ };&
+\node[]{ };&
+\node[]{ };&
+\node[]{ };&
+\node[]{ };\\
+\node[fill=green]{ };&
+\node[]{ };&
+\node[]{ };&
+\node[]{ };&
+\node[]{ };&
+\node[]{ };&
+\node[]{ };&
+\node[]{ };&
+\node[]{ };&
+\node[]{ };&
+\node[]{ };&
+\node[]{ };&
+\node[]{ };&
+\node[]{ };&
+\node[]{ };&
+\node[]{ };&
+\node[]{ };&
+\node[]{ };&
+\node[]{ };\\
+\node[left color=red,right color=green,middle color=blue]{ };&
+\node[left color=red,right color=blue]{ };&
+\node[left color=red,right color=blue]{ };&
+\node[fill=red]{ };&
+\node[fill=red]{ };&
+\node[fill=red]{ };&
+\node[fill=red]{ };&
+\node[fill=red]{ };&
+\node[fill=red]{ };&
+\node[fill=red]{ };&
+\node[fill=red]{ };&
+\node[fill=red]{ };&
+\node[fill=red]{ };&
+\node[fill=red]{ };&
+\node[fill=red]{ };&
+\node[fill=red]{ };&
+\node[fill=red]{ };&
+\node[fill=red]{ };&
+\node[fill=red]{ };\\
+\node[fill=green]{ };&
+\node[]{ };&
+\node[]{ };&
+\node[fill=blue]{ };&
+\node[fill=blue]{ };&
+\node[]{ };&
+\node[]{ };&
+\node[]{ };&
+\node[]{ };&
+\node[]{ };&
+\node[]{ };&
+\node[]{ };&
+\node[]{ };&
+\node[]{ };&
+\node[]{ };&
+\node[]{ };&
+\node[]{ };&
+\node[]{ };&
+\node[]{ };\\
+\node[fill=green]{ };&
+\node[]{ };&
+\node[]{ };&
+\node[]{ };&
+\node[]{ };&
+\node[fill=blue]{ };&
+\node[fill=blue]{ };&
+\node[fill=blue]{ };&
+\node[]{ };&
+\node[]{ };&
+\node[]{ };&
+\node[]{ };&
+\node[]{ };&
+\node[]{ };&
+\node[]{ };&
+\node[]{ };&
+\node[]{ };&
+\node[]{ };&
+\node[]{ };\\
+\node[fill=green]{ };&
+\node[]{ };&
+\node[]{ };&
+\node[]{ };&
+\node[]{ };&
+\node[]{ };&
+\node[]{ };&
+\node[]{ };&
+\node[fill=blue]{ };&
+\node[fill=blue]{ };&
+\node[]{ };&
+\node[]{ };&
+\node[]{ };&
+\node[]{ };&
+\node[]{ };&
+\node[]{ };&
+\node[]{ };&
+\node[]{ };&
+\node[]{ };\\
+\node[fill=green]{ };&
+\node[]{ };&
+\node[]{ };&
+\node[]{ };&
+\node[]{ };&
+\node[]{ };&
+\node[]{ };&
+\node[]{ };&
+\node[]{ };&
+\node[]{ };&
+\node[fill=blue]{ };&
+\node[fill=blue]{ };&
+\node[]{ };&
+\node[]{ };&
+\node[]{ };&
+\node[]{ };&
+\node[]{ };&
+\node[]{ };&
+\node[]{ };\\
+\node[fill=green]{ };&
+\node[]{ };&
+\node[]{ };&
+\node[]{ };&
+\node[]{ };&
+\node[]{ };&
+\node[]{ };&
+\node[]{ };&
+\node[]{ };&
+\node[]{ };&
+\node[]{ };&
+\node[]{ };&
+\node[fill=blue]{ };&
+\node[fill=blue]{ };&
+\node[fill=blue]{ };&
+\node[]{ };&
+\node[]{ };&
+\node[]{ };&
+\node[]{ };\\
+\node[fill=green]{ };&
+\node[]{ };&
+\node[]{ };&
+\node[]{ };&
+\node[]{ };&
+\node[]{ };&
+\node[]{ };&
+\node[]{ };&
+\node[]{ };&
+\node[]{ };&
+\node[]{ };&
+\node[]{ };&
+\node[]{ };&
+\node[]{ };&
+\node[]{ };&
+\node[fill=blue]{ };&
+\node[fill=blue]{ };&
+\node[]{ };&
+\node[]{ };\\
+\node[fill=green]{ };&
+\node[]{ };&
+\node[]{ };&
+\node[]{ };&
+\node[]{ };&
+\node[]{ };&
+\node[]{ };&
+\node[]{ };&
+\node[]{ };&
+\node[]{ };&
+\node[]{ };&
+\node[]{ };&
+\node[]{ };&
+\node[]{ };&
+\node[]{ };&
+\node[]{ };&
+\node[]{ };&
+\node[fill=blue]{ };&
+\node[fill=blue]{ };\\
+\node[fill=green]{ };&
+\node[]{ };&
+\node[]{ };&
+\node[]{ };&
+\node[]{ };&
+\node[]{ };&
+\node[]{ };&
+\node[]{ };&
+\node[]{ };&
+\node[]{ };&
+\node[]{ };&
+\node[]{ };&
+\node[]{ };&
+\node[]{ };&
+\node[]{ };&
+\node[]{ };&
+\node[]{ };&
+\node[]{ };&
+\node[]{ };\\
+};
+\end{tikzpicture}
 
 #############################################################################
 #############################################################################
 # Examples from the manual
 # (These examples use at least a funtion from each file)
+
+## functions.xml ##
+
 gap> rg := [81..89];
 [ 81 .. 89 ]
 gap> len := 10;
@@ -197,6 +421,251 @@ line width=0pt,draw=black}]
 };
 \end{tikzpicture}
 
+gap> d := DivisorsInt(30);
+[ 1, 2, 3, 5, 6, 10, 15, 30 ]
+gap> IP_SimpleTikzArrayOfIntegers(d);;
+
+gap> d30 := DivisorsInt(30);
+[ 1, 2, 3, 5, 6, 10, 15, 30 ]
+gap> d40 := DivisorsInt(40);
+[ 1, 2, 4, 5, 8, 10, 20, 40 ]
+gap> tkz := IP_SimpleTikzArrayOfIntegers([d30,d40]);;
+
+gap> a := 8;; b := 19;;  
+gap> ns := NumericalSemigroup(a,b);;
+gap> c := ConductorOfNumericalSemigroup(ns);;
+gap> origin := 2*c-1;
+251
+gap> ground := [origin..origin+b-1];;
+gap> 
+gap> height:=2;;
+gap> depth:=8;;
+gap>   xaxis := [origin];;
+gap>   for n in [1..b-1] do
+>     Add(xaxis, origin+n*a);
+>   od;
+gap>   yaxis := [];;
+gap>   for n in [-depth..height] do
+>     Add(yaxis, origin+n*b);
+>   od;
+gap> 
+gap> table := IP_TableWithModularOrder(origin,a,b,depth,height,false,false);;
+gap> arr := [xaxis,yaxis,ground];
+[ [ 251, 259, 267, 275, 283, 291, 299, 307, 315, 323, 331, 339, 347, 355, 
+      363, 371, 379, 387, 395 ], 
+  [ 99, 118, 137, 156, 175, 194, 213, 232, 251, 270, 289 ], [ 251 .. 269 ] ]
+gap> tkz:=IP_TikzArrayOfIntegers(table,rec(highlights:=arr));;
+gap> tkz:=IP_TikzArrayOfIntegers(table,rec(highlights:=arr,shape_only:=" ",
+>              cell_width := "6",colsep:="1",rowsep:="1",inner_sep:="2",
+>              line_color:="black!20"));;
+
+gap> table := IP_TableWithModularOrder(origin,a,b,depth,50,true,true);;
+gap> tkz:=IP_TikzArrayOfIntegers(table,rec(highlights:=arr));;
+
+## colors.xml ##
+
+gap> IP_ColorsRedTones; #red
+[ "red", "red!50", "red!20", "red!80!green!50", "red!80!blue!60" ]
+
+gap> IP_ColorsGreenTones; #green
+[ "green", "green!50", "green!20", "green!80!red!50", "green!80!blue!60" ]
+
+gap> IP_ColorsBlueTones; #blue
+[ "blue", "blue!50", "blue!20", "blue!80!red!50", "blue!80!green!60" ]
+
+gap> IP_ColorsCompRedTones; # cyan (complement of red)
+[ "-red", "-red!50", "-red!20", "-red!80!green!50", "-red!80!blue!60" ]
+
+gap> IP_ColorsCompGreenTones; # magenta (complement of green)
+[ "-green", "-green!50", "-green!20", "-green!80!red!50", "-green!80!blue!60" ]
+
+gap> IP_ColorsCompBlueTones; # yellow (complement of blue)
+[ "-blue", "-blue!50", "-blue!20", "-blue!80!red!50", "-blue!80!green!60" ]
+
+gap> IP_ColorsDGrayTones; # dark gray
+[ "black!80", "black!70", "black!60", "black!50", "black!40" ]
+
+gap> IP_ColorsLGrayTones; # light gray
+[ "black!30", "black!25", "black!20", "black!15", "black!10" ]
+
+gap> ListsOfIP_Colors;
+[ [ "red", "red!50", "red!20", "red!80!green!50", "red!80!blue!60" ], 
+  [ "green", "green!50", "green!20", "green!80!red!50", "green!80!blue!60" ], 
+  [ "blue", "blue!50", "blue!20", "blue!80!red!50", "blue!80!green!60" ], 
+  [ "-red", "-red!50", "-red!20", "-red!80!green!50", "-red!80!blue!60" ], 
+  [ "-green", "-green!50", "-green!20", "-green!80!red!50", 
+      "-green!80!blue!60" ], 
+  [ "-blue", "-blue!50", "-blue!20", "-blue!80!red!50", "-blue!80!green!60" ],
+  [ "black!80", "black!70", "black!60", "black!50", "black!40" ], 
+  [ "black!30", "black!25", "black!20", "black!15", "black!10" ] ]
+
+gap> IP_Colors;
+[ "red", "red!50", "red!20", "red!80!green!50", "red!80!blue!60", "green", 
+  "green!50", "green!20", "green!80!red!50", "green!80!blue!60", "blue", 
+  "blue!50", "blue!20", "blue!80!red!50", "blue!80!green!60", "-red", 
+  "-red!50", "-red!20", "-red!80!green!50", "-red!80!blue!60", "-green", 
+  "-green!50", "-green!20", "-green!80!red!50", "-green!80!blue!60", "-blue", 
+  "-blue!50", "-blue!20", "-blue!80!red!50", "-blue!80!green!60", "black!80", 
+  "black!70", "black!60", "black!50", "black!40", "black!30", "black!25", 
+  "black!20", "black!15", "black!10" ]
+
+gap> ShuffledIP_colors;
+[ "red", "green", "blue", "-red", "-green", "-blue", "black!80", "black!30", 
+  "red!50", "green!50", "blue!50", "-red!50", "-green!50", "-blue!50", 
+  "black!70", "black!25", "red!20", "green!20", "blue!20", "-red!20", 
+  "-green!20", "-blue!20", "black!60", "black!20", "red!80!green!50", 
+  "green!80!red!50", "blue!80!red!50", "-red!80!green!50", "-green!80!red!50",
+  "-blue!80!red!50", "black!50", "black!15", "red!80!blue!60", 
+  "green!80!blue!60", "blue!80!green!60", "-red!80!blue!60", 
+  "-green!80!blue!60", "-blue!80!green!60", "black!40", "black!10" ]
+
+gap> m3 := Filtered([1..40],i->i mod 3=0);
+[ 3, 6, 9, 12, 15, 18, 21, 24, 27, 30, 33, 36, 39 ]
+gap> m5 := Filtered([1..40],i->i mod 5=0);
+[ 5, 10, 15, 20, 25, 30, 35, 40 ]
+gap> m7 := Filtered([1..40],i->i mod 7=0);
+[ 7, 14, 21, 28, 35 ]
+gap> 
+gap> arr := [[],[],m3,[],m5,[],m7];;
+gap> tkz:=IP_TikzArrayOfIntegers([1..40],10,rec(highlights:=arr));;
+
+## visualisation.xml ##
+
+gap> Print(IP_Preamble);
+\documentclass{minimal}
+\usepackage{amsmath}
+\usepackage[active,tightpage]{preview}
+\setlength\PreviewBorder{1pt}
+\usepackage{pgf}
+\usepackage{tikz}
+\usepgfmodule{plot}
+\usepgflibrary{plothandlers}
+\usetikzlibrary{shapes.geometric}
+\usetikzlibrary{shadings}
+\begin{document}
+\begin{preview}
+
+gap> tikzfile := "tikz_pic_for_complete_document.tex";;
+gap> file := "pic_for_complete_document.tex";;
+gap> 
+gap> arr := [[1,2,3,4,5,6],[1,2,3,4,5],[1,2,3,4],[1,2,3],[1,2],[1]];;
+gap> tkz := IP_TikzArrayOfIntegers([1..10],5,rec(highlights:=arr));;
+gap> 
+gap> FileString(tikzfile,tkz);
+642
+gap> FileString(file,Concatenation(IP_Preamble,tkz,IP_Closing));
+961
+
+gap> rg := Filtered([801..889],u->(u mod 2)<>0);;
+gap> flen := 15;;
+gap> twins := Filtered(Primes, p -> p + 2 in Primes);;
+gap> arr := [Primes,Union(twins,twins+2),Filtered(rg,u->(u mod 3)=0)];;
+gap> tkz := IP_TikzArrayOfIntegers(rg,flen,rec(highlights:=arr));;
+
+gap> cls := IP_ColorsCompRedTones;;
+gap> rg := Filtered([801..889],u->(u mod 2)<>0);;
+gap> flen := 15;;
+gap> twins := Filtered(Primes, p -> p + 2 in Primes);;
+gap> arr := [Primes,Union(twins,twins+2),Filtered(rg,u->(u mod 3)=0)];;
+gap> tkz := IP_TikzArrayOfIntegers(rg,flen,rec(colors := cls,highlights:=arr));;
+
+gap> cls := IP_ColorsDGrayTones;;
+gap> rg := Filtered([801..889],u->(u mod 2)<>0);;
+gap> flen := 15;;
+gap> twins := Filtered(Primes, p -> p + 2 in Primes);;
+gap> arr := [Primes,Union(twins,twins+2),Filtered(rg,u->(u mod 3)=0)];;
+gap> tkz := IP_TikzArrayOfIntegers(rg,flen,rec(colors := cls,highlights:=arr));;
+
+gap> cls := ["blue","-blue","black"];;
+gap> rg := Filtered([801..889],u->(u mod 2)<>0);;
+gap> flen := 15;;
+gap> twins := Filtered(Primes, p -> p + 2 in Primes);;
+gap> arr := [Primes,Union(twins,twins+2),Filtered(rg,u->(u mod 3)=0)];;
+gap> tkz := IP_TikzArrayOfIntegers(rg,flen,rec( colors := cls,highlights:=arr));;
+
+gap> ns := NumericalSemigroup(11,19,30,42,59);;
+gap> cls := ShuffleIP_Colors([IP_ColorsGreenTones,IP_ColorsCompBlueTones]);;
+gap> flen := 20;;
+gap> #some notable elements
+gap> arr := [SmallElementsOfNumericalSemigroup(ns),
+>         GapsOfNumericalSemigroup(ns),
+>         MinimalGeneratingSystemOfNumericalSemigroup(ns),
+>         FundamentalGapsOfNumericalSemigroup(ns),
+>         [ConductorOfNumericalSemigroup(ns)],
+>         PseudoFrobeniusOfNumericalSemigroup(ns)];;
+gap> 
+gap> tkz := IP_TikzArrayOfIntegers(flen,rec(colors := cls,highlights:=arr));;
+
+gap> row_length := 200;; # the legth of each row
+gap> columns := 50;; # the number of colums
+gap> n := row_length*columns;
+10000
+gap> 
+gap> ##compute the primes less than n
+gap> # Primes is a GAP variable representing the list of primes less than 1000
+gap> mp := Maximum(Primes);
+997
+gap> newprimes := [];;
+gap> while mp < n do
+>   mp := NextPrimeInt(mp);
+>   Add(newprimes, mp);
+> od;
+gap> small_primes := Union(Primes, newprimes);;
+gap> ##compute the first element of each pair of twin primes less than n
+gap> twins := Filtered(small_primes, p -> IsPrime(p+2));;
+gap> 
+gap> rg := [1..n];;
+gap> 
+gap> arr := [Intersection(small_primes,rg),[],[], 
+>         Intersection(Union(twins,twins+2),rg),[],[],[],[],[],[],[],
+>         [],[],[],[],[],[],Difference(rg,small_primes)];;
+gap> 
+gap> tkz:=IP_TikzArrayOfIntegers([1..n],row_length,rec(highlights:=arr,
+>              cell_width := "6",colsep:="0",rowsep:="0",inner_sep:="2",
+>              shape_only:=" ",line_width:="0",line_color:="black!20" ));;
+
+## options.xml ##
+
+gap> RecNames(IP_TikzDefaultOptionsForArraysOfIntegers);
+[ "other", "colors", "highlights", "shape_only", "colsep", "rowsep", 
+  "cell_width", "allow_adjust_cell_width", "scale", "inner_sep", 
+  "line_width", "line_color" ]
+
+gap> IP_TikzDefaultOptionsForArraysOfIntegers;
+rec( allow_adjust_cell_width := "10", cell_width := "30", 
+  colors := [ "red", "green", "blue", "-red", "-green", "-blue", "black!80", 
+      "black!30", "red!50", "green!50", "blue!50", "-red!50", "-green!50", 
+      "-blue!50", "black!70", "black!25", "red!20", "green!20", "blue!20", 
+      "-red!20", "-green!20", "-blue!20", "black!60", "black!20", 
+      "red!80!green!50", "green!80!red!50", "blue!80!red!50", 
+      "-red!80!green!50", "-green!80!red!50", "-blue!80!red!50", "black!50", 
+      "black!15", "red!80!blue!60", "green!80!blue!60", "blue!80!green!60", 
+      "-red!80!blue!60", "-green!80!blue!60", "-blue!80!green!60", "black!40", 
+      "black!10" ], colsep := "2", highlights := [ [  ] ], inner_sep := "3", 
+  line_color := "black", line_width := "0", other := [  ], rowsep := "2", 
+  scale := "1", shape_only := "false" )
+
+## routines_for_NS.xml ##
+
+gap> ns1 := NumericalSemigroup(3,5);;
+gap> TikzCodeForNumericalSemigroup(ns1,[[3,4],"pseudo_frobenius"],20);
+"%tikz\n\\begin{tikzpicture}[every node/.style={draw,scale=1pt,\nminimum width\
+=20pt,inner sep=3pt,\nline width=0pt,draw=black}]\n\\matrix[row sep=2pt,column\
+ sep=2pt]\n{\\node[]{0};&\n\\node[]{1};&\n\\node[]{2};&\n\\node[fill=red]{3};&\
+\n\\node[fill=red]{4};&\n\\node[]{5};&\n\\node[]{6};&\n\\node[fill=green]{7};&\
+\n\\node[]{8};&\n\\node[]{9};&\n\\node[]{10};&\n\\node[]{11};&\n\\node[]{12};&\
+\n\\node[]{13};&\n\\node[]{14};&\n\\node[]{15};&\n\\node[]{16};&\n\\node[]{17}\
+;&\n\\node[]{18};&\n\\node[]{19};&\n\\node[]{20};\\\\\n};\n\\end{tikzpicture}\
+\n"
+
+gap> SetOfNumericalSemigroups(rec(set:=rec(genus:=6),filter:=rec(type:= 2),
+> order:="multiplicity"));
+[ <Numerical semigroup with 3 generators>, 
+  <Numerical semigroup with 3 generators>, 
+  <Numerical semigroup with 4 generators>, 
+  <Numerical semigroup with 5 generators>, 
+  <Numerical semigroup with 5 generators>, 
+  <Numerical semigroup with 6 generators> ]
 gap> SetOfNumericalSemigroups(rec(set:=rec(genus:=6),filter:=rec(type:= 2), order:="frobenius"));                                                 
 [ <Numerical semigroup with 3 generators>, 
   <Numerical semigroup with 5 generators>, 
@@ -208,19 +677,47 @@ gap> List(last,MinimalGeneratingSystem);
 [ [ 3, 10, 11 ], [ 5, 6, 7 ], [ 5, 6, 8 ], [ 3, 8, 13 ], [ 4, 7, 9 ], 
   [ 6, 7, 8, 9, 11 ] ]
 
-cls := IP_ColorsCompRedTones;
+#gap> ns1 := NumericalSemigroup(3,5);;
+#gap> ns2 := NumericalSemigroup(5,7,11);;
+#gap> DrawSetOfNumericalSemigroups(ns1,rec(splash:=                          
+#> rec(viewer := "evince"),highlights := 
+#> ["pseudo_frobenius","small_elements","min_generators"]));
+#gap> DrawSetOfNumericalSemigroups(ns1,ns2,rec(splash:= 
+#> rec(viewer := "evince"),highlights := 
+#> ["pseudo_frobenius","small_elements","min_generators"]));
+#gap> DrawSetOfNumericalSemigroups([ns1,ns2],rec(splash:=      
+#> rec(viewer := "evince"),highlights :=                    
+#> ["small_elements","min_generators"]));                   
 
-tkz:=IP_TikzArrayOfIntegers([1..5],5,rec(highlights:=[[1],[2],[3],[4],[5]], colors := cls,
-cell_width := "15",line_color:="black!20" ));;
-IP_Splash(tkz);;
+gap> frob := 15;;
+gap> tipo := 2;;
+gap> set := SetOfNumericalSemigroups(rec(set := rec(frobenius := frob),
+> filter := rec(type:= tipo),order := "embedding_dimension"));
+[ <Numerical semigroup with 3 generators>, 
+  <Numerical semigroup with 3 generators>, 
+  <Numerical semigroup with 4 generators>, 
+  <Numerical semigroup with 5 generators>, 
+  <Numerical semigroup with 5 generators>, 
+  <Numerical semigroup with 5 generators>, 
+  <Numerical semigroup with 6 generators>, 
+  <Numerical semigroup with 6 generators>, 
+  <Numerical semigroup with 6 generators> ]
+  
+gap> ns := NumericalSemigroup(4,9,19);;
+gap> SmallElements(ns);
+[ 0, 4, 8, 9, 12, 13, 16 ]
+gap> MinimalGeneratingSystem(ns);
+[ 4, 9, 19 ]
+gap> ForcedIntegersForPseudoFrobenius(PseudoFrobeniusOfNumericalSemigroup(ns));
+[ [ 1, 2, 3, 5, 6, 7, 14, 15 ], [ 0, 8, 9, 12, 13, 16 ] ]
+
 
 gap> rg := [800..900];;
 gap> flen := 15;;
 gap> primes := Filtered(rg,IsPrime);
 [ 809, 811, 821, 823, 827, 829, 839, 853, 857, 859, 863, 877, 881, 883, 887 ]
-gap> $the first                                                              
+gap> twins := Filtered(primes, p -> IsPrime(p+2));                                                              
 [ 809, 821, 827, 857, 881 ]
-gap> #elements of pairs of twin primes  
 gap> rgnp := Difference(rg,primes);
 [ 800, 801, 802, 803, 804, 805, 806, 807, 808, 810, 812, 813, 814, 815, 816, 
   817, 818, 819, 820, 822, 824, 825, 826, 828, 830, 831, 832, 833, 834, 835, 
@@ -228,6 +725,7 @@ gap> rgnp := Difference(rg,primes);
   852, 854, 855, 856, 858, 860, 861, 862, 864, 865, 866, 867, 868, 869, 870, 
   871, 872, 873, 874, 875, 876, 878, 879, 880, 882, 884, 885, 886, 888, 889, 
   890, 891, 892, 893, 894, 895, 896, 897, 898, 899, 900 ]
+  
 gap> arr := [primes,
 > [1],
 > Union(twins,twins+2),
@@ -266,9 +764,7 @@ gap> arr := [primes,
   [ 817, 836, 855, 874, 893 ], [ 805, 828, 851, 874, 897 ], 
   [ 812, 841, 870, 899 ], [ 806, 837, 868, 899 ], [ 814, 851, 888 ], 
   [ 820, 861 ], [ 817, 860 ], [ 846, 893 ], [ 848 ] ]
-gap> 
-gap> $hts:=arr));;                                                           
-gap> IP_Splash(tkz);;
+  
 
 gap> a := 8;; b := 19;;  
 gap> ns := NumericalSemigroup(a,b);;
@@ -290,16 +786,14 @@ gap>   for n in [-depth..height] do
 gap> 
 gap> table := IP_TableWithModularOrder(origin,a,b,depth,height,false,false);;
 gap> arr := [xaxis,yaxis,ground];
-[ [ 251, 259, 267, 275, 283, 291, 299, 307, 315, 323, 331, 339, 347, 355, 
-      363, 371, 379, 387, 395 ], 
-  [ 99, 118, 137, 156, 175, 194, 213, 232, 251, 270, 289 ], [ 251 .. 269 ] ]
+[ [ 251, 259, 267, 275, 283, 291, 299, 307, 315, 323, 331, 339, 347, 355, 363, 371, 379, 
+      387, 395 ], [ 99, 118, 137, 156, 175, 194, 213, 232, 251, 270, 289 ], [ 251 .. 269 ] 
+ ]
 gap> tkz:=IP_TikzArrayOfIntegers(table,rec(highlights:=arr,shape_only:=" ",
 >              cell_width := "6",colsep:="1",rowsep:="1",inner_sep:="2",
 >              line_color:="black!20", other := 
-> $ (16pt,40pt);",                                                           
-> $(80pt,-40pt);"]));;                                                       
-gap> IP_Splash(tkz);;
-
+>   ["\\draw[postaction={draw,line width=1pt,red}] (-80pt,-8pt) rectangle (16pt,40pt);",
+>   "\\draw[postaction={draw,line width=1pt,blue}] (-16pt,8pt) rectangle (80pt,-40pt);"]));;
 
 gap> STOP_TEST( "testall.tst", 10000 );
 ## The first argument of STOP_TEST should be the name of the test file.
