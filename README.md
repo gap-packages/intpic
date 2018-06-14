@@ -24,9 +24,10 @@ Contents
 --------
 With this version you should have obtained the following files and
 directories:
+
 | File/directory | Description |
 |:-----|:------|
-|README |   this file|
+|README.md |   this file|
 |EXAMPLES|	some examples|
 |CHANGELOG|	changelog|
 |LICENSE|	Licensing information|
