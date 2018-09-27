@@ -77,7 +77,7 @@ BannerString := Concatenation(
   "For help, type: ?IntPic;\n",
   "----------------------------------------------------------------\n" ),
 
-TestFile := "tst/testall.tst",
+TestFile := "tst/testall.g",
 
 Keywords := ["emphasize", "highlight", "draw", "integer", "picture"]
 
