@@ -658,22 +658,12 @@ gap> TikzCodeForNumericalSemigroup(ns1,[[3,4],"pseudo_frobenius"],20);
 ;&\n\\node[]{18};&\n\\node[]{19};&\n\\node[]{20};\\\\\n};\n\\end{tikzpicture}\
 \n"
 
-gap> SetOfNumericalSemigroups(rec(set:=rec(genus:=6),filter:=rec(type:= 2),
-> order:="multiplicity"));
-[ <Numerical semigroup with 3 generators>, 
-  <Numerical semigroup with 3 generators>, 
-  <Numerical semigroup with 4 generators>, 
-  <Numerical semigroup with 5 generators>, 
-  <Numerical semigroup with 5 generators>, 
-  <Numerical semigroup with 6 generators> ]
-gap> SetOfNumericalSemigroups(rec(set:=rec(genus:=6),filter:=rec(type:= 2), order:="frobenius"));                                                 
-[ <Numerical semigroup with 3 generators>, 
-  <Numerical semigroup with 5 generators>, 
-  <Numerical semigroup with 5 generators>, 
-  <Numerical semigroup with 3 generators>, 
-  <Numerical semigroup with 4 generators>, 
-  <Numerical semigroup with 6 generators> ]
-gap> List(last,MinimalGeneratingSystem);
+gap> ls := SetOfNumericalSemigroups(rec(set:=rec(genus:=6),filter:=rec(type:= 2),order:="multiplicity"));;
+gap> List(ls,MinimalGenerators);
+[ [ 3, 8, 13 ], [ 3, 10, 11 ], [ 4, 7, 9 ], [ 5, 6, 7 ], [ 5, 6, 8 ], 
+  [ 6, 7, 8, 9, 11 ] ]
+gap> ls := SetOfNumericalSemigroups(rec(set:=rec(genus:=6),filter:=rec(type:= 2), order:="frobenius"));;
+gap> List(ls,MinimalGenerators);
 [ [ 3, 10, 11 ], [ 5, 6, 7 ], [ 5, 6, 8 ], [ 3, 8, 13 ], [ 4, 7, 9 ], 
   [ 6, 7, 8, 9, 11 ] ]
 
