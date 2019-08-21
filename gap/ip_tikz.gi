@@ -114,6 +114,7 @@ function(arg)
   fi;
 
   table := Reversed(utable);
+  Print(utable);
   
   ##################
   tikzstring := "%tikz\n\\begin{tikzpicture}[";
@@ -132,6 +133,9 @@ function(arg)
 
   for floor in table do
     for nd in floor do
+      if Length(nd) = 1 and nd[1] < 0 and opt.draw_ns_table then
+        Append(tikzstring,"&\n");
+        else
       Append(tikzstring,"\\node[");
       
       if Length(nd) = 1 then
@@ -212,8 +216,9 @@ function(arg)
         Append(tikzstring,opt.colors[nd[7]]);
        Append(tikzstring,"]");
       fi;
-
       Append(tikzstring,Concatenation("{",String(nd[1]),"};&\n"));
+    fi;
+    
     od;
     #remove "&\n"
      Unbind(tikzstring[Length(tikzstring)]);

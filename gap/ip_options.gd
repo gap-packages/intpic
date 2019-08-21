@@ -31,6 +31,7 @@ BindGlobal("IP_TikzDefaultOptionsForArraysOfIntegers",
            inner_sep := "3", #inner sep
            line_width := "0", # line width
            line_color := "black", # draw (the color of the cell borders)
+           draw_ns_table := "false", # to draw numerical semigroups as tables, the highest row correspondig to the threshold interval           
            #####other#####           
            other := [] 
                       #if non empty, the complete tikz code has to be written
