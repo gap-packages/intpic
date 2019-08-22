@@ -10,25 +10,28 @@
 #when no range or table is given, the minimum range containing all the elements to be highlighted is taken.
 ##
 
-  
+
 InstallGlobalFunction(IP_TikzArrayOfIntegers,
-function(arg)
+        function(arg)
   local  opt, rg, tb, flen, i, array, aux, 
          lens, l, r, cat, el, node, h, utable, k, table, 
          tikzstring, floor, nd, string;
-  
+
   opt := StructuralCopy(First(arg, a -> IsRecord(a)));
   rg := StructuralCopy(First(arg, a -> IsHomogeneousList(a) and not IsList(a[1])));
   tb := StructuralCopy(First(arg, a -> IsTable(a)));
   flen := StructuralCopy(First(arg, a -> IsInt(a)));
-#  Error(" ");
-  
+
   ## the options ##
   if opt = fail then
     opt := IP_TikzDefaultOptionsForArraysOfIntegers;
   else
     if IsBound(opt.cell_width) then
       opt.allow_adjust_cell_width := "false";
+    fi;
+    if IsBound(opt.colors) then
+      opt.colors := Concatenation(opt.colors,IP_TikzDefaultOptionsForArraysOfIntegers.colors);
+      
     fi;
     for i in RecNames( IP_TikzDefaultOptionsForArraysOfIntegers ) do
       if not IsBound(opt.(i)) then
@@ -37,7 +40,7 @@ function(arg)
     od;
   fi;
   array := opt.highlights;
-  
+
   if rg <> fail then
     if flen = fail then
       #     flen := Length(rg);
@@ -73,7 +76,7 @@ function(arg)
     fi;
   fi; #201407
 
-   #when no list or table is given, the minimum range containing all the elements 
+  #when no list or table is given, the minimum range containing all the elements 
   #to be highlighted is taken.
   if rg = fail and tb = fail then
     cat := Concatenation(array);
@@ -82,7 +85,7 @@ function(arg)
       flen := Length(rg);
     fi;
   fi;  
-  
+
   if opt.allow_adjust_cell_width <> "false" then
     aux := Int(opt.allow_adjust_cell_width)*(LogInt(Maximum(Flat(rg)),10)+1);
     opt.cell_width := String(aux);
@@ -102,7 +105,7 @@ function(arg)
     if opt.shape_only <> "false" then
       node[1] := opt.shape_only;
     fi;
-    
+
     rg[i] := node;
   od;
   utable := [];
@@ -114,8 +117,7 @@ function(arg)
   fi;
 
   table := Reversed(utable);
-  Print(utable);
-  
+
   ##################
   tikzstring := "%tikz\n\\begin{tikzpicture}[";
   Append(tikzstring,"every node/.style={draw,");
@@ -127,113 +129,113 @@ function(arg)
   Append(tikzstring,Concatenation("line width=",opt.line_width,"pt,"));
   Append(tikzstring,Concatenation("draw=",opt.line_color));
   Append(tikzstring,"}]\n");
-    
+
   Append(tikzstring,Concatenation("\\matrix[row sep=",opt.rowsep,"pt,"));
   Append(tikzstring,Concatenation("column sep=",opt.colsep,"pt]\n{"));
 
   for floor in table do
     for nd in floor do
-      if Length(nd) = 1 and nd[1] < 0 and opt.draw_ns_table then
+      if Length(nd) = 1 and nd[1] < 0 and opt.ns_table then
         Append(tikzstring,"&\n");
-        else
-      Append(tikzstring,"\\node[");
-      
-      if Length(nd) = 1 then
-        Append(tikzstring,"]");
+      else
+        Append(tikzstring,"\\node[");
+
+        if Length(nd) = 1 then
+          Append(tikzstring,"]");
+        fi;
+        if Length(nd) = 2 then
+          Append(tikzstring,"fill=");
+          Append(tikzstring,opt.colors[nd[2]]);
+          Append(tikzstring,"]");
+        fi;
+        if Length(nd) = 3 then
+          Append(tikzstring,"left color=");
+          Append(tikzstring,opt.colors[nd[2]]);
+          Append(tikzstring,",right color=");
+          Append(tikzstring,opt.colors[nd[3]]);
+          Append(tikzstring,"]");
+        fi;
+        if Length(nd) = 4 then
+          Append(tikzstring,"left color=");
+          Append(tikzstring,opt.colors[nd[2]]);
+          Append(tikzstring,",right color=");
+          Append(tikzstring,opt.colors[nd[3]]);
+          Append(tikzstring,",middle color=");
+          Append(tikzstring,opt.colors[nd[4]]);
+          Append(tikzstring,"]");
+        fi;
+        if Length(nd) = 5 then
+          Append(tikzstring,",upper left=");
+          Append(tikzstring,opt.colors[nd[2]]);
+          Append(tikzstring,",upper right=");
+          Append(tikzstring,opt.colors[nd[3]]);
+          Append(tikzstring,",lower left=");
+          Append(tikzstring,opt.colors[nd[4]]);
+          Append(tikzstring,",lower right=");
+          Append(tikzstring,opt.colors[nd[5]]);
+          Append(tikzstring,"]");
+        fi;
+        if Length(nd) = 6 then
+          Append(tikzstring,",upper left=");
+          Append(tikzstring,opt.colors[nd[2]]);
+          Append(tikzstring,",upper right=");
+          Append(tikzstring,opt.colors[nd[3]]);
+          Append(tikzstring,",lower left=");
+          Append(tikzstring,opt.colors[nd[4]]);
+          Append(tikzstring,",lower right=");
+          Append(tikzstring,opt.colors[nd[5]]);
+          Append(tikzstring,",text=");
+          Append(tikzstring,opt.colors[nd[6]]);
+          Append(tikzstring,"]");
+        fi;
+        if Length(nd) = 7 then
+          Append(tikzstring,"upper left=");
+          Append(tikzstring,opt.colors[nd[2]]);
+          Append(tikzstring,",upper right=");
+          Append(tikzstring,opt.colors[nd[3]]);
+          Append(tikzstring,",lower left=");
+          Append(tikzstring,opt.colors[nd[4]]);
+          Append(tikzstring,",lower right=");
+          Append(tikzstring,opt.colors[nd[5]]);
+          Append(tikzstring,",text=");
+          Append(tikzstring,opt.colors[nd[6]]);
+          Append(tikzstring,",thick,draw=");
+          Append(tikzstring,opt.colors[nd[7]]);
+          Append(tikzstring,"]");
+        fi;
+        if Length(nd) > 7 then
+          Append(tikzstring,"upper left=");
+          Append(tikzstring,opt.colors[nd[2]]);
+          Append(tikzstring,",upper right=");
+          Append(tikzstring,opt.colors[nd[3]]);
+          Append(tikzstring,",lower left=");
+          Append(tikzstring,opt.colors[nd[4]]);
+          Append(tikzstring,",lower right=");
+          Append(tikzstring,opt.colors[nd[5]]);
+          Append(tikzstring,",text=");
+          Append(tikzstring,opt.colors[nd[6]]);
+          Append(tikzstring,",ultra thick,draw=");
+          Append(tikzstring,opt.colors[nd[7]]);
+          Append(tikzstring,"]");
+        fi;
+        Append(tikzstring,Concatenation("{",String(nd[1]),"};&\n"));
       fi;
-      if Length(nd) = 2 then
-        Append(tikzstring,"fill=");
-        Append(tikzstring,opt.colors[nd[2]]);
-        Append(tikzstring,"]");
-      fi;
-      if Length(nd) = 3 then
-        Append(tikzstring,"left color=");
-        Append(tikzstring,opt.colors[nd[2]]);
-        Append(tikzstring,",right color=");
-        Append(tikzstring,opt.colors[nd[3]]);
-        Append(tikzstring,"]");
-      fi;
-      if Length(nd) = 4 then
-        Append(tikzstring,"left color=");
-        Append(tikzstring,opt.colors[nd[2]]);
-        Append(tikzstring,",right color=");
-        Append(tikzstring,opt.colors[nd[3]]);
-        Append(tikzstring,",middle color=");
-        Append(tikzstring,opt.colors[nd[4]]);
-        Append(tikzstring,"]");
-      fi;
-      if Length(nd) = 5 then
-        Append(tikzstring,",upper left=");
-        Append(tikzstring,opt.colors[nd[2]]);
-        Append(tikzstring,",upper right=");
-        Append(tikzstring,opt.colors[nd[3]]);
-        Append(tikzstring,",lower left=");
-        Append(tikzstring,opt.colors[nd[4]]);
-        Append(tikzstring,",lower right=");
-        Append(tikzstring,opt.colors[nd[5]]);
-        Append(tikzstring,"]");
-      fi;
-      if Length(nd) = 6 then
-        Append(tikzstring,",upper left=");
-        Append(tikzstring,opt.colors[nd[2]]);
-        Append(tikzstring,",upper right=");
-        Append(tikzstring,opt.colors[nd[3]]);
-        Append(tikzstring,",lower left=");
-        Append(tikzstring,opt.colors[nd[4]]);
-        Append(tikzstring,",lower right=");
-        Append(tikzstring,opt.colors[nd[5]]);
-        Append(tikzstring,",text=");
-        Append(tikzstring,opt.colors[nd[6]]);
-        Append(tikzstring,"]");
-      fi;
-      if Length(nd) = 7 then
-        Append(tikzstring,"upper left=");
-        Append(tikzstring,opt.colors[nd[2]]);
-        Append(tikzstring,",upper right=");
-        Append(tikzstring,opt.colors[nd[3]]);
-        Append(tikzstring,",lower left=");
-        Append(tikzstring,opt.colors[nd[4]]);
-        Append(tikzstring,",lower right=");
-        Append(tikzstring,opt.colors[nd[5]]);
-        Append(tikzstring,",text=");
-        Append(tikzstring,opt.colors[nd[6]]);
-        Append(tikzstring,",thick,draw=");
-        Append(tikzstring,opt.colors[nd[7]]);
-       Append(tikzstring,"]");
-      fi;
-      if Length(nd) > 7 then
-        Append(tikzstring,"upper left=");
-        Append(tikzstring,opt.colors[nd[2]]);
-        Append(tikzstring,",upper right=");
-        Append(tikzstring,opt.colors[nd[3]]);
-        Append(tikzstring,",lower left=");
-        Append(tikzstring,opt.colors[nd[4]]);
-        Append(tikzstring,",lower right=");
-        Append(tikzstring,opt.colors[nd[5]]);
-        Append(tikzstring,",text=");
-        Append(tikzstring,opt.colors[nd[6]]);
-        Append(tikzstring,",ultra thick,draw=");
-        Append(tikzstring,opt.colors[nd[7]]);
-       Append(tikzstring,"]");
-      fi;
-      Append(tikzstring,Concatenation("{",String(nd[1]),"};&\n"));
-    fi;
-    
+
     od;
     #remove "&\n"
-     Unbind(tikzstring[Length(tikzstring)]);
+    Unbind(tikzstring[Length(tikzstring)]);
     Unbind(tikzstring[Length(tikzstring)]);
     Append(tikzstring,"\\\\\n");
   od;
   Append(tikzstring,"};\n");
-  
+
   if IsBound(opt.other) then
     for string in opt.other do
       Append(tikzstring,string);
       Append(tikzstring,"\n");
     od;
   fi;
-  
+
   Append(tikzstring,"\\end{tikzpicture}\n");
   return tikzstring;
 
@@ -244,18 +246,18 @@ end);
 # integers is given 
 # The length of each level is Maximum(32,Int(Length(rg)/50))
 InstallGlobalFunction(IP_SimpleTikzArrayOfIntegers,
-function(mat)
+        function(mat)
   local  rg, len, cat;
-  
+
   if IsTable(mat) then
     cat := Concatenation(mat);
     rg := [Minimum(cat)..Maximum(cat)];
     len := Minimum(30,Int(40/(LogInt(Maximum(rg),10)+1)));
     return IP_TikzArrayOfIntegers(rg,len,rec(highlights:=mat));
-   else
+  else
     rg := [Minimum(mat)..Maximum(mat)];
     len := Minimum(30,Int(40/(LogInt(Maximum(rg),10)+1)));
     return IP_TikzArrayOfIntegers(rg,len,rec(highlights:=[mat]));
- fi;
+  fi;
 end);
 

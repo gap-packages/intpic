@@ -4,9 +4,11 @@
 #* a numerical semigroup, 
 #*(optional) a list whose elements are either 
 ###- lists of integers or 
-###- one of the strings "pseudo_frobenius", "small_elements", "min_generators", "frobenius_number", "conductor", "special_gaps", "fundamental_gaps" (the default: used when no list is present)
-###- a record whose fields are:
-######- func -- a function name
+###- one of the strings "pseudo_frobenius", "min_generators", "frobenius_number", "conductor", "special_gaps", "fundamental_gaps", "small_elements" (the default: used when no list is present), "ns_table"
+#####- a record whose fields are:
+#####- ns_table (can have the values true or false; the default is false) 
+#####- colors (a list of colors that will be the first to be taken, the default being [])
+
 ######-(optional) argument -- an argument (that may be a function name also)
 #### Warning: When a string is mispelled, an ERROR may be signaled#######
 
@@ -17,42 +19,68 @@
 # 
 
 InstallGlobalFunction(TikzCodeForNumericalSemigroup,
-function(arg)
-  local  ns, options, len, allowed_options_list, o, small, c, gen, mg, flen, 
-         array, str, ev, x;
+        function(arg)
+  local  ns, m, 
+         small, c, gen, mg, options, opt, allowed_options_list, o, q, rho, 
+         list, ti, array, len, flen, str, ev, x;
   
   ns := First(arg, IsNumericalSemigroup);
   #a gobal variable is needed to EvalString...
   AuxiliaryGlobalVariableForTikzCodeForNumericalSemigroup := ns;
-  
+
+  m := Multiplicity(ns);
+  small := SmallElements(ns);
+  c := Conductor(ns);
+  gen := MinimalGenerators(ns);
+  mg := Maximum(gen);
+
   options := ShallowCopy(First(arg, IsList));
   if options = fail then
     options := ["small_elements"];
+  elif Length(options) > 1 and IsString(options) then
+    options := [options];    
   fi;
-  len := First(arg, IsInt);
-#    Error(" ");
   
-  allowed_options_list := ["pseudo_frobenius", "small_elements", "min_generators", "frobenius_number", "conductor", "special_gaps", "fundamental_gaps"];  
+  if First(arg, a -> IsRecord(a)) <> fail then
+    opt :=  StructuralCopy(First(arg, a -> IsRecord(a)));
+    if not IsBound(opt.ns_table) then
+      opt.ns_table := false;
+    fi;
+    if not IsBound(opt.colors) then
+      opt.colors := [];
+    fi;
+  else
+    opt.ns_table := false;
+    opt.colors := [];
+  fi;
+  
+
+  #    Error(" ");
+
+  allowed_options_list := ["pseudo_frobenius", "min_generators", "frobenius_number", "conductor", "special_gaps", "fundamental_gaps", "small_elements"];  
   for o in options do
     if IsString(o) and not (o in allowed_options_list) then
       Info(InfoWarning,1,"The option ", o, " is perhaps mispelled and will be ignored\n");
-           #, unless it is the name of a function, it will cause an error to be signaled.");
+      #, unless it is the name of a function, it will cause an error to be signaled.");
     fi;
   od;
 
-  small := SmallElementsOfNumericalSemigroup(ns);
-  c := ConductorOfNumericalSemigroup(ns);
-  if len = fail then
-    len := c;
+  if opt.ns_table then
+    q := CeilingOfRational(c/m);
+    rho := q*m-c;
+    list := [-rho .. c+m-1];
+    ti := [c..c+m-1]; #threshold interval
+    small := Union(small,ti);
+    array := [[c],gen];
+  else
+    len := First(arg, IsInt);
+    if len = fail then
+      len := c;
+    fi;
+    flen := Maximum(len,c);
+    small := Union(small, [c..flen]);
+    array := [];
   fi;
-
-  gen := MinimalGeneratingSystemOfNumericalSemigroup(ns);
-  mg := Maximum(gen);
-  
-  flen := Maximum(len,c);
-  small := Union(small, [c..flen]);
-  
-  array := [];
   for o in options do
     if IsHomogeneousList(o) and IsInt(o[1]) then
       Add(array,o);
@@ -71,38 +99,41 @@ function(arg)
     elif o = "fundamental_gaps" then
       Add(array, FundamentalGapsOfNumericalSemigroup(ns));
     elif IsRecord(o) then
-#      Error("..");
-      
+      #      Error("..");
+
       if IsBound(o.func) and IsFunction(EvalString(o.func)) then
         if IsBound(o.argument) then
-        if IsFunction(EvalString(o.argument)) then
-          str := Concatenation(o.argument,"(AuxiliaryGlobalVariableForTikzCodeForNumericalSemigroup)");
-          ev := EvalString(str);
-          str := Concatenation(o.func,"(",String(ev),")");
+          if IsFunction(EvalString(o.argument)) then
+            str := Concatenation(o.argument,"(AuxiliaryGlobalVariableForTikzCodeForNumericalSemigroup)");
+            ev := EvalString(str);
+            str := Concatenation(o.func,"(",String(ev),")");
+          else
+            str := Concatenation(o.func,"(",o.argument,")");
+          fi;
         else
-          str := Concatenation(o.func,"(",o.argument,")");
+          str := Concatenation(o,"(AuxiliaryGlobalVariableForTikzCodeForNumericalSemigroup)");
         fi;
-      else
-        str := Concatenation(o,"(AuxiliaryGlobalVariableForTikzCodeForNumericalSemigroup)");
+        x := EvalString(str);
+        if IsTable(x) then
+          Append(array, x);
+        elif IsList(x) then
+          Add(array, x);
+        elif IsInt(x) then
+          Add(array,[x]);
+        else
+          Error("the function ", str, " should return an integer or a list of integers\n");
+        fi;
       fi;
-      x := EvalString(str);
-      if IsTable(x) then
-        Append(array, x);
-      elif IsList(x) then
-        Add(array, x);
-      elif IsInt(x) then
-        Add(array,[x]);
-      else
-        Error("the function ", str, " should return an integer or a list of integers\n");
-      fi;
-    fi;
     fi;
   od;
-  flen := Maximum(len,Maximum(Flat(array)));
-  return IP_TikzArrayOfIntegers([0..flen],len+1,rec(highlights:=array));
+  if opt.ns_table then
+    return IP_TikzArrayOfIntegers(list,m,rec(highlights:=array,ns_table:=true,colors := opt.colors));
+  else
+    flen := Maximum(len,Maximum(Flat(array)));
+    return IP_TikzArrayOfIntegers([0..flen],len+1,rec(highlights:=array,colors := opt.colors));
+  fi;  
 end);
-  
-  
+
 
 ##########################################################################
 # This function is used to produce lists of numerical semigroups with a fixed genus or Frobenius number. They are filtered and ordered according to some criteria.
