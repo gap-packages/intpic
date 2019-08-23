@@ -50,8 +50,7 @@ InstallGlobalFunction(TikzCodeForNumericalSemigroup,
       opt.colors := [];
     fi;
   else
-    opt.ns_table := false;
-    opt.colors := [];
+    opt := rec(ns_table := false, colors := []);
   fi;
   
 
