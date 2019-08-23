@@ -8,6 +8,13 @@
 #############################################################################
 ##
 =============
+ Version 0.2.4  (23/8/2019)
+=============
+ - test file updated
+ - added the option "ns_table" to the functions "TikzCodeForNumericalSemigroup" and "IP_TikzArrayOfIntegers" to make drawings of numerical semigroups as tables with the threshold interval in the to row
+ - manual updated (with illustrations of use of the "ns_table" option)
+
+=============
  Version 0.2.3  (14/9/2017)
 =============
  - test file updated and some minor changes in the manual
