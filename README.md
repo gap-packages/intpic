@@ -9,7 +9,7 @@ IntPic
 Introduction
 ------------
 
-This is release 0.2.3 of the package `IntPic`.  The aim of the package is to
+The aim of the package is to
 help visualising sets of integers and to create publication quality pictures
 of these sets. 
 
