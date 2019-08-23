@@ -629,7 +629,7 @@ gap> tkz:=IP_TikzArrayOfIntegers([1..n],row_length,rec(highlights:=arr,
 gap> RecNames(IP_TikzDefaultOptionsForArraysOfIntegers);
 [ "other", "colors", "highlights", "shape_only", "colsep", "rowsep", 
   "cell_width", "allow_adjust_cell_width", "scale", "inner_sep", 
-  "line_width", "line_color" ]
+  "line_width", "line_color", "ns_table" ]
 
 gap> IP_TikzDefaultOptionsForArraysOfIntegers;
 rec( allow_adjust_cell_width := "10", cell_width := "30", 
@@ -640,10 +640,11 @@ rec( allow_adjust_cell_width := "10", cell_width := "30",
       "red!80!green!50", "green!80!red!50", "blue!80!red!50", 
       "-red!80!green!50", "-green!80!red!50", "-blue!80!red!50", "black!50", 
       "black!15", "red!80!blue!60", "green!80!blue!60", "blue!80!green!60", 
-      "-red!80!blue!60", "-green!80!blue!60", "-blue!80!green!60", "black!40", 
-      "black!10" ], colsep := "2", highlights := [ [  ] ], inner_sep := "3", 
-  line_color := "black", line_width := "0", other := [  ], rowsep := "2", 
-  scale := "1", shape_only := "false" )
+      "-red!80!blue!60", "-green!80!blue!60", "-blue!80!green!60", 
+      "black!40", "black!10" ], colsep := "2", highlights := [ [  ] ], 
+  inner_sep := "3", line_color := "black", line_width := "0", 
+  ns_table := "false", other := [  ], rowsep := "2", scale := "1", 
+  shape_only := "false" )
 
 ## routines_for_NS.xml ##
 
@@ -657,6 +658,43 @@ gap> TikzCodeForNumericalSemigroup(ns1,[[3,4],"pseudo_frobenius"],20);
 \n\\node[]{13};&\n\\node[]{14};&\n\\node[]{15};&\n\\node[]{16};&\n\\node[]{17}\
 ;&\n\\node[]{18};&\n\\node[]{19};&\n\\node[]{20};\\\\\n};\n\\end{tikzpicture}\
 \n"
+
+gap> ns := NumericalSemigroup(7,11,38,41);;
+gap> tkz := TikzCodeForNumericalSemigroup(ns,rec(ns_table:=true,colors:=
+> ["blue", "red!70", "-red", "black!40"]));
+"%tikz\n\\begin{tikzpicture}[every node/.style={draw,scale=1pt,\nminimum width\
+=20pt,inner sep=3pt,\nline width=0pt,draw=black}]\n\\matrix[row sep=2pt,column\
+ sep=2pt]\n{\\node[left color=blue,right color=red!70,middle color=-red]{38};&\
+\n\\node[fill=-red]{39};&\n\\node[fill=-red]{40};&\n\\node[left color=red!70,r\
+ight color=-red]{41};&\n\\node[fill=-red]{42};&\n\\node[fill=-red]{43};&\n\\no\
+de[fill=-red]{44};\\\\\n\\node[]{31};&\n\\node[fill=-red]{32};&\n\\node[fill=-\
+red]{33};&\n\\node[]{34};&\n\\node[fill=-red]{35};&\n\\node[fill=-red]{36};&\n\
+\\node[]{37};\\\\\n\\node[]{24};&\n\\node[fill=-red]{25};&\n\\node[]{26};&\n\\\
+node[]{27};&\n\\node[fill=-red]{28};&\n\\node[fill=-red]{29};&\n\\node[]{30};\
+\\\\\n\\node[]{17};&\n\\node[fill=-red]{18};&\n\\node[]{19};&\n\\node[]{20};&\
+\n\\node[fill=-red]{21};&\n\\node[fill=-red]{22};&\n\\node[]{23};\\\\\n\\node[\
+]{10};&\n\\node[left color=red!70,right color=-red]{11};&\n\\node[]{12};&\n\\n\
+ode[]{13};&\n\\node[fill=-red]{14};&\n\\node[]{15};&\n\\node[]{16};\\\\\n\\nod\
+e[]{3};&\n\\node[]{4};&\n\\node[]{5};&\n\\node[]{6};&\n\\node[left color=red!7\
+0,right color=-red]{7};&\n\\node[]{8};&\n\\node[]{9};\\\\\n&\n&\n&\n&\n\\node[\
+fill=-red]{0};&\n\\node[]{1};&\n\\node[]{2};\\\\\n};\n\\end{tikzpicture}\n"
+gap> tkz := TikzCodeForNumericalSemigroup(ns,rec(ns_table:=true));
+"%tikz\n\\begin{tikzpicture}[every node/.style={draw,scale=1pt,\nminimum width\
+=20pt,inner sep=3pt,\nline width=0pt,draw=black}]\n\\matrix[row sep=2pt,column\
+ sep=2pt]\n{\\node[left color=red,right color=green,middle color=blue]{38};&\n\
+\\node[fill=blue]{39};&\n\\node[fill=blue]{40};&\n\\node[left color=green,righ\
+t color=blue]{41};&\n\\node[fill=blue]{42};&\n\\node[fill=blue]{43};&\n\\node[\
+fill=blue]{44};\\\\\n\\node[]{31};&\n\\node[fill=blue]{32};&\n\\node[fill=blue\
+]{33};&\n\\node[]{34};&\n\\node[fill=blue]{35};&\n\\node[fill=blue]{36};&\n\\n\
+ode[]{37};\\\\\n\\node[]{24};&\n\\node[fill=blue]{25};&\n\\node[]{26};&\n\\nod\
+e[]{27};&\n\\node[fill=blue]{28};&\n\\node[fill=blue]{29};&\n\\node[]{30};\\\\\
+\n\\node[]{17};&\n\\node[fill=blue]{18};&\n\\node[]{19};&\n\\node[]{20};&\n\\n\
+ode[fill=blue]{21};&\n\\node[fill=blue]{22};&\n\\node[]{23};\\\\\n\\node[]{10}\
+;&\n\\node[left color=green,right color=blue]{11};&\n\\node[]{12};&\n\\node[]{\
+13};&\n\\node[fill=blue]{14};&\n\\node[]{15};&\n\\node[]{16};\\\\\n\\node[]{3}\
+;&\n\\node[]{4};&\n\\node[]{5};&\n\\node[]{6};&\n\\node[left color=green,right\
+ color=blue]{7};&\n\\node[]{8};&\n\\node[]{9};\\\\\n&\n&\n&\n&\n\\node[fill=bl\
+ue]{0};&\n\\node[]{1};&\n\\node[]{2};\\\\\n};\n\\end{tikzpicture}\n"
 
 gap> ls := SetOfNumericalSemigroups(rec(set:=rec(genus:=6),filter:=rec(type:= 2),order:="multiplicity"));;
 gap> List(ls,MinimalGenerators);
