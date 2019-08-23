@@ -6,7 +6,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
 <head>
 <script type="text/javascript"
-  src="http://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
 </script>
 <title>GAP (IntPic) - Chapter 2: 
     The IntPic package main function
@@ -60,7 +60,7 @@
 
 <h5>2.1-1 <span class="Heading">Tikz code for arrays of integers</span></h5>
 
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; IP_TikzArrayOfIntegers</code>( <var class="Arg">arg</var> )</td><td class="tdright">( function )</td></tr></table></div>
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; IP_TikzArrayOfIntegers</code>( <var class="Arg">arg</var> )</td><td class="tdright">(&nbsp;function&nbsp;)</td></tr></table></div>
 <p>The arguments (at most 3) are:</p>
 
 <ol>
@@ -135,7 +135,7 @@ line width=1pt,draw=black}]
 
 <h5>2.1-2 <span class="Heading">Tikz code for arrays, in a simplified way</span></h5>
 
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; IP_SimpleTikzArrayOfIntegers</code>( <var class="Arg">arg</var> )</td><td class="tdright">( function )</td></tr></table></div>
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; IP_SimpleTikzArrayOfIntegers</code>( <var class="Arg">arg</var> )</td><td class="tdright">(&nbsp;function&nbsp;)</td></tr></table></div>
 <p>The argument is either a list of integers or a matrix of integers. The integers involved are embeded in a range <var class="Arg">rg</var> of minimum length and highlighted by using the list of default colors.</p>
 
 
@@ -168,7 +168,7 @@ line width=1pt,draw=black}]
 
 <h5>2.2-1 IP_TableWithModularOrder</h5>
 
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; IP_TableWithModularOrder</code>( <var class="Arg">o</var>, <var class="Arg">a</var>, <var class="Arg">b</var>, <var class="Arg">depth</var>, <var class="Arg">height</var>, <var class="Arg">rep</var>, <var class="Arg">pos</var> )</td><td class="tdright">( function )</td></tr></table></div>
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; IP_TableWithModularOrder</code>( <var class="Arg">o</var>, <var class="Arg">a</var>, <var class="Arg">b</var>, <var class="Arg">depth</var>, <var class="Arg">height</var>, <var class="Arg">rep</var>, <var class="Arg">pos</var> )</td><td class="tdright">(&nbsp;function&nbsp;)</td></tr></table></div>
 <p>The arguments <var class="Arg">rep</var> and <var class="Arg">pos</var> are booleans (<code class="code">true</code> or <code class="code">false</code>). When <var class="Arg">rep</var> is <code class="code">true</code> there is some repetition: the last column is equal to the first, but pushed down some rows. When <var class="Arg">pos</var> is <code class="code">true</code>, no rows below 0 are considered, (contradicting <var class="Arg">depth</var>, if needed).</p>
 
 <p>The first five arguments arguments <var class="Arg">o, a, b,depth</var> and <var class="Arg">height</var> are integers. What they represent is described in what follows. There is assigned some kind of a referential on the constructed table and the fist argument, <var class="Arg">o</var>, stands for the origin. A table with <var class="Arg">b</var> columns (<span class="SimpleMath">\(\textit{b}+1\)</span> columns when <var class="Arg">rep</var> is <code class="code">true</code>) is constructed as follows. The row containing the origin is</p>

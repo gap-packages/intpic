@@ -6,7 +6,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
 <head>
 <script type="text/javascript"
-  src="http://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
 </script>
 <title>GAP (IntPic) - Chapter 6: 
     Usage of IntPic in connection with the numericalsgps package
@@ -59,7 +59,7 @@
 
 <h5>6.1-1 <span class="Heading">Tikz code for drawing numerical semigroups</span></h5>
 
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; TikzCodeForNumericalSemigroup</code>( <var class="Arg">arg</var> )</td><td class="tdright">( function )</td></tr></table></div>
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; TikzCodeForNumericalSemigroup</code>( <var class="Arg">arg</var> )</td><td class="tdright">(&nbsp;function&nbsp;)</td></tr></table></div>
 <p>The arguments (at most 4) are:</p>
 
 <ol>
@@ -73,7 +73,10 @@
 <li><p>lists of integers <em>or</em></p>
 
 </li>
-<li><p>one of the strings "pseudo_frobenius", "small_elements", "min_generators", "frobenius_number", "conductor", "special_gaps", "fundamental_gaps" (the default: used when no list is present) <em>or</em></p>
+<li><p>one of the strings "pseudo_frobenius", "min_generators", "frobenius_number", "conductor", "special_gaps", "fundamental_gaps", "small_elements" (the default: used when no list is present) <em>or</em></p>
+
+</li>
+<li><p>the string "ns_table" (the drawing obtained is a table whose top row corresponds to the threshold interval</p>
 
 </li>
 </ul>
@@ -116,6 +119,18 @@
 
 <p><br><center><img src="../images/ip_splash_tikz_NS.jpg"></center><br></p>
 
+
+<div class="example"><pre>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">ns := NumericalSemigroup(7,11,38,41);;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">tkz := TikzCodeForNumericalSemigroup(ns,rec(ns_table:=true,colors:=["blue",</span>
+<span class="GAPprompt">&gt;</span> <span class="GAPinput">"red!70", "-red", "black!40"]));;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IP_Splash(tkz);</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">tkz := TikzCodeForNumericalSemigroup(ns,rec(ns_table:=true));;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IP_Splash(tkz);</span>
+</pre></div>
+
+<p><br><center><img src="../images/ip_splash_tikz_NS_table.jpg"></center><br> <br><center><img src="../images/ip_splash_tikz_NS_table_default.jpg"></center><br></p>
+
 <p><a id="X7BF14BF082E52625" name="X7BF14BF082E52625"></a></p>
 
 <h4>6.2 <span class="Heading">Drawing sets of numerical semigroups</span></h4>
@@ -124,7 +139,7 @@
 
 <h5>6.2-1 <span class="Heading">Set of numerical semigroups</span></h5>
 
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; SetOfNumericalSemigroups</code>( <var class="Arg">arg</var> )</td><td class="tdright">( function )</td></tr></table></div>
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; SetOfNumericalSemigroups</code>( <var class="Arg">arg</var> )</td><td class="tdright">(&nbsp;function&nbsp;)</td></tr></table></div>
 <p>This function is used to produce lists of numerical semigroups with a fixed genus or Frobenius number. They are filtered and ordered according to some criteria.</p>
 
 <p>The argument is a record of options:</p>
@@ -142,23 +157,14 @@
 </ol>
 
 <div class="example"><pre>
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">SetOfNumericalSemigroups(rec(set:=rec(genus:=6),filter:=rec(type:= 2),</span>
-<span class="GAPprompt">&gt;</span> <span class="GAPinput">order:="multiplicity"));</span>
-[ &lt;Numerical semigroup with 3 generators&gt;, 
-  &lt;Numerical semigroup with 3 generators&gt;, 
-  &lt;Numerical semigroup with 4 generators&gt;, 
-  &lt;Numerical semigroup with 5 generators&gt;, 
-  &lt;Numerical semigroup with 5 generators&gt;, 
-  &lt;Numerical semigroup with 6 generators&gt; ]
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">SetOfNumericalSemigroups(rec(set:=rec(genus:=6),filter:=rec(type:= 2),</span>
-<span class="GAPprompt">&gt;</span> <span class="GAPinput">order:="frobenius"));                                                 </span>
-[ &lt;Numerical semigroup with 3 generators&gt;, 
-  &lt;Numerical semigroup with 5 generators&gt;, 
-  &lt;Numerical semigroup with 5 generators&gt;, 
-  &lt;Numerical semigroup with 3 generators&gt;, 
-  &lt;Numerical semigroup with 4 generators&gt;, 
-  &lt;Numerical semigroup with 6 generators&gt; ]
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">List(last,MinimalGeneratingSystem);</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">ls := SetOfNumericalSemigroups(rec(set:=rec(genus:=6),filter:=rec(type:= 2),</span>
+order:="multiplicity"));;
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">List(ls,MinimalGenerators);</span>
+[ [ 3, 8, 13 ], [ 3, 10, 11 ], [ 4, 7, 9 ], [ 5, 6, 7 ], [ 5, 6, 8 ], 
+  [ 6, 7, 8, 9, 11 ] ]
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">ls := SetOfNumericalSemigroups(rec(set:=rec(genus:=6),filter:=rec(type:= 2),</span>
+order:="frobenius"));;
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">List(ls,MinimalGenerators);</span>
 [ [ 3, 10, 11 ], [ 5, 6, 7 ], [ 5, 6, 8 ], [ 3, 8, 13 ], [ 4, 7, 9 ], 
   [ 6, 7, 8, 9, 11 ] ]
 </pre></div>
@@ -167,7 +173,7 @@
 
 <h5>6.2-2 <span class="Heading">Draw a set of numerical semigroups</span></h5>
 
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; DrawSetOfNumericalSemigroups</code>( <var class="Arg">arg</var> )</td><td class="tdright">( function )</td></tr></table></div>
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; DrawSetOfNumericalSemigroups</code>( <var class="Arg">arg</var> )</td><td class="tdright">(&nbsp;function&nbsp;)</td></tr></table></div>
 <p>Produces a single image from the images of a set of numerical semigroups.</p>
 
 <p>The arguments (at most 3) are:</p>

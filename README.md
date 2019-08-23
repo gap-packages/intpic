@@ -1,15 +1,19 @@
-# intpic
-IntPic is a GAP package that provides a simple way of getting a pictorial view of sets of integers 
-==================================================================================================
+[![Build Status](https://travis-ci.com/gap-packages/intpic.svg?branch=master)](https://travis-ci.com/gap-packages/intpic)
+[![Code Coverage](https://codecov.io/github/gap-packages/intpic/coverage.svg?branch=master&token=)](https://codecov.io/gh/gap-packages/intpic)
+
+IntPic
+======
+
+`IntPic` is a GAP package that provides a simple way of getting a pictorial view of sets of integers.
 
 Introduction
 ------------
 
-This is release 0.2.3 of the package `IntPic'.  The aim of the package is to
+The aim of the package is to
 help visualising sets of integers and to create publication quality pictures
 of these sets. 
 
-There is a manual in the sub-directory 'doc' written using the GAP package
+There is a manual in the sub-directory `doc` written using the GAP package
 gapdoc which contains several examples illustrating its usage. In particular,
 it is illustrated how the pictures produced (either the tizk code or the
 pictures in pdf) can b eeasily included in a LaTeX document.
@@ -24,9 +28,10 @@ Contents
 --------
 With this version you should have obtained the following files and
 directories:
+
 | File/directory | Description |
 |:-----|:------|
-|README |   this file|
+|README.md |   this file|
 |EXAMPLES|	some examples|
 |CHANGELOG|	changelog|
 |LICENSE|	Licensing information|
@@ -55,7 +60,7 @@ with the main GAP archive, check the package Web page
 
 For the development version, please visit the repository in GitHub (https://github.com/gap-packages/intpic/)
 
-You may get `IntPic' as a compressed tar archive (file name ends with
+You may get `IntPic` as a compressed tar archive (file name ends with
 .tar.gz). Use the appropriate command on your system to unpack the
 archive.
 
@@ -68,21 +73,20 @@ or, if tar on your system does not understand the option z, by
     gunzip intpic-<version>.tar.gz
     tar xf intpic-<version>.tar
 
-which will in each case unpack the code into a directory 'intpic'
+which will in each case unpack the code into a directory `intpic`
 in the current directory. We assume that the current directory is the
 directory /usr/local/lib/gap4r8/pkg/.
 
 Installation
 ------------
 
-
 You may have to start GAP with the -l option, for instance,
 
-gap -l "/usr/local/lib/gap4r8"
+    gap -l "/usr/local/lib/gap4r8"
 
 Then try the following
 
-LoadPackage( "intpic" );
+    LoadPackage( "intpic" );
 
 Good luck!
 If the load has been successful the package banner will be shown.
@@ -91,13 +95,13 @@ If the load has been successful the package banner will be shown.
 If you use a LINUX system, you may want to, in order to save typing, write
 aliases:
 
-in the file `.bash_aliases' (or something equivalent, maybe with another syntax):
+in the file `.bash_aliases` (or something equivalent, maybe with another syntax):
 
-alias gap='gap -l "/usr/local/lib/gap4r8;"'
+    alias gap='gap -l "/usr/local/lib/gap4r8;"'
 
-and in the file `.gap/gaprc'
+and in the file `.gap/gaprc`
 
-LoadPackage( "intpic" );
+    LoadPackage( "intpic" );
 
 ----------
 
@@ -108,5 +112,5 @@ In other systems, there are equivalent ways to do the same.
 IntPic is free software you can redistribute it and/or modify it
 under the terms of the GNU General Public License as published by the
 Free Software Foundation; either version 2 of the License, or (at your
-option) any later version. For details, see the file 'GPL' in the
-'etc' directory of the GAP distribution or see the FSF's own site.
+option) any later version. For details, see the file `GPL` distributed
+as part of this package or see the FSF's own site.

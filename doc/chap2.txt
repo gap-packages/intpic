@@ -15,7 +15,7 @@
   
   [1X2.1-1 [33X[0;0YTikz code for arrays of integers[133X[101X
   
-  [29X[2XIP_TikzArrayOfIntegers[102X( [3Xarg[103X ) [32X function
+  [33X[1;0Y[29X[2XIP_TikzArrayOfIntegers[102X( [3Xarg[103X ) [32X function[133X
   
   [33X[0;0YThe arguments (at most 3) are:[133X
   
@@ -94,7 +94,7 @@
   
   [1X2.1-2 [33X[0;0YTikz code for arrays, in a simplified way[133X[101X
   
-  [29X[2XIP_SimpleTikzArrayOfIntegers[102X( [3Xarg[103X ) [32X function
+  [33X[1;0Y[29X[2XIP_SimpleTikzArrayOfIntegers[102X( [3Xarg[103X ) [32X function[133X
   
   [33X[0;0YThe  argument  is  either  a  list  of integers or a matrix of integers. The
   integers  involved  are  embeded  in  a  range  [3Xrg[103X  of  minimum  length  and
@@ -125,7 +125,7 @@
   
   [1X2.2-1 IP_TableWithModularOrder[101X
   
-  [29X[2XIP_TableWithModularOrder[102X( [3Xo[103X, [3Xa[103X, [3Xb[103X, [3Xdepth[103X, [3Xheight[103X, [3Xrep[103X, [3Xpos[103X ) [32X function
+  [33X[1;0Y[29X[2XIP_TableWithModularOrder[102X( [3Xo[103X, [3Xa[103X, [3Xb[103X, [3Xdepth[103X, [3Xheight[103X, [3Xrep[103X, [3Xpos[103X ) [32X function[133X
   
   [33X[0;0YThe  arguments  [3Xrep[103X  and  [3Xpos[103X are booleans ([10Xtrue[110X or [10Xfalse[110X). When [3Xrep[103X is [10Xtrue[110X
   there  is some repetition: the last column is equal to the first, but pushed

@@ -175,7 +175,7 @@
     [4X\begin{center}[104X
     [4X\input{../images/tikz_pic_for_complete_document.tex}[104X
     [4X\end{center}[104X
-    [4XIf you want to scale this immage, please chang the ``scale'' in the file[104X
+    [4XIf you want to scale this image, please chang the ``scale'' in the file[104X
     [4X\textt{tikz_pic_for_complete_document.tex} [104X
     [4X%\end{preview}[104X
     [4X\end{document}[104X

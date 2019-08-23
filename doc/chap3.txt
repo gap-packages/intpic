@@ -128,7 +128,7 @@
   
   [1X3.4-1 [33X[0;0YShuffle colors from lists of colors[133X[101X
   
-  [29X[2XShuffleIP_Colors[102X( [3Xmat[103X ) [32X function
+  [33X[1;0Y[29X[2XShuffleIP_Colors[102X( [3Xmat[103X ) [32X function[133X
   
   [33X[0;0YThe argument [3Xmat[103X is a list of lists of colors of the same length. The output
   is obtained by concatenating the transposed of [3Xmat[103X.[133X

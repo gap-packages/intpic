@@ -7,8 +7,9 @@ SetPackageInfo( rec(
 
 PackageName := "IntPic",
 Subtitle := "A package for drawing integers",
-Version := "0.2.3",
-Date := "14/09/2017",
+Version := "0.2.4",
+Date := "23/08/2019", # dd/mm/yyyy format
+License := "GPL-2.0-or-later",
         
 ##  Information about authors and maintainers.
 Persons := [
@@ -36,7 +37,7 @@ SourceRepository := rec(
 ),
 IssueTrackerURL := Concatenation( ~.SourceRepository.URL, "/issues" ),
 PackageWWWHome  := "https://gap-packages.github.io/intpic",
-README_URL      := Concatenation( ~.PackageWWWHome, "/README" ),
+README_URL      := Concatenation( ~.PackageWWWHome, "/README.md" ),
 PackageInfoURL  := Concatenation( ~.PackageWWWHome, "/PackageInfo.g" ),
 ArchiveURL      := Concatenation( ~.SourceRepository.URL,
                                  "/releases/download/v", ~.Version,
@@ -77,7 +78,7 @@ BannerString := Concatenation(
   "For help, type: ?IntPic;\n",
   "----------------------------------------------------------------\n" ),
 
-TestFile := "tst/testall.tst",
+TestFile := "tst/testall.g",
 
 Keywords := ["emphasize", "highlight", "draw", "integer", "picture"]
 
