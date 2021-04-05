@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.com/gap-packages/intpic.svg?branch=master)](https://travis-ci.com/gap-packages/intpic)
+[![Build Status](https://github.com/gap-packages/intpic/workflows/CI/badge.svg?branch=master)](https://github.com/gap-packages/intpic/actions?query=workflow%3ACI+branch%3Amaster)
 [![Code Coverage](https://codecov.io/github/gap-packages/intpic/coverage.svg?branch=master&token=)](https://codecov.io/gh/gap-packages/intpic)
 
 IntPic
