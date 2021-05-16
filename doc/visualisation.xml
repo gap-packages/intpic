@@ -282,15 +282,15 @@ gap> tkz := IP_TikzArrayOfIntegers(flen,rec(colors := cls,highlights:=arr));;
     </Subsection>
     <Subsection>
       <Heading>The banner</Heading>
-      The code in the following example has been used to produce one possible banner for the homepage of the &IntPic; package. It is a nice picture that gives an idea about the primes less than <M>10000</M>. Of course, other ranges could have been chosen. I warn the user that pictures involving a large amount of data may face the problem of exceeding &TeX; capacity...
+      The code in the following example has been used to produce one possible banner for the homepage of the &IntPic; package. It is a nice picture that gives an idea about the primes less than <M>5000</M>. Of course, other ranges could have been chosen. I warn the user that pictures involving a large amount of data may face the problem of exceeding &TeX; capacity...
       <Example><![CDATA[
-gap> row_length := 200;; # the legth of each row
-gap> columns := 50;; # the number of colums
-gap> n := row_length*columns;
-10000
-gap> 
+
+gap> row_length := 100;; # the maximum length of a row
+gap> nrows := 50;; # the number of rows
+gap> n := row_length*nrows;
+5000
 gap> ##compute the primes less than n
-gap> # Primes is a GAP variable representing the list of primes less than 1000
+gap> # Primes is a GAP variable representing the list of primes less than n
 gap> mp := Maximum(Primes);
 997
 gap> newprimes := [];;
@@ -301,13 +301,10 @@ gap> while mp < n do
 gap> small_primes := Union(Primes, newprimes);;
 gap> ##compute the first element of each pair of twin primes less than n
 gap> twins := Filtered(small_primes, p -> IsPrime(p+2));;
-gap> 
 gap> rg := [1..n];;
-gap> 
 gap> arr := [Intersection(small_primes,rg),[],[], 
 >         Intersection(Union(twins,twins+2),rg),[],[],[],[],[],[],[],
 >         [],[],[],[],[],[],Difference(rg,small_primes)];;
-gap> 
 gap> tkz:=IP_TikzArrayOfIntegers([1..n],row_length,rec(highlights:=arr,
 >              cell_width := "6",colsep:="0",rowsep:="0",inner_sep:="2",
 >              shape_only:=" ",line_width:="0",line_color:="black!20" ));;
