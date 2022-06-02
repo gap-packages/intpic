@@ -731,6 +731,28 @@ line width=0pt,draw=black}]
 
 ## routines_for_NS.xml ##
 
+gap> ns := NumericalSemigroup(5,7);;                                               
+gap> tkz := TikzCodeForNumericalSemigroup(ns,["ns_table"],rec(negatives:=false));
+#I  In order to highlight some element, please use a list with one or more of the options given as strings: pseudo_frobenius, min_generators, frobenius_number, conductor, special_gaps, fundamental_gaps, small_elements
+
+"%tikz\n\\begin{tikzpicture}[every node/.style={draw,scale=1pt,\nminimum width\
+=20pt,inner sep=3pt,\nline width=0pt,draw=black}]\n\\matrix[row sep=2pt,column\
+ sep=2pt]\n{\\node[]{24};&\n\\node[]{25};&\n\\node[]{26};&\n\\node[]{27};&\n\\\
+node[]{28};\\\\\n\\node[]{19};&\n\\node[]{20};&\n\\node[]{21};&\n\\node[]{22};\
+&\n\\node[]{23};\\\\\n\\node[]{14};&\n\\node[]{15};&\n\\node[]{16};&\n\\node[]\
+{17};&\n\\node[]{18};\\\\\n\\node[]{9};&\n\\node[]{10};&\n\\node[]{11};&\n\\no\
+de[]{12};&\n\\node[]{13};\\\\\n\\node[]{4};&\n\\node[]{5};&\n\\node[]{6};&\n\\\
+node[]{7};&\n\\node[]{8};\\\\\n&\n\\node[]{0};&\n\\node[]{1};&\n\\node[]{2};&\
+\n\\node[]{3};\\\\\n};\n\\end{tikzpicture}\n"
+
+gap> tkz := TikzCodeForNumericalSemigroup(ns,["small_elements"],rec(ns_table := true,negatives:=false)); 
+"%tikz\n\\begin{tikzpicture}[every node/.style={draw,scale=1pt,\nminimum width=20pt,inner sep=3pt,\nline width=0pt,draw=black}]\n\\matr\
+ix[row sep=2pt,column sep=2pt]\n{\\node[fill=red]{24};&\n\\node[fill=red]{25};&\n\\node[fill=red]{26};&\n\\node[fill=red]{27};&\n\\node\
+[fill=red]{28};\\\\\n\\node[fill=red]{19};&\n\\node[fill=red]{20};&\n\\node[fill=red]{21};&\n\\node[fill=red]{22};&\n\\node[]{23};\\\\\
+\n\\node[fill=red]{14};&\n\\node[fill=red]{15};&\n\\node[]{16};&\n\\node[fill=red]{17};&\n\\node[]{18};\\\\\n\\node[]{9};&\n\\node[fill\
+=red]{10};&\n\\node[]{11};&\n\\node[fill=red]{12};&\n\\node[]{13};\\\\\n\\node[]{4};&\n\\node[fill=red]{5};&\n\\node[]{6};&\n\\node[fil\
+l=red]{7};&\n\\node[]{8};\\\\\n&\n\\node[fill=red]{0};&\n\\node[]{1};&\n\\node[]{2};&\n\\node[]{3};\\\\\n};\n\\end{tikzpicture}\n"
+
 gap> ns1 := NumericalSemigroup(3,5);;
 gap> TikzCodeForNumericalSemigroup(ns1,[[3,4],"pseudo_frobenius"],20);
 "%tikz\n\\begin{tikzpicture}[every node/.style={draw,scale=1pt,\nminimum width\
@@ -743,8 +765,9 @@ gap> TikzCodeForNumericalSemigroup(ns1,[[3,4],"pseudo_frobenius"],20);
 \n"
 
 gap> ns := NumericalSemigroup(7,11,38,41);;
-gap> tkz := TikzCodeForNumericalSemigroup(ns,rec(ns_table:=true,colors:=
-> ["blue", "red!70", "-red", "black!40"]));
+gap> options := ["conductor", "min_generators", "small_elements"];;
+gap> tkz := TikzCodeForNumericalSemigroup(ns,options,
+> rec(ns_table:=true,colors:=["blue", "red!70", "-red", "black!40"]));
 "%tikz\n\\begin{tikzpicture}[every node/.style={draw,scale=1pt,\nminimum width\
 =20pt,inner sep=3pt,\nline width=0pt,draw=black}]\n\\matrix[row sep=2pt,column\
  sep=2pt]\n{\\node[left color=blue,right color=red!70,middle color=-red]{38};&\
@@ -759,9 +782,11 @@ node[]{27};&\n\\node[fill=-red]{28};&\n\\node[fill=-red]{29};&\n\\node[]{30};\
 ]{10};&\n\\node[left color=red!70,right color=-red]{11};&\n\\node[]{12};&\n\\n\
 ode[]{13};&\n\\node[fill=-red]{14};&\n\\node[]{15};&\n\\node[]{16};\\\\\n\\nod\
 e[]{3};&\n\\node[]{4};&\n\\node[]{5};&\n\\node[]{6};&\n\\node[left color=red!7\
-0,right color=-red]{7};&\n\\node[]{8};&\n\\node[]{9};\\\\\n&\n&\n&\n&\n\\node[\
-fill=-red]{0};&\n\\node[]{1};&\n\\node[]{2};\\\\\n};\n\\end{tikzpicture}\n"
-gap> tkz := TikzCodeForNumericalSemigroup(ns,rec(ns_table:=true));
+0,right color=-red]{7};&\n\\node[]{8};&\n\\node[]{9};\\\\\n\\node[]{-4};&\n\\n\
+ode[]{-3};&\n\\node[]{-2};&\n\\node[]{-1};&\n\\node[fill=-red]{0};&\n\\node[]{\
+1};&\n\\node[]{2};\\\\\n};\n\\end{tikzpicture}\n"
+
+gap> tkz := TikzCodeForNumericalSemigroup(ns,options,rec(ns_table:=true));
 "%tikz\n\\begin{tikzpicture}[every node/.style={draw,scale=1pt,\nminimum width\
 =20pt,inner sep=3pt,\nline width=0pt,draw=black}]\n\\matrix[row sep=2pt,column\
  sep=2pt]\n{\\node[left color=red,right color=green,middle color=blue]{38};&\n\
@@ -776,8 +801,9 @@ ode[fill=blue]{21};&\n\\node[fill=blue]{22};&\n\\node[]{23};\\\\\n\\node[]{10}\
 ;&\n\\node[left color=green,right color=blue]{11};&\n\\node[]{12};&\n\\node[]{\
 13};&\n\\node[fill=blue]{14};&\n\\node[]{15};&\n\\node[]{16};\\\\\n\\node[]{3}\
 ;&\n\\node[]{4};&\n\\node[]{5};&\n\\node[]{6};&\n\\node[left color=green,right\
- color=blue]{7};&\n\\node[]{8};&\n\\node[]{9};\\\\\n&\n&\n&\n&\n\\node[fill=bl\
-ue]{0};&\n\\node[]{1};&\n\\node[]{2};\\\\\n};\n\\end{tikzpicture}\n"
+ color=blue]{7};&\n\\node[]{8};&\n\\node[]{9};\\\\\n\\node[]{-4};&\n\\node[]{-\
+3};&\n\\node[]{-2};&\n\\node[]{-1};&\n\\node[fill=blue]{0};&\n\\node[]{1};&\n\
+\\node[]{2};\\\\\n};\n\\end{tikzpicture}\n"
 
 gap> ls := SetOfNumericalSemigroups(rec(set:=rec(genus:=6),filter:=rec(type:= 2),order:="multiplicity"));;
 gap> List(ls,MinimalGenerators);

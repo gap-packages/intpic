@@ -36,11 +36,19 @@ InstallGlobalFunction(TikzCodeForNumericalSemigroup,
 
   options := ShallowCopy(First(arg, IsList));
   if options = fail then
-    options := ["small_elements"];
+    options := [];
   elif Length(options) > 1 and IsString(options) then
     options := [options];    
   fi;
   
+  allowed_options_list := ["pseudo_frobenius", "min_generators", "frobenius_number", "conductor", "special_gaps", "fundamental_gaps", "small_elements", "ns_table"];  
+  for o in options do
+    if IsString(o) and not (o in allowed_options_list) then
+      Info(InfoWarning,1,"The option ", o, " is perhaps mispelled and will be ignored\n");
+      #, unless it is the name of a function, it will cause an error to be signaled.");
+    fi;
+  od;
+
   if First(arg, a -> IsRecord(a)) <> fail then
     opt :=  StructuralCopy(First(arg, a -> IsRecord(a)));
     if not IsBound(opt.ns_table) then
@@ -52,25 +60,18 @@ InstallGlobalFunction(TikzCodeForNumericalSemigroup,
   else
     opt := rec(ns_table := false, colors := []);
   fi;
-  
 
-  #    Error(" ");
-
-  allowed_options_list := ["pseudo_frobenius", "min_generators", "frobenius_number", "conductor", "special_gaps", "fundamental_gaps", "small_elements"];  
-  for o in options do
-    if IsString(o) and not (o in allowed_options_list) then
-      Info(InfoWarning,1,"The option ", o, " is perhaps mispelled and will be ignored\n");
-      #, unless it is the name of a function, it will cause an error to be signaled.");
-    fi;
-  od;
-
+  if ("ns_table" in options) then
+    opt.ns_table := true;
+  fi;
+ 
   if opt.ns_table then
     q := CeilingOfRational(c/m);
     rho := q*m-c;
     list := [-rho .. c+m-1];
     ti := [c..c+m-1]; #threshold interval
     small := Union(small,ti);
-    array := [[c],gen];
+    array := [];
   else
     len := First(arg, IsInt);
     if len = fail then
@@ -80,6 +81,8 @@ InstallGlobalFunction(TikzCodeForNumericalSemigroup,
     small := Union(small, [c..flen]);
     array := [];
   fi;
+
+  #          Error("..");
   for o in options do
     if IsHomogeneousList(o) and IsInt(o[1]) then
       Add(array,o);
@@ -98,7 +101,6 @@ InstallGlobalFunction(TikzCodeForNumericalSemigroup,
     elif o = "fundamental_gaps" then
       Add(array, FundamentalGapsOfNumericalSemigroup(ns));
     elif IsRecord(o) then
-      #      Error("..");
 
       if IsBound(o.func) and IsFunction(EvalString(o.func)) then
         if IsBound(o.argument) then
@@ -125,12 +127,18 @@ InstallGlobalFunction(TikzCodeForNumericalSemigroup,
       fi;
     fi;
   od;
+  if array = [] then
+#    array := Union(small,ti);
+    Info(InfoWarning,1,"In order to highlight some element, please use a list with one or more of the options given as strings: ", "pseudo_frobenius, ", "min_generators, ", "frobenius_number, ", "conductor, ", "special_gaps, ", "fundamental_gaps, ", "small_elements\n");
+  fi;
   if opt.ns_table then
-    return IP_TikzArrayOfIntegers(list,m,rec(highlights:=array,negatives:=false,colors := opt.colors));
-  else
-    flen := Maximum(len,Maximum(Flat(array)));
-    return IP_TikzArrayOfIntegers([0..flen],len+1,rec(highlights:=array,colors := opt.colors));
-  fi;  
+    if IsBound(opt.negatives) then
+      return IP_TikzArrayOfIntegers(list,m,rec(highlights:=array,negatives:=opt.negatives,colors := opt.colors));
+    fi;
+    return IP_TikzArrayOfIntegers(list,m,rec(highlights:=array,colors := opt.colors));
+  fi;
+  flen := Maximum(len,Maximum(Flat(array)));
+  return IP_TikzArrayOfIntegers([0..flen],len+1,rec(highlights:=array,colors := opt.colors));
 end);
 
 

@@ -18,7 +18,7 @@ We found it particularly usefull to gain intuition that led to the obtention of 
         <Item>(optional) a list whose elements are either<List>
            <Item>lists of integers <Emph>or</Emph> </Item>
            <Item>one of the strings "pseudo_frobenius", "min_generators", "frobenius_number", "conductor", "special_gaps", "fundamental_gaps", "small_elements" (the default: used when no list is present) <Emph>or</Emph> </Item>
-	   <Item> the string "ns_table" (the drawing obtained is a table whose top row corresponds to the threshold interval; as a side effect, if it is turned to "true", negative integers are not printed.)</Item>
+	   <Item> the string "ns_table" (the drawing obtained is a table whose top row corresponds to the threshold interval; as a side effect, if it is turned to "true", negative integers are not printed); alternatively, the option can be given in the usual way: <C>rec(ns_table := true)</C></Item>
           </List>
         </Item>
         <Item>a record whose fields are<List>
@@ -30,6 +30,37 @@ We found it particularly usefull to gain intuition that led to the obtention of 
         </Enum>
       </Description>
     </ManSection>
+    <Example><![CDATA[
+gap> ns := NumericalSemigroup(5,7);;                                               
+gap> tkz := TikzCodeForNumericalSemigroup(ns,["ns_table"],rec(negatives:=false));
+#I  In order to highlight some element, please use a list with one or more of the 
+options given as strings: pseudo_frobenius, min_generators, frobenius_number, 
+conductor, special_gaps, fundamental_gaps, small_elements
+
+"%tikz\n\\begin{tikzpicture}[every node/.style={draw,scale=1pt,\nminimum width\
+=20pt,inner sep=3pt,\nline width=0pt,draw=black}]\n\\matrix[row sep=2pt,column\
+ sep=2pt]\n{\\node[]{24};&\n\\node[]{25};&\n\\node[]{26};&\n\\node[]{27};&\n\\\
+node[]{28};\\\\\n\\node[]{19};&\n\\node[]{20};&\n\\node[]{21};&\n\\node[]{22};\
+&\n\\node[]{23};\\\\\n\\node[]{14};&\n\\node[]{15};&\n\\node[]{16};&\n\\node[]\
+{17};&\n\\node[]{18};\\\\\n\\node[]{9};&\n\\node[]{10};&\n\\node[]{11};&\n\\no\
+de[]{12};&\n\\node[]{13};\\\\\n\\node[]{4};&\n\\node[]{5};&\n\\node[]{6};&\n\\\
+node[]{7};&\n\\node[]{8};\\\\\n&\n\\node[]{0};&\n\\node[]{1};&\n\\node[]{2};&\
+\n\\node[]{3};\\\\\n};\n\\end{tikzpicture}\n"
+]]></Example>
+    <Example><![CDATA[
+gap> tkz := TikzCodeForNumericalSemigroup(ns,["small_elements"],
+> rec(ns_table := true,negatives:=false));;]]></Example>
+    <Alt Only="LaTeX">
+      The following images are obtained from the tikz code above.
+      
+        \includegraphics[width=0.45\textwidth]{../images/ip_5-7-white.pdf}
+	\hfill
+        \includegraphics[width=0.45\textwidth]{../images/ip_5-7-smalls.pdf}
+      </Alt>
+      <Alt Only="HTML">
+        &#60;br&#62;&#60;center&#62;&#60;img src=&#34;../images/ip_5-7-white.jpg&#34;&#62;&#60;/center&#62;&#60;br&#62;
+        &#60;br&#62;&#60;center&#62;&#60;img src=&#34;../images/ip_5-7-smalls.jpg&#34;&#62;&#60;/center&#62;&#60;br&#62;
+      </Alt>
     <Example><![CDATA[
 gap> ns1 := NumericalSemigroup(3,5);;
 gap> TikzCodeForNumericalSemigroup(ns1,[[3,4],"pseudo_frobenius"],20);
@@ -56,10 +87,11 @@ gap> IP_Splash(TikzCodeForNumericalSemigroup(NumericalSemigroup(7,13,19,23),
       </Alt>
     <Example><![CDATA[
 gap> ns := NumericalSemigroup(7,11,38,41);;
-gap> tkz := TikzCodeForNumericalSemigroup(ns,rec(ns_table:=true,colors:=["blue",
-> "red!70", "-red", "black!40"]));;
+gap> options := ["conductor", "min_generators", "small_elements"];;
+gap> tkz := TikzCodeForNumericalSemigroup(ns,options,
+> rec(ns_table:=true,colors:=["blue", "red!70", "-red", "black!40"]));;
 gap> IP_Splash(tkz);
-gap> tkz := TikzCodeForNumericalSemigroup(ns,rec(ns_table:=true));;
+gap> tkz := TikzCodeForNumericalSemigroup(ns,options,rec(ns_table:=true));;
 gap> IP_Splash(tkz);
 ]]></Example>
       <Alt Only="LaTeX">
