@@ -130,7 +130,7 @@ rec( allow_adjust_cell_width := "10", cell_width := "30",
       </Section>
       <Section>
       <Heading>Ilustrating the use of options</Heading>
-      The next example illustrates the use of the option <C>integers</C>. The images produced are shown below.
+      The next example illustrates the use of the option <C>negatives</C>. The images produced are shown below.
       <Example><![CDATA[
 gap> rg := [-5..23];;
 gap> len := 10;;  
