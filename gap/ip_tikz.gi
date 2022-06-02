@@ -102,8 +102,8 @@ InstallGlobalFunction(IP_TikzArrayOfIntegers,
         Add(node,h);
       fi;
     od;
-    if opt.shape_only <> "false" then
-      node[1] := opt.shape_only;
+    if opt.shape_only then
+      node[1] := "";
     fi;
 
     rg[i] := node;
@@ -135,7 +135,8 @@ InstallGlobalFunction(IP_TikzArrayOfIntegers,
 
   for floor in table do
     for nd in floor do
-      if Length(nd) = 1 and nd[1] < 0 and opt.ns_table then
+#    Error("..");
+      if Length(nd) = 1 and nd[1] < 0 and (not opt.negatives) then
         Append(tikzstring,"&\n");
       else
         Append(tikzstring,"\\node[");

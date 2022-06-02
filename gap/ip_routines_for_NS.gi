@@ -126,7 +126,7 @@ InstallGlobalFunction(TikzCodeForNumericalSemigroup,
     fi;
   od;
   if opt.ns_table then
-    return IP_TikzArrayOfIntegers(list,m,rec(highlights:=array,ns_table:=true,colors := opt.colors));
+    return IP_TikzArrayOfIntegers(list,m,rec(highlights:=array,negatives:=false,colors := opt.colors));
   else
     flen := Maximum(len,Maximum(Flat(array)));
     return IP_TikzArrayOfIntegers([0..flen],len+1,rec(highlights:=array,colors := opt.colors));

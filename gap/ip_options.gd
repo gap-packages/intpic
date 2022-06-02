@@ -10,7 +10,7 @@ BindGlobal("IP_TikzDefaultOptionsForArraysOfIntegers",
                       #used for the background; the number may be printed with
                       #a fourth color and a fifth color may be used in the
                       #border. 
-           shape_only := "false",
+           shape_only := false,
                       #an option to be used when only the shape is important
                       #when "true" is used, the nodes are empty; using a 
                       #symbol, for instance a "*", the nodes are filled 
@@ -31,7 +31,8 @@ BindGlobal("IP_TikzDefaultOptionsForArraysOfIntegers",
            inner_sep := "3", #inner sep
            line_width := "0", # line width
            line_color := "black", # draw (the color of the cell borders)
-           ns_table := "false", # to draw numerical semigroups as tables, the highest row correspondig to the threshold interval           
+#           ns_table := false, # to draw numerical semigroups as tables, the highest row correspondig to the threshold interval
+           negatives := true, #to write the negative numbers
            #####other#####           
            other := [] 
                       #if non empty, the complete tikz code has to be written
