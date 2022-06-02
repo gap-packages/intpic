@@ -8,10 +8,18 @@
 #############################################################################
 ##
 =============
+ Version 0.2.4 dev  (//2022)
+=============
+ - test file updated
+ - added the default option "negatives"
+ - fixed a bug caused by the use of "ns_table" in a part of the code not specifically dedicated to numerical semigroups; the option "negatives" is used instead
+ - manual updated (with illustrations of use of the "negatives" option)
+	
+=============
  Version 0.2.4  (23/8/2019)
 =============
  - test file updated
- - added the option "ns_table" to the functions "TikzCodeForNumericalSemigroup" and "IP_TikzArrayOfIntegers" to make drawings of numerical semigroups as tables with the threshold interval in the to row
+ - added the option "ns_table" to the functions "TikzCodeForNumericalSemigroup" and "IP_TikzArrayOfIntegers" to make drawings of numerical semigroups as tables with the threshold interval in the top row
  - manual updated (with illustrations of use of the "ns_table" option)
 
 =============

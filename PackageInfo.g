@@ -7,7 +7,8 @@ SetPackageInfo( rec(
 
 PackageName := "IntPic",
 Subtitle := "A package for drawing integers",
-Version := "0.2.4",
+#Version := "0.2.4",
+Version := "0.2.4 dev",
 Date := "23/08/2019", # dd/mm/yyyy format
 License := "GPL-2.0-or-later",
         
