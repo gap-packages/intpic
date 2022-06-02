@@ -158,7 +158,7 @@ gap> tkz:=IP_TikzArrayOfIntegers(table,rec(highlights:=arr));;
 
 #gap> IP_Splash(tkz);;
 
-gap> tkz:=IP_TikzArrayOfIntegers(table,rec(highlights:=arr,shape_only:=" ",
+gap> tkz:=IP_TikzArrayOfIntegers(table,rec(highlights:=arr,shape_only:=true,
 >              cell_width := "6",colsep:="1",rowsep:="1",inner_sep:="2",
 >              line_color:="black!20"));;
 
@@ -455,7 +455,7 @@ gap> arr := [xaxis,yaxis,ground];
       363, 371, 379, 387, 395 ], 
   [ 99, 118, 137, 156, 175, 194, 213, 232, 251, 270, 289 ], [ 251 .. 269 ] ]
 gap> tkz:=IP_TikzArrayOfIntegers(table,rec(highlights:=arr));;
-gap> tkz:=IP_TikzArrayOfIntegers(table,rec(highlights:=arr,shape_only:=" ",
+gap> tkz:=IP_TikzArrayOfIntegers(table,rec(highlights:=arr,shape_only:=true,
 >              cell_width := "6",colsep:="1",rowsep:="1",inner_sep:="2",
 >              line_color:="black!20"));;
 
@@ -622,14 +622,14 @@ gap> arr := [Intersection(small_primes,rg),[],[],
 gap> 
 gap> tkz:=IP_TikzArrayOfIntegers([1..n],row_length,rec(highlights:=arr,
 >              cell_width := "6",colsep:="0",rowsep:="0",inner_sep:="2",
->              shape_only:=" ",line_width:="0",line_color:="black!20" ));;
+>              shape_only:=true,line_width:="0",line_color:="black!20" ));;
 
 ## options.xml ##
 
 gap> RecNames(IP_TikzDefaultOptionsForArraysOfIntegers);
 [ "other", "colors", "highlights", "shape_only", "colsep", "rowsep", 
   "cell_width", "allow_adjust_cell_width", "scale", "inner_sep", 
-  "line_width", "line_color", "ns_table" ]
+  "line_width", "line_color", "negatives" ]
 
 gap> IP_TikzDefaultOptionsForArraysOfIntegers;
 rec( allow_adjust_cell_width := "10", cell_width := "30", 
@@ -643,8 +643,91 @@ rec( allow_adjust_cell_width := "10", cell_width := "30",
       "-red!80!blue!60", "-green!80!blue!60", "-blue!80!green!60", 
       "black!40", "black!10" ], colsep := "2", highlights := [ [  ] ], 
   inner_sep := "3", line_color := "black", line_width := "0", 
-  ns_table := "false", other := [  ], rowsep := "2", scale := "1", 
-  shape_only := "false" )
+  negatives := true, other := [  ], rowsep := "2", 
+  scale := "1", shape_only := false )
+
+gap> rg := [-5..23];;
+gap> len := 10;;  
+gap> hg := rec();;                                        
+gap> hg.highlights:=[[2,3,5,7],[11,13,17,19],[23]];; 
+gap> tkz := IP_TikzArrayOfIntegers(rg,len,hg);;
+gap> Print(tkz);
+%tikz
+\begin{tikzpicture}[every node/.style={draw,scale=1pt,
+minimum width=20pt,inner sep=3pt,
+line width=0pt,draw=black}]
+\matrix[row sep=2pt,column sep=2pt]
+{\node[]{15};&
+\node[]{16};&
+\node[fill=green]{17};&
+\node[]{18};&
+\node[fill=green]{19};&
+\node[]{20};&
+\node[]{21};&
+\node[]{22};&
+\node[fill=blue]{23};\\
+\node[fill=red]{5};&
+\node[]{6};&
+\node[fill=red]{7};&
+\node[]{8};&
+\node[]{9};&
+\node[]{10};&
+\node[fill=green]{11};&
+\node[]{12};&
+\node[fill=green]{13};&
+\node[]{14};\\
+\node[]{-5};&
+\node[]{-4};&
+\node[]{-3};&
+\node[]{-2};&
+\node[]{-1};&
+\node[]{0};&
+\node[]{1};&
+\node[fill=red]{2};&
+\node[fill=red]{3};&
+\node[]{4};\\
+};
+\end{tikzpicture}
+gap> #IP_Splash(tkz);
+gap> hg.negatives:=false;;
+gap> tkz := IP_TikzArrayOfIntegers(rg,len,hg);;
+gap> Print(tkz);
+%tikz
+\begin{tikzpicture}[every node/.style={draw,scale=1pt,
+minimum width=20pt,inner sep=3pt,
+line width=0pt,draw=black}]
+\matrix[row sep=2pt,column sep=2pt]
+{\node[]{15};&
+\node[]{16};&
+\node[fill=green]{17};&
+\node[]{18};&
+\node[fill=green]{19};&
+\node[]{20};&
+\node[]{21};&
+\node[]{22};&
+\node[fill=blue]{23};\\
+\node[fill=red]{5};&
+\node[]{6};&
+\node[fill=red]{7};&
+\node[]{8};&
+\node[]{9};&
+\node[]{10};&
+\node[fill=green]{11};&
+\node[]{12};&
+\node[fill=green]{13};&
+\node[]{14};\\
+&
+&
+&
+&
+&
+\node[]{0};&
+\node[]{1};&
+\node[fill=red]{2};&
+\node[fill=red]{3};&
+\node[]{4};\\
+};
+\end{tikzpicture}
 
 ## routines_for_NS.xml ##
 
@@ -817,11 +900,188 @@ gap> arr := [xaxis,yaxis,ground];
 [ [ 251, 259, 267, 275, 283, 291, 299, 307, 315, 323, 331, 339, 347, 355, 363, 371, 379, 
       387, 395 ], [ 99, 118, 137, 156, 175, 194, 213, 232, 251, 270, 289 ], [ 251 .. 269 ] 
  ]
-gap> tkz:=IP_TikzArrayOfIntegers(table,rec(highlights:=arr,shape_only:=" ",
+gap> tkz:=IP_TikzArrayOfIntegers(table,rec(highlights:=arr,shape_only:=true,
 >              cell_width := "6",colsep:="1",rowsep:="1",inner_sep:="2",
 >              line_color:="black!20", other := 
 >   ["\\draw[postaction={draw,line width=1pt,red}] (-80pt,-8pt) rectangle (16pt,40pt);",
 >   "\\draw[postaction={draw,line width=1pt,blue}] (-16pt,8pt) rectangle (80pt,-40pt);"]));;
+
+#############################################################################
+#############################################################################
+# Examples from the paper "Conjecture of Wilf: a survey"
+#
+gap> ns := NumericalSemigroup(12, 19, 20, 22, 23, 26, 27, 28, 29);;
+gap> cls := [ "blue","-red","red!70", "black!40" ];
+[ "blue", "-red", "red!70", "black!40" ]
+gap> P := MinimalGenerators(ns);
+[ 12, 19, 20, 22, 23, 26, 27, 28, 29 ]
+gap> m := Multiplicity(ns);
+12
+gap> c := Conductor(ns);
+38
+gap> q := CeilingOfRational(c/m);
+4
+gap> rho := q*m-c;
+10
+gap> list := [-rho .. c+m-1];
+[ -10 .. 49 ]
+gap> ti := [c..c+m-1];
+[ 38 .. 49 ]
+gap> importants := Union(SmallElements(ns),ti);
+[ 0, 12, 19, 20, 22, 23, 24, 26, 27, 28, 29, 31, 32, 34, 35, 36, 38, 39, 40, 
+  41, 42, 43, 44, 45, 46, 47, 48, 49 ]
+gap> options := rec(colors := cls,highlights:=[[c],importants,P]);
+rec( colors := [ "blue", "-red", "red!70", "black!40" ], 
+  highlights := 
+    [ [ 38 ], 
+      [ 0, 12, 19, 20, 22, 23, 24, 26, 27, 28, 29, 31, 32, 34, 35, 36, 38, 
+          39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49 ], 
+      [ 12, 19, 20, 22, 23, 26, 27, 28, 29 ] ] )
+gap> tkz := IP_TikzArrayOfIntegers(list,m,options);;
+gap> Print(tkz);
+%tikz
+\begin{tikzpicture}[every node/.style={draw,scale=1pt,
+minimum width=20pt,inner sep=3pt,
+line width=0pt,draw=black}]
+\matrix[row sep=2pt,column sep=2pt]
+{\node[left color=blue,right color=-red]{38};&
+\node[fill=-red]{39};&
+\node[fill=-red]{40};&
+\node[fill=-red]{41};&
+\node[fill=-red]{42};&
+\node[fill=-red]{43};&
+\node[fill=-red]{44};&
+\node[fill=-red]{45};&
+\node[fill=-red]{46};&
+\node[fill=-red]{47};&
+\node[fill=-red]{48};&
+\node[fill=-red]{49};\\
+\node[left color=-red,right color=red!70]{26};&
+\node[left color=-red,right color=red!70]{27};&
+\node[left color=-red,right color=red!70]{28};&
+\node[left color=-red,right color=red!70]{29};&
+\node[]{30};&
+\node[fill=-red]{31};&
+\node[fill=-red]{32};&
+\node[]{33};&
+\node[fill=-red]{34};&
+\node[fill=-red]{35};&
+\node[fill=-red]{36};&
+\node[]{37};\\
+\node[]{14};&
+\node[]{15};&
+\node[]{16};&
+\node[]{17};&
+\node[]{18};&
+\node[left color=-red,right color=red!70]{19};&
+\node[left color=-red,right color=red!70]{20};&
+\node[]{21};&
+\node[left color=-red,right color=red!70]{22};&
+\node[left color=-red,right color=red!70]{23};&
+\node[fill=-red]{24};&
+\node[]{25};\\
+\node[]{2};&
+\node[]{3};&
+\node[]{4};&
+\node[]{5};&
+\node[]{6};&
+\node[]{7};&
+\node[]{8};&
+\node[]{9};&
+\node[]{10};&
+\node[]{11};&
+\node[left color=-red,right color=red!70]{12};&
+\node[]{13};\\
+\node[]{-10};&
+\node[]{-9};&
+\node[]{-8};&
+\node[]{-7};&
+\node[]{-6};&
+\node[]{-5};&
+\node[]{-4};&
+\node[]{-3};&
+\node[]{-2};&
+\node[]{-1};&
+\node[fill=-red]{0};&
+\node[]{1};\\
+};
+\end{tikzpicture}
+gap> options := rec(negatives := false, colors := cls,highlights:=[[c],importants,P]);
+rec( colors := [ "blue", "-red", "red!70", "black!40" ], 
+  highlights := 
+    [ [ 38 ], [ 0, 12, 19, 20, 22, 23, 24, 26, 27, 28, 29, 31, 32, 34, 35, 36, 38, 39, 40, 41, 
+          42, 43, 44, 45, 46, 47, 48, 49 ], [ 12, 19, 20, 22, 23, 26, 27, 28, 29 ] ], 
+  negatives := false )
+gap> tkz := IP_TikzArrayOfIntegers(list,m,options);;
+gap> Print(tkz);
+%tikz
+\begin{tikzpicture}[every node/.style={draw,scale=1pt,
+minimum width=20pt,inner sep=3pt,
+line width=0pt,draw=black}]
+\matrix[row sep=2pt,column sep=2pt]
+{\node[left color=blue,right color=-red]{38};&
+\node[fill=-red]{39};&
+\node[fill=-red]{40};&
+\node[fill=-red]{41};&
+\node[fill=-red]{42};&
+\node[fill=-red]{43};&
+\node[fill=-red]{44};&
+\node[fill=-red]{45};&
+\node[fill=-red]{46};&
+\node[fill=-red]{47};&
+\node[fill=-red]{48};&
+\node[fill=-red]{49};\\
+\node[left color=-red,right color=red!70]{26};&
+\node[left color=-red,right color=red!70]{27};&
+\node[left color=-red,right color=red!70]{28};&
+\node[left color=-red,right color=red!70]{29};&
+\node[]{30};&
+\node[fill=-red]{31};&
+\node[fill=-red]{32};&
+\node[]{33};&
+\node[fill=-red]{34};&
+\node[fill=-red]{35};&
+\node[fill=-red]{36};&
+\node[]{37};\\
+\node[]{14};&
+\node[]{15};&
+\node[]{16};&
+\node[]{17};&
+\node[]{18};&
+\node[left color=-red,right color=red!70]{19};&
+\node[left color=-red,right color=red!70]{20};&
+\node[]{21};&
+\node[left color=-red,right color=red!70]{22};&
+\node[left color=-red,right color=red!70]{23};&
+\node[fill=-red]{24};&
+\node[]{25};\\
+\node[]{2};&
+\node[]{3};&
+\node[]{4};&
+\node[]{5};&
+\node[]{6};&
+\node[]{7};&
+\node[]{8};&
+\node[]{9};&
+\node[]{10};&
+\node[]{11};&
+\node[left color=-red,right color=red!70]{12};&
+\node[]{13};\\
+&
+&
+&
+&
+&
+&
+&
+&
+&
+&
+\node[fill=-red]{0};&
+\node[]{1};\\
+};
+\end{tikzpicture}
+gap> 
 
 gap> STOP_TEST( "testall.tst", 10000 );
 ## The first argument of STOP_TEST should be the name of the test file.
