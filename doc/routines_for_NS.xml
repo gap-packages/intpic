@@ -18,7 +18,7 @@ We found it particularly usefull to gain intuition that led to the obtention of 
         <Item>(optional) a list whose elements are either<List>
            <Item>lists of integers <Emph>or</Emph> </Item>
            <Item>one of the strings "pseudo_frobenius", "min_generators", "frobenius_number", "conductor", "special_gaps", "fundamental_gaps", "small_elements" (the default: used when no list is present) <Emph>or</Emph> </Item>
-	   <Item> the string "ns_table" (the drawing obtained is a table whose top row corresponds to the threshold interval</Item>
+	   <Item> the string "ns_table" (the drawing obtained is a table whose top row corresponds to the threshold interval; as a side effect, if it is turned to "true", negative integers are not printed.)</Item>
           </List>
         </Item>
         <Item>a record whose fields are<List>

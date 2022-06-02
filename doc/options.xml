@@ -75,7 +75,7 @@ The defaults for the available options are as follows
            <A>highlights</A>: <![CDATA[ [[]] ]]>
         </Item>
         <Item>
-           <A>shape_only </A>:  <![CDATA["false"]]>
+           <A>shape_only </A>:  <![CDATA[false]]>
         </Item>
         <Item>
            <A>colsep</A>:  <![CDATA["2"]]>
@@ -102,6 +102,8 @@ The defaults for the available options are as follows
            <A>allow_adjust_cell_width</A>:  <![CDATA["10"]]>
         </Item>
         <Item>
+           <A>negatives</A>:  <![CDATA[[true]]]></Item>
+        <Item>
            <A>other</A>:  <![CDATA[[]]]></Item>
 </List>
 
@@ -118,11 +120,38 @@ rec( allow_adjust_cell_width := "10", cell_width := "30",
       "black!15", "red!80!blue!60", "green!80!blue!60", "blue!80!green!60", 
       "-red!80!blue!60", "-green!80!blue!60", "-blue!80!green!60", 
       "black!40", "black!10" ], colsep := "2", highlights := [ [  ] ], 
-  inner_sep := "3", line_color := "black", line_width := "1", other := [  ], 
-  rowsep := "2", scale := "1", shape_only := "false" )
+  inner_sep := "3", line_color := "black", line_width := "0", 
+  negatives := true, other := [  ], rowsep := "2", 
+  scale := "1", shape_only := false )
 ]]>
         </Example>
         
         The user may want to change the defaults by editing the file <C>options.gd</C> in the folder <C>gap</C>. The changes are lost whenever any re-installation occurs. It is recommended that in this case a copy is made, although it is not guaranteed that it will work in the next release.
       </Section>
+      <Section>
+      <Heading>Ilustrating the use of options</Heading>
+      The next example illustrates the use of the option <C>integers</C>. The images produced are shown below.
+      <Example><![CDATA[
+gap> rg := [-5..23];;
+gap> len := 10;;  
+gap> hg := rec();;                                        
+gap> hg.highlights:=[[2,3,5,7],[11,13,17,19],[23]];; 
+gap> tkz := IP_TikzArrayOfIntegers(rg,len,hg);;
+gap> Print(tkz);
+gap> #IP_Splash(tkz);
+gap> hg.negatives:=false;;
+gap> tkz := IP_TikzArrayOfIntegers(rg,len,hg);;
+gap> Print(tkz);
+gap> # IP_Splash(tkz);      
+]]></Example> 
+      <Alt Only="LaTeX">
+        \includegraphics[width=0.45\textwidth]{../images/table_with_negatives.pdf}
+	\hfill
+        \includegraphics[width=0.45\textwidth]{../images/table_without_negatives.pdf}
+      </Alt>
+      <Alt Only="HTML">
+        &#60;br&#62;&#60;center&#62;&#60;img src=&#34;../images/table_with_negatives.jpg&#34;&#62;&#60;/center&#62;&#60;br&#62;
+        &#60;br&#62;&#60;center&#62;&#60;img src=&#34;../images/table_without_negatives.jpg&#34;&#62;&#60;/center&#62;&#60;br&#62;
+      </Alt>
+    </Section>
     </Chapter>
