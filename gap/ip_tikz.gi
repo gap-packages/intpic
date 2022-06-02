@@ -135,7 +135,6 @@ InstallGlobalFunction(IP_TikzArrayOfIntegers,
 
   for floor in table do
     for nd in floor do
-#    Error("..");
       if Length(nd) = 1 and nd[1] < 0 and (not opt.negatives) then
         Append(tikzstring,"&\n");
       else
