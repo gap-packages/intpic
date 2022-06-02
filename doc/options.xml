@@ -75,7 +75,7 @@ The defaults for the available options are as follows
            <A>highlights</A>: <![CDATA[ [[]] ]]>
         </Item>
         <Item>
-           <A>shape_only </A>:  <![CDATA[false]]>
+           <A>shape_only </A>:  <![CDATA["false"]]>
         </Item>
         <Item>
            <A>colsep</A>:  <![CDATA["2"]]>
@@ -122,7 +122,7 @@ rec( allow_adjust_cell_width := "10", cell_width := "30",
       "black!40", "black!10" ], colsep := "2", highlights := [ [  ] ], 
   inner_sep := "3", line_color := "black", line_width := "0", 
   negatives := true, other := [  ], rowsep := "2", 
-  scale := "1", shape_only := false )
+  scale := "1", shape_only := "false" )
 ]]>
         </Example>
         

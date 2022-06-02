@@ -163,9 +163,9 @@ gap> tkz:=IP_TikzArrayOfIntegers(table,rec(highlights:=arr));;
     <Alt Only="HTML">
       &#60;br&#62;&#60;center&#62;&#60;img src=&#34;../images/table_axis_ground_8_19.jpg&#34;&#62;&#60;/center&#62;&#60;br&#62;
     </Alt>
-    The next picture is obtained in the same way. The information that only the shape has interest is given by including the option <C>shape_only:=true</C>. The variable <C>tkz</C> should be defined in a similar manner to the following one.
+    The next picture is obtained in the same way. The information that only the shape has interest is given by including the option <C>shape_only:=""</C>. The variable <C>tkz</C> should be defined in a similar manner to the following one.
     <Example><![CDATA[
-gap> tkz:=IP_TikzArrayOfIntegers(table,rec(highlights:=arr,shape_only:=true,
+gap> tkz:=IP_TikzArrayOfIntegers(table,rec(highlights:=arr,shape_only:="",
 >              cell_width := "6",colsep:="1",rowsep:="1",inner_sep:="2",
 >              line_color:="black!20"));;
 ]]></Example>

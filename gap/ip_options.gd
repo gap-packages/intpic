@@ -10,7 +10,7 @@ BindGlobal("IP_TikzDefaultOptionsForArraysOfIntegers",
                       #used for the background; the number may be printed with
                       #a fourth color and a fifth color may be used in the
                       #border. 
-           shape_only := false,
+           shape_only := "false",
                       #an option to be used when only the shape is important
                       #when "true" is used, the nodes are empty; using a 
                       #symbol, for instance a "*", the nodes are filled 

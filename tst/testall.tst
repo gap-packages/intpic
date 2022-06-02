@@ -158,7 +158,7 @@ gap> tkz:=IP_TikzArrayOfIntegers(table,rec(highlights:=arr));;
 
 #gap> IP_Splash(tkz);;
 
-gap> tkz:=IP_TikzArrayOfIntegers(table,rec(highlights:=arr,shape_only:=true,
+gap> tkz:=IP_TikzArrayOfIntegers(table,rec(highlights:=arr,shape_only:="",
 >              cell_width := "6",colsep:="1",rowsep:="1",inner_sep:="2",
 >              line_color:="black!20"));;
 
@@ -455,7 +455,7 @@ gap> arr := [xaxis,yaxis,ground];
       363, 371, 379, 387, 395 ], 
   [ 99, 118, 137, 156, 175, 194, 213, 232, 251, 270, 289 ], [ 251 .. 269 ] ]
 gap> tkz:=IP_TikzArrayOfIntegers(table,rec(highlights:=arr));;
-gap> tkz:=IP_TikzArrayOfIntegers(table,rec(highlights:=arr,shape_only:=true,
+gap> tkz:=IP_TikzArrayOfIntegers(table,rec(highlights:=arr,shape_only:="",
 >              cell_width := "6",colsep:="1",rowsep:="1",inner_sep:="2",
 >              line_color:="black!20"));;
 
@@ -622,7 +622,7 @@ gap> arr := [Intersection(small_primes,rg),[],[],
 gap> 
 gap> tkz:=IP_TikzArrayOfIntegers([1..n],row_length,rec(highlights:=arr,
 >              cell_width := "6",colsep:="0",rowsep:="0",inner_sep:="2",
->              shape_only:=true,line_width:="0",line_color:="black!20" ));;
+>              shape_only:="",line_width:="0",line_color:="black!20" ));;
 
 ## options.xml ##
 
@@ -644,7 +644,7 @@ rec( allow_adjust_cell_width := "10", cell_width := "30",
       "black!40", "black!10" ], colsep := "2", highlights := [ [  ] ], 
   inner_sep := "3", line_color := "black", line_width := "0", 
   negatives := true, other := [  ], rowsep := "2", 
-  scale := "1", shape_only := false )
+  scale := "1", shape_only := "false" )
 
 gap> rg := [-5..23];;
 gap> len := 10;;  

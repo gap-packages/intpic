@@ -102,8 +102,8 @@ InstallGlobalFunction(IP_TikzArrayOfIntegers,
         Add(node,h);
       fi;
     od;
-    if opt.shape_only then
-      node[1] := "";
+    if opt.shape_only <> "false"then
+      node[1] := opt.shape_only;
     fi;
 
     rg[i] := node;
