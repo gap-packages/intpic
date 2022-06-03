@@ -87,11 +87,11 @@ gap> IP_Splash(TikzCodeForNumericalSemigroup(NumericalSemigroup(7,13,19,23),
       </Alt>
     <Example><![CDATA[
 gap> ns := NumericalSemigroup(7,11,38,41);;
-gap> options := ["conductor", "min_generators", "small_elements"];;
-gap> tkz := TikzCodeForNumericalSemigroup(ns,options,
-> rec(ns_table:=true,colors:=["blue", "red!70", "-red", "black!40"]));;
+gap> highlights := ["conductor", "min_generators", "small_elements"];;
+gap> options := rec(ns_table:=true,colors:=["blue", "red!70", "-red", "black!40"]);;
+gap> tkz := TikzCodeForNumericalSemigroup(ns,highlights,options);;
 gap> IP_Splash(tkz);
-gap> tkz := TikzCodeForNumericalSemigroup(ns,options,rec(ns_table:=true));;
+gap> tkz := TikzCodeForNumericalSemigroup(ns,highlights,rec(ns_table:=true));;
 gap> IP_Splash(tkz);
 ]]></Example>
       <Alt Only="LaTeX">
@@ -102,6 +102,26 @@ gap> IP_Splash(tkz);
       <Alt Only="HTML">
         &#60;br&#62;&#60;center&#62;&#60;img src=&#34;../images/ip_splash_tikz_NS_table.jpg&#34;&#62;&#60;/center&#62;&#60;br&#62;
         &#60;br&#62;&#60;center&#62;&#60;img src=&#34;../images/ip_splash_tikz_NS_table_default.jpg&#34;&#62;&#60;/center&#62;&#60;br&#62;
+      </Alt>
+<ManSection>
+      <Heading>Drawing a numerical semigroup</Heading>
+      <Func Name="DrawNumericalSemigroup" Arg="ns"/>
+      <Description>
+      This function abbreviates the production of tikz code to display the numerical semigroup <C>ns</C> using some predefined options and elements to highlight (based on the ones of the above example). It also displays the image produced. Note that the production and displaying of the image depends on the function IP_Splash (which can be slow and depends on an appropriate configuration of the system). The output is the tikz code produced.
+       </Description>
+    </ManSection>
+    <Example><![CDATA[
+gap> m := 31;;
+gap> small_gens := [m,m+1,m+2,m+3];;
+gap> other_gens := List([1..Int(m/7)], k -> 7*k+m);;
+gap> ns := NumericalSemigroup(Union(small_gens,other_gens));;
+gap> DrawNumericalSemigroup(ns);;
+ ]]></Example>    
+      <Alt Only="LaTeX">
+        \includegraphics[width=0.45\textwidth]{../images/drawNS-small-depth.pdf}
+      </Alt>
+      <Alt Only="HTML">
+        &#60;br&#62;&#60;center&#62;&#60;img src=&#34;../images/drawNS-small-depth.jpg&#34;&#62;&#60;/center&#62;&#60;br&#62;
       </Alt>
 </Section>
   <!-- ###################################################### -->

@@ -141,6 +141,19 @@ InstallGlobalFunction(TikzCodeForNumericalSemigroup,
   return IP_TikzArrayOfIntegers([0..flen],len+1,rec(highlights:=array,colors := opt.colors));
 end);
 
+##########################################################################
+# This function abbreviates the production of tikz code with some natural options and displays the image produced. Note that the production and displaying of the image depends on the function IP_Splash (which can be slow and depends on an appropriate configuration of the system). 
+ 
+InstallGlobalFunction(DrawNumericalSemigroup,
+        function(ns)  
+  local highlights, options, tkz;
+
+  highlights := ["conductor", "min_generators", "small_elements"];
+  options := rec(negatives := false, ns_table:=true,colors:=["blue", "red!70", "-red", "black!40"]);
+  tkz := TikzCodeForNumericalSemigroup(ns,highlights,options);
+  IP_Splash(tkz);
+  return tkz;
+end);
 
 ##########################################################################
 # This function is used to produce lists of numerical semigroups with a fixed genus or Frobenius number. They are filtered and ordered according to some criteria.

@@ -11,9 +11,10 @@
  Version 0.2.4 dev  (//2022)
 =============
  - test file updated
+ - manual updated (with illustrations of use of the "negatives" option and the function "DrawNumericalSemigroup")
  - added the default option "negatives"
+ - added the function "DrawNumericalSemigroup" to display a numerical semigroup
  - fixed a bug caused by the use of "ns_table" in a part of the code not specifically dedicated to numerical semigroups; the option "negatives" is used instead
- - manual updated (with illustrations of use of the "negatives" option)
 	
 =============
  Version 0.2.4  (23/8/2019)

@@ -765,9 +765,9 @@ gap> TikzCodeForNumericalSemigroup(ns1,[[3,4],"pseudo_frobenius"],20);
 \n"
 
 gap> ns := NumericalSemigroup(7,11,38,41);;
-gap> options := ["conductor", "min_generators", "small_elements"];;
-gap> tkz := TikzCodeForNumericalSemigroup(ns,options,
-> rec(ns_table:=true,colors:=["blue", "red!70", "-red", "black!40"]));
+gap> highlights := ["conductor", "min_generators", "small_elements"];;
+gap> options := rec(ns_table:=true,colors:=["blue", "red!70", "-red", "black!40"]);;
+gap> tkz := TikzCodeForNumericalSemigroup(ns,highlights,options);
 "%tikz\n\\begin{tikzpicture}[every node/.style={draw,scale=1pt,\nminimum width\
 =20pt,inner sep=3pt,\nline width=0pt,draw=black}]\n\\matrix[row sep=2pt,column\
  sep=2pt]\n{\\node[left color=blue,right color=red!70,middle color=-red]{38};&\
@@ -786,7 +786,7 @@ e[]{3};&\n\\node[]{4};&\n\\node[]{5};&\n\\node[]{6};&\n\\node[left color=red!7\
 ode[]{-3};&\n\\node[]{-2};&\n\\node[]{-1};&\n\\node[fill=-red]{0};&\n\\node[]{\
 1};&\n\\node[]{2};\\\\\n};\n\\end{tikzpicture}\n"
 
-gap> tkz := TikzCodeForNumericalSemigroup(ns,options,rec(ns_table:=true));
+gap> tkz := TikzCodeForNumericalSemigroup(ns,highlights,rec(ns_table:=true));
 "%tikz\n\\begin{tikzpicture}[every node/.style={draw,scale=1pt,\nminimum width\
 =20pt,inner sep=3pt,\nline width=0pt,draw=black}]\n\\matrix[row sep=2pt,column\
  sep=2pt]\n{\\node[left color=red,right color=green,middle color=blue]{38};&\n\
