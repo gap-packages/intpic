@@ -271,17 +271,17 @@ If you want to scale this image, please chang the ``scale'' in the file
 
 <h5>4.3-2 <span class="Heading">The banner</span></h5>
 
-<p>The code in the following example has been used to produce one possible banner for the homepage of the <span class="URL"><a href="https://gap-packages.github.io/intpic/">IntPic</a></span> package. It is a nice picture that gives an idea about the primes less than <span class="SimpleMath">\(10000\)</span>. Of course, other ranges could have been chosen. I warn the user that pictures involving a large amount of data may face the problem of exceeding TeX capacity...</p>
+<p>The code in the following example has been used to produce one possible banner for the homepage of the <span class="URL"><a href="https://gap-packages.github.io/intpic/">IntPic</a></span> package. It is a nice picture that gives an idea about the primes less than <span class="SimpleMath">\(5000\)</span>. Of course, other ranges could have been chosen. I warn the user that pictures involving a large amount of data may face the problem of exceeding TeX capacity...</p>
 
 
 <div class="example"><pre>
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">row_length := 200;; # the legth of each row</span>
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">columns := 50;; # the number of colums</span>
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">n := row_length*columns;</span>
-10000
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput"></span>
+
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">row_length := 100;; # the maximum length of a row</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">nrows := 50;; # the number of rows</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">n := row_length*nrows;</span>
+5000
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">##compute the primes less than n</span>
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput"># Primes is a GAP variable representing the list of primes less than 1000</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput"># Primes is a GAP variable representing the list of primes less than n</span>
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">mp := Maximum(Primes);</span>
 997
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">newprimes := [];;</span>
@@ -292,16 +292,13 @@ If you want to scale this image, please chang the ``scale'' in the file
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">small_primes := Union(Primes, newprimes);;</span>
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">##compute the first element of each pair of twin primes less than n</span>
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">twins := Filtered(small_primes, p -&gt; IsPrime(p+2));;</span>
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput"></span>
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">rg := [1..n];;</span>
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput"></span>
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">arr := [Intersection(small_primes,rg),[],[], </span>
 <span class="GAPprompt">&gt;</span> <span class="GAPinput">        Intersection(Union(twins,twins+2),rg),[],[],[],[],[],[],[],</span>
 <span class="GAPprompt">&gt;</span> <span class="GAPinput">        [],[],[],[],[],[],Difference(rg,small_primes)];;</span>
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput"></span>
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">tkz:=IP_TikzArrayOfIntegers([1..n],row_length,rec(highlights:=arr,</span>
 <span class="GAPprompt">&gt;</span> <span class="GAPinput">             cell_width := "6",colsep:="0",rowsep:="0",inner_sep:="2",</span>
-<span class="GAPprompt">&gt;</span> <span class="GAPinput">             shape_only:=" ",line_width:="0",line_color:="black!20" ));;</span>
+<span class="GAPprompt">&gt;</span> <span class="GAPinput">             shape_only:="",line_width:="0",line_color:="black!20" ));;</span>
 </pre></div>
 
 <p><br><center><img src="../images/intpic_banner.jpg"></center><br></p>

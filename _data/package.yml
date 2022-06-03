@@ -1,6 +1,6 @@
 name: IntPic
-version: 0.2.4
-date: 2019-08-23
+version: 0.3.0
+date: 2022-06-02
 description: |
     A package for drawing integers
 
@@ -28,7 +28,7 @@ packageinfo: https://gap-packages.github.io/intpic/PackageInfo.g
 
 downloads:
     - name: .tar.gz
-      url: https://github.com/gap-packages/intpic/releases/download/v0.2.4/IntPic-0.2.4.tar.gz
+      url: https://github.com/gap-packages/intpic/releases/download/v0.3.0/IntPic-0.3.0.tar.gz
 
 abstract: |
     The <span class="pkgname">IntPic</span> package, is a package for drawing integers, by emphasizing some subsets.

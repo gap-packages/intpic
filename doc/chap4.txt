@@ -259,18 +259,18 @@
   
   [33X[0;0YThe  code  in  the  following  example has been used to produce one possible
   banner  for  the  homepage  of the [5XIntPic[105X package. It is a nice picture that
-  gives  an  idea  about  the  primes less than [22X10000[122X. Of course, other ranges
-  could  have  been  chosen.  I  warn the user that pictures involving a large
-  amount of data may face the problem of exceeding TeX capacity...[133X
+  gives an idea about the primes less than [22X5000[122X. Of course, other ranges could
+  have  been chosen. I warn the user that pictures involving a large amount of
+  data may face the problem of exceeding TeX capacity...[133X
   
   [4X[32X  Example  [32X[104X
-    [4X[25Xgap>[125X [27Xrow_length := 200;; # the legth of each row[127X[104X
-    [4X[25Xgap>[125X [27Xcolumns := 50;; # the number of colums[127X[104X
-    [4X[25Xgap>[125X [27Xn := row_length*columns;[127X[104X
-    [4X[28X10000[128X[104X
-    [4X[25Xgap>[125X [27X[127X[104X
+    [4X[28X[128X[104X
+    [4X[25Xgap>[125X [27Xrow_length := 100;; # the maximum length of a row[127X[104X
+    [4X[25Xgap>[125X [27Xnrows := 50;; # the number of rows[127X[104X
+    [4X[25Xgap>[125X [27Xn := row_length*nrows;[127X[104X
+    [4X[28X5000[128X[104X
     [4X[25Xgap>[125X [27X##compute the primes less than n[127X[104X
-    [4X[25Xgap>[125X [27X# Primes is a GAP variable representing the list of primes less than 1000[127X[104X
+    [4X[25Xgap>[125X [27X# Primes is a GAP variable representing the list of primes less than n[127X[104X
     [4X[25Xgap>[125X [27Xmp := Maximum(Primes);[127X[104X
     [4X[28X997[128X[104X
     [4X[25Xgap>[125X [27Xnewprimes := [];;[127X[104X
@@ -281,15 +281,12 @@
     [4X[25Xgap>[125X [27Xsmall_primes := Union(Primes, newprimes);;[127X[104X
     [4X[25Xgap>[125X [27X##compute the first element of each pair of twin primes less than n[127X[104X
     [4X[25Xgap>[125X [27Xtwins := Filtered(small_primes, p -> IsPrime(p+2));;[127X[104X
-    [4X[25Xgap>[125X [27X[127X[104X
     [4X[25Xgap>[125X [27Xrg := [1..n];;[127X[104X
-    [4X[25Xgap>[125X [27X[127X[104X
     [4X[25Xgap>[125X [27Xarr := [Intersection(small_primes,rg),[],[], [127X[104X
     [4X[25X>[125X [27X        Intersection(Union(twins,twins+2),rg),[],[],[],[],[],[],[],[127X[104X
     [4X[25X>[125X [27X        [],[],[],[],[],[],Difference(rg,small_primes)];;[127X[104X
-    [4X[25Xgap>[125X [27X[127X[104X
     [4X[25Xgap>[125X [27Xtkz:=IP_TikzArrayOfIntegers([1..n],row_length,rec(highlights:=arr,[127X[104X
     [4X[25X>[125X [27X             cell_width := "6",colsep:="0",rowsep:="0",inner_sep:="2",[127X[104X
-    [4X[25X>[125X [27X             shape_only:=" ",line_width:="0",line_color:="black!20" ));;[127X[104X
+    [4X[25X>[125X [27X             shape_only:="",line_width:="0",line_color:="black!20" ));;[127X[104X
   [4X[32X[104X
   

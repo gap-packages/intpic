@@ -27,7 +27,10 @@
               list is present) [13Xor[113X[133X
   
         [30X    [33X[0;12Ythe string "ns_table" (the drawing obtained is a table whose top
-              row corresponds to the threshold interval[133X
+              row  corresponds to the threshold interval; as a side effect, if
+              it  is  turned  to  "true",  negative integers are not printed);
+              alternatively,  the  option  can  be  given  in  the  usual way:
+              [10Xrec(ns_table := true)[110X[133X
   
   [31X3[131X   [33X[0;6Ya record whose fields are[133X
   
@@ -40,6 +43,29 @@
         biggest  minimal generator, it indicates the number of cells - 1 to be
         drawn  and  these  are drawn in a single line; otherwise, it indicates
         the maximum number of cells per line.[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27Xns := NumericalSemigroup(5,7);;                                               [127X[104X
+    [4X[25Xgap>[125X [27Xtkz := TikzCodeForNumericalSemigroup(ns,["ns_table"],rec(negatives:=false));[127X[104X
+    [4X[28X#I  In order to highlight some element, please use a list with one or more of the [128X[104X
+    [4X[28Xoptions given as strings: pseudo_frobenius, min_generators, frobenius_number, [128X[104X
+    [4X[28Xconductor, special_gaps, fundamental_gaps, small_elements[128X[104X
+    [4X[28X[128X[104X
+    [4X[28X"%tikz\n\\begin{tikzpicture}[every node/.style={draw,scale=1pt,\nminimum width\[128X[104X
+    [4X[28X=20pt,inner sep=3pt,\nline width=0pt,draw=black}]\n\\matrix[row sep=2pt,column\[128X[104X
+    [4X[28X sep=2pt]\n{\\node[]{24};&\n\\node[]{25};&\n\\node[]{26};&\n\\node[]{27};&\n\\\[128X[104X
+    [4X[28Xnode[]{28};\\\\\n\\node[]{19};&\n\\node[]{20};&\n\\node[]{21};&\n\\node[]{22};\[128X[104X
+    [4X[28X&\n\\node[]{23};\\\\\n\\node[]{14};&\n\\node[]{15};&\n\\node[]{16};&\n\\node[]\[128X[104X
+    [4X[28X{17};&\n\\node[]{18};\\\\\n\\node[]{9};&\n\\node[]{10};&\n\\node[]{11};&\n\\no\[128X[104X
+    [4X[28Xde[]{12};&\n\\node[]{13};\\\\\n\\node[]{4};&\n\\node[]{5};&\n\\node[]{6};&\n\\\[128X[104X
+    [4X[28Xnode[]{7};&\n\\node[]{8};\\\\\n&\n\\node[]{0};&\n\\node[]{1};&\n\\node[]{2};&\[128X[104X
+    [4X[28X\n\\node[]{3};\\\\\n};\n\\end{tikzpicture}\n"[128X[104X
+  [4X[32X[104X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27Xtkz := TikzCodeForNumericalSemigroup(ns,["small_elements"],[127X[104X
+    [4X[25X>[125X [27Xrec(ns_table := true,negatives:=false));;[127X[104X
+  [4X[32X[104X
   
   [4X[32X  Example  [32X[104X
     [4X[25Xgap>[125X [27Xns1 := NumericalSemigroup(3,5);;[127X[104X
@@ -61,11 +87,33 @@
   
   [4X[32X  Example  [32X[104X
     [4X[25Xgap>[125X [27Xns := NumericalSemigroup(7,11,38,41);;[127X[104X
-    [4X[25Xgap>[125X [27Xtkz := TikzCodeForNumericalSemigroup(ns,rec(ns_table:=true,colors:=["blue",[127X[104X
-    [4X[25X>[125X [27X"red!70", "-red", "black!40"]));;[127X[104X
+    [4X[25Xgap>[125X [27Xhighlights := ["conductor", "min_generators", "small_elements"];;[127X[104X
+    [4X[25Xgap>[125X [27Xoptions := rec(ns_table:=true,colors:=["blue", "red!70", "-red", "black!40"]);;[127X[104X
+    [4X[25Xgap>[125X [27Xtkz := TikzCodeForNumericalSemigroup(ns,highlights,options);;[127X[104X
     [4X[25Xgap>[125X [27XIP_Splash(tkz);[127X[104X
-    [4X[25Xgap>[125X [27Xtkz := TikzCodeForNumericalSemigroup(ns,rec(ns_table:=true));;[127X[104X
+    [4X[25Xgap>[125X [27Xtkz := TikzCodeForNumericalSemigroup(ns,highlights,rec(ns_table:=true));;[127X[104X
     [4X[25Xgap>[125X [27XIP_Splash(tkz);[127X[104X
+  [4X[32X[104X
+  
+  
+  [1X6.1-2 [33X[0;0YDrawing a numerical semigroup[133X[101X
+  
+  [33X[1;0Y[29X[2XDrawNumericalSemigroup[102X( [3Xns[103X ) [32X function[133X
+  
+  [33X[0;0YThis  function  abbreviates  the  production  of  tikz  code  to display the
+  numerical  semigroup  [10Xns[110X  using  some  predefined  options  and  elements to
+  highlight  (based  on  the  ones of the above example). It also displays the
+  image produced. Note that the production and displaying of the image depends
+  on  the  function IP_Splash (which can be slow and depends on an appropriate
+  configuration of the system). The output is the tikz code produced.[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27Xm := 31;;[127X[104X
+    [4X[25Xgap>[125X [27Xsmall_gens := [m,m+1,m+2,m+3];;[127X[104X
+    [4X[25Xgap>[125X [27Xother_gens := List([1..Int(m/7)], k -> 7*k+m);;[127X[104X
+    [4X[25Xgap>[125X [27Xns := NumericalSemigroup(Union(small_gens,other_gens));;[127X[104X
+    [4X[25Xgap>[125X [27XDrawNumericalSemigroup(ns);;[127X[104X
+    [4X[28X [128X[104X
   [4X[32X[104X
   
   

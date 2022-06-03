@@ -89,6 +89,8 @@
   
   [30X    [33X[0;6Y[3Xallow_adjust_cell_width[103X: "10"[133X
   
+  [30X    [33X[0;6Y[3Xnegatives[103X: [true][133X
+  
   [30X    [33X[0;6Y[3Xother[103X: [][133X
   
   [33X[0;0YThey may be consulted:[133X
@@ -105,8 +107,9 @@
     [4X[28X      "black!15", "red!80!blue!60", "green!80!blue!60", "blue!80!green!60", [128X[104X
     [4X[28X      "-red!80!blue!60", "-green!80!blue!60", "-blue!80!green!60", [128X[104X
     [4X[28X      "black!40", "black!10" ], colsep := "2", highlights := [ [  ] ], [128X[104X
-    [4X[28X  inner_sep := "3", line_color := "black", line_width := "1", other := [  ], [128X[104X
-    [4X[28X  rowsep := "2", scale := "1", shape_only := "false" )[128X[104X
+    [4X[28X  inner_sep := "3", line_color := "black", line_width := "0", [128X[104X
+    [4X[28X  negatives := true, other := [  ], rowsep := "2", [128X[104X
+    [4X[28X  scale := "1", shape_only := "false" )[128X[104X
     [4X[28X[128X[104X
     [4X[28X        [128X[104X
   [4X[32X[104X
@@ -115,4 +118,24 @@
   the folder [10Xgap[110X. The changes are lost whenever any re-installation occurs. It
   is  recommended  that  in  this  case  a  copy  is  made, although it is not
   guaranteed that it will work in the next release.[133X
+  
+  
+  [1X5.3 [33X[0;0YIlustrating the use of options[133X[101X
+  
+  [33X[0;0YThe  next  example  illustrates  the use of the option [10Xnegatives[110X. The images
+  produced are shown below.[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[25Xgap>[125X [27Xrg := [-5..23];;[127X[104X
+    [4X[25Xgap>[125X [27Xlen := 10;;  [127X[104X
+    [4X[25Xgap>[125X [27Xhg := rec();;                                        [127X[104X
+    [4X[25Xgap>[125X [27Xhg.highlights:=[[2,3,5,7],[11,13,17,19],[23]];; [127X[104X
+    [4X[25Xgap>[125X [27Xtkz := IP_TikzArrayOfIntegers(rg,len,hg);;[127X[104X
+    [4X[25Xgap>[125X [27XPrint(tkz);[127X[104X
+    [4X[25Xgap>[125X [27X#IP_Splash(tkz);[127X[104X
+    [4X[25Xgap>[125X [27Xhg.negatives:=false;;[127X[104X
+    [4X[25Xgap>[125X [27Xtkz := IP_TikzArrayOfIntegers(rg,len,hg);;[127X[104X
+    [4X[25Xgap>[125X [27XPrint(tkz);[127X[104X
+    [4X[25Xgap>[125X [27X# IP_Splash(tkz);      [127X[104X
+  [4X[32X[104X
   

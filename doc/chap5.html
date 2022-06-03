@@ -32,6 +32,9 @@
 <div class="ContSect"><span class="tocline"><span class="nocss">&nbsp;</span><a href="chap5.html#X7B1EC49C7F448906">5.2 <span class="Heading">Default options</span></a>
 </span>
 </div>
+<div class="ContSect"><span class="tocline"><span class="nocss">&nbsp;</span><a href="chap5.html#X7F3BBC377ECE5463">5.3 <span class="Heading">Ilustrating the use of options</span></a>
+</span>
+</div>
 </div>
 
 <h3>5 <span class="Heading">
@@ -142,6 +145,9 @@ rectangle (16pt,40pt);","\\draw[postaction={draw,line width=1pt,blue}]
 <li><p><var class="Arg">allow_adjust_cell_width</var>: "10"</p>
 
 </li>
+<li><p><var class="Arg">negatives</var>: [true]</p>
+
+</li>
 <li><p><var class="Arg">other</var>: []</p>
 
 </li>
@@ -161,12 +167,36 @@ rec( allow_adjust_cell_width := "10", cell_width := "30",
       "black!15", "red!80!blue!60", "green!80!blue!60", "blue!80!green!60", 
       "-red!80!blue!60", "-green!80!blue!60", "-blue!80!green!60", 
       "black!40", "black!10" ], colsep := "2", highlights := [ [  ] ], 
-  inner_sep := "3", line_color := "black", line_width := "1", other := [  ], 
-  rowsep := "2", scale := "1", shape_only := "false" )
+  inner_sep := "3", line_color := "black", line_width := "0", 
+  negatives := true, other := [  ], rowsep := "2", 
+  scale := "1", shape_only := "false" )
 
         </pre></div>
 
 <p>The user may want to change the defaults by editing the file <code class="code">options.gd</code> in the folder <code class="code">gap</code>. The changes are lost whenever any re-installation occurs. It is recommended that in this case a copy is made, although it is not guaranteed that it will work in the next release.</p>
+
+<p><a id="X7F3BBC377ECE5463" name="X7F3BBC377ECE5463"></a></p>
+
+<h4>5.3 <span class="Heading">Ilustrating the use of options</span></h4>
+
+<p>The next example illustrates the use of the option <code class="code">negatives</code>. The images produced are shown below.</p>
+
+
+<div class="example"><pre>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">rg := [-5..23];;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">len := 10;;  </span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">hg := rec();;                                        </span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">hg.highlights:=[[2,3,5,7],[11,13,17,19],[23]];; </span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">tkz := IP_TikzArrayOfIntegers(rg,len,hg);;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Print(tkz);</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">#IP_Splash(tkz);</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">hg.negatives:=false;;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">tkz := IP_TikzArrayOfIntegers(rg,len,hg);;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Print(tkz);</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput"># IP_Splash(tkz);      </span>
+</pre></div>
+
+<p><br><center><img src="../images/table_with_negatives.jpg"></center><br> <br><center><img src="../images/table_without_negatives.jpg"></center><br></p>
 
 
 <div class="chlinkprevnextbot">&nbsp;<a href="chap0.html">[Top of Book]</a>&nbsp;  <a href="chap0.html#contents">[Contents]</a>&nbsp;  &nbsp;<a href="chap4.html">[Previous Chapter]</a>&nbsp;  &nbsp;<a href="chap6.html">[Next Chapter]</a>&nbsp;  </div>

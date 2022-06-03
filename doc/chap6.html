@@ -31,6 +31,8 @@
 <div class="ContSSBlock">
 <span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap6.html#X7B3048667C19F30D">6.1-1 <span class="Heading">Tikz code for drawing numerical semigroups</span></a>
 </span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap6.html#X84B40345825B0B0E">6.1-2 <span class="Heading">Drawing a numerical semigroup</span></a>
+</span>
 </div></div>
 <div class="ContSect"><span class="tocline"><span class="nocss">&nbsp;</span><a href="chap6.html#X7BF14BF082E52625">6.2 <span class="Heading">Drawing sets of numerical semigroups</span></a>
 </span>
@@ -73,7 +75,7 @@
 <li><p>one of the strings "pseudo_frobenius", "min_generators", "frobenius_number", "conductor", "special_gaps", "fundamental_gaps", "small_elements" (the default: used when no list is present) <em>or</em></p>
 
 </li>
-<li><p>the string "ns_table" (the drawing obtained is a table whose top row corresponds to the threshold interval</p>
+<li><p>the string "ns_table" (the drawing obtained is a table whose top row corresponds to the threshold interval; as a side effect, if it is turned to "true", negative integers are not printed); alternatively, the option can be given in the usual way: <code class="code">rec(ns_table := true)</code></p>
 
 </li>
 </ul>
@@ -94,6 +96,32 @@
 
 </li>
 </ol>
+
+<div class="example"><pre>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">ns := NumericalSemigroup(5,7);;                                               </span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">tkz := TikzCodeForNumericalSemigroup(ns,["ns_table"],rec(negatives:=false));</span>
+#I  In order to highlight some element, please use a list with one or more of the 
+options given as strings: pseudo_frobenius, min_generators, frobenius_number, 
+conductor, special_gaps, fundamental_gaps, small_elements
+
+"%tikz\n\\begin{tikzpicture}[every node/.style={draw,scale=1pt,\nminimum width\
+=20pt,inner sep=3pt,\nline width=0pt,draw=black}]\n\\matrix[row sep=2pt,column\
+ sep=2pt]\n{\\node[]{24};&amp;\n\\node[]{25};&amp;\n\\node[]{26};&amp;\n\\node[]{27};&amp;\n\\\
+node[]{28};\\\\\n\\node[]{19};&amp;\n\\node[]{20};&amp;\n\\node[]{21};&amp;\n\\node[]{22};\
+&amp;\n\\node[]{23};\\\\\n\\node[]{14};&amp;\n\\node[]{15};&amp;\n\\node[]{16};&amp;\n\\node[]\
+{17};&amp;\n\\node[]{18};\\\\\n\\node[]{9};&amp;\n\\node[]{10};&amp;\n\\node[]{11};&amp;\n\\no\
+de[]{12};&amp;\n\\node[]{13};\\\\\n\\node[]{4};&amp;\n\\node[]{5};&amp;\n\\node[]{6};&amp;\n\\\
+node[]{7};&amp;\n\\node[]{8};\\\\\n&amp;\n\\node[]{0};&amp;\n\\node[]{1};&amp;\n\\node[]{2};&amp;\
+\n\\node[]{3};\\\\\n};\n\\end{tikzpicture}\n"
+</pre></div>
+
+
+<div class="example"><pre>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">tkz := TikzCodeForNumericalSemigroup(ns,["small_elements"],</span>
+<span class="GAPprompt">&gt;</span> <span class="GAPinput">rec(ns_table := true,negatives:=false));;</span></pre></div>
+
+<p><br><center><img src="../images/ip_5-7-white.jpg"></center><br> <br><center><img src="../images/ip_5-7-smalls.jpg"></center><br></p>
+
 
 <div class="example"><pre>
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">ns1 := NumericalSemigroup(3,5);;</span>
@@ -119,14 +147,33 @@
 
 <div class="example"><pre>
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">ns := NumericalSemigroup(7,11,38,41);;</span>
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">tkz := TikzCodeForNumericalSemigroup(ns,rec(ns_table:=true,colors:=["blue",</span>
-<span class="GAPprompt">&gt;</span> <span class="GAPinput">"red!70", "-red", "black!40"]));;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">highlights := ["conductor", "min_generators", "small_elements"];;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">options := rec(ns_table:=true,colors:=["blue", "red!70", "-red", "black!40"]);;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">tkz := TikzCodeForNumericalSemigroup(ns,highlights,options);;</span>
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IP_Splash(tkz);</span>
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">tkz := TikzCodeForNumericalSemigroup(ns,rec(ns_table:=true));;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">tkz := TikzCodeForNumericalSemigroup(ns,highlights,rec(ns_table:=true));;</span>
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">IP_Splash(tkz);</span>
 </pre></div>
 
 <p><br><center><img src="../images/ip_splash_tikz_NS_table.jpg"></center><br> <br><center><img src="../images/ip_splash_tikz_NS_table_default.jpg"></center><br></p>
+
+<p><a id="X84B40345825B0B0E" name="X84B40345825B0B0E"></a></p>
+
+<h5>6.1-2 <span class="Heading">Drawing a numerical semigroup</span></h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; DrawNumericalSemigroup</code>( <var class="Arg">ns</var> )</td><td class="tdright">(&nbsp;function&nbsp;)</td></tr></table></div>
+<p>This function abbreviates the production of tikz code to display the numerical semigroup <code class="code">ns</code> using some predefined options and elements to highlight (based on the ones of the above example). It also displays the image produced. Note that the production and displaying of the image depends on the function IP_Splash (which can be slow and depends on an appropriate configuration of the system). The output is the tikz code produced.</p>
+
+
+<div class="example"><pre>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">m := 31;;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">small_gens := [m,m+1,m+2,m+3];;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">other_gens := List([1..Int(m/7)], k -&gt; 7*k+m);;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">ns := NumericalSemigroup(Union(small_gens,other_gens));;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">DrawNumericalSemigroup(ns);;</span>
+ </pre></div>
+
+<p><br><center><img src="../images/drawNS-small-depth.jpg"></center><br></p>
 
 <p><a id="X7BF14BF082E52625" name="X7BF14BF082E52625"></a></p>
 

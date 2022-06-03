@@ -6,7 +6,7 @@
                    [1XA [5XGAP[105X package for drawing sets of integers[101X
   
   
-                                 Version 0.2.4
+                                 Version 0.3.0
   
   
                                  Manuel Delgado
@@ -47,18 +47,19 @@
   
   [33X[0;0Y[12XConcerning the mantainment:[112X[133X
   
-  [33X[0;0YI want to acknowledge partial support by CMUP (UID/MAT/00144/2013), which is
-  funded  by  FCT (Portugal) with national (MEC) and European structural funds
-  through the programs FEDER, under the partnership agreement PT2020.[133X
+  [33X[0;0YI   want   to  acknowledge  partial  support  by  CMUP  (UID/MAT/00144/2013,
+  UID/MAT/00144/2019), which is funded by FCT (Portugal) with national (MCTES)
+  and  European  structural  funds  through  the  programs  FEDER,  under  the
+  partnership agreement PT2020.[133X
   
-  [33X[0;0YI  acknowledge  also partial supported by the project MTM2014-55367-P, which
-  is  funded  by  Ministerio  de  Economía  y Competitividad (Spain) and Fondo
-  Europeo de Desarrollo Regional FEDER.[133X
+  [33X[0;0YI  acknowledge  also  partial  supported  by  the  projects  MTM2014-55367-P
+  andMTM2017-84890-P,  funded  by  Ministerio  de  Economía  y  Competitividad
+  (Spain) and Fondo Europeo de Desarrollo Regional FEDER.[133X
   
   
   -------------------------------------------------------
   [1XColophon[101X
-  [33X[0;0YThis   manual  describes  the  [5XGAP[105X  package  [5XIntPic[105X  ,  Version  0.2.4,  for
+  [33X[0;0YThis   manual  describes  the  [5XGAP[105X  package  [5XIntPic[105X  ,  Version  0.3.0,  for
   visualizing and creating publication quality pictures of sets of integers.[133X
   
   
@@ -93,9 +94,11 @@
   5 [33X[0;0YThe [5XIntPic[105X package options.[133X
     5.1 [33X[0;0YAvailable options[133X
     5.2 [33X[0;0YDefault options[133X
+    5.3 [33X[0;0YIlustrating the use of options[133X
   6 [33X[0;0YUsage of [5XIntPic[105X in connection with the [5Xnumericalsgps[105X package[133X
     6.1 [33X[0;0YTikz code for drawing numerical semigroups[133X
       6.1-1 [33X[0;0YTikz code for drawing numerical semigroups[133X
+      6.1-2 [33X[0;0YDrawing a numerical semigroup[133X
     6.2 [33X[0;0YDrawing sets of numerical semigroups[133X
       6.2-1 [33X[0;0YSet of numerical semigroups[133X
       6.2-2 [33X[0;0YDraw a set of numerical semigroups[133X

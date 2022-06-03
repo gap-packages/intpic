@@ -211,11 +211,11 @@ line width=1pt,draw=black}]
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">tkz:=IP_TikzArrayOfIntegers(table,rec(highlights:=arr));;</span>
 </pre></div>
 
-<p><br><center><img src="../images/table_axis_ground_8_19.jpg"></center><br> The next picture is obtained in the same way. The information that only the shape has interest is given by including the option <code class="code">shape_only:=" "</code>. The variable <code class="code">tkz</code> should be defined in a similar manner to the following one.</p>
+<p><br><center><img src="../images/table_axis_ground_8_19.jpg"></center><br> The next picture is obtained in the same way. The information that only the shape has interest is given by including the option <code class="code">shape_only:=""</code>. The variable <code class="code">tkz</code> should be defined in a similar manner to the following one.</p>
 
 
 <div class="example"><pre>
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">tkz:=IP_TikzArrayOfIntegers(table,rec(highlights:=arr,shape_only:=" ",</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">tkz:=IP_TikzArrayOfIntegers(table,rec(highlights:=arr,shape_only:="",</span>
 <span class="GAPprompt">&gt;</span> <span class="GAPinput">             cell_width := "6",colsep:="1",rowsep:="1",inner_sep:="2",</span>
 <span class="GAPprompt">&gt;</span> <span class="GAPinput">             line_color:="black!20"));;</span>
 </pre></div>
