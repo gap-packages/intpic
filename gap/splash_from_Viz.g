@@ -101,10 +101,10 @@ if not IsBound(Splash) then
     if IsBound(opt.filetype) then
       filetype := opt.filetype;
     else
-      if ARCH_IS_MAC_OS_X( ) then
-        filetype := "svg";
-      elif ARCH_IS_UNIX( ) then
+      if ARCH_IS_UNIX( ) then
         filetype := "pdf";
+      elif ARCH_IS_MAC_OS_X( ) then
+        filetype := "svg";
       elif ARCH_IS_WINDOWS( ) then
         filetype := "pdf";
       fi;
