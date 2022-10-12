@@ -3,7 +3,7 @@
 /doc/*.css
 /doc/*.js
 /doc/chooser.html
-/doc/*.aux
+*.aux
 /doc/*.bbl
 /doc/*.blg
 /doc/*.brf
@@ -11,7 +11,7 @@
 /doc/*.ilg
 /doc/*.ind
 /doc/*.lab
-/doc/*.log
+*.log
 /doc/*.out
 /doc/*.pnr
 /doc/*.six
