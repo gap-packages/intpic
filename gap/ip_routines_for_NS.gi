@@ -10,7 +10,7 @@
 #####- colors (a list of colors that will be the first to be taken, the default being [])
 
 ######-(optional) argument -- an argument (that may be a function name also)
-#### Warning: When a string is mispelled, an ERROR may be signaled#######
+#### Warning: When a string is misspelled, an ERROR may be signaled#######
 
 #*(optional) a positive integer -- if it is bigger than the conductor or biggest minimal generator, it indicates the number of cells - 1 to be drawn and these are drawn in a single line; otherwise, it indicates the maximum number of cells per line.
 #example
@@ -25,7 +25,7 @@ InstallGlobalFunction(TikzCodeForNumericalSemigroup,
          list, ti, array, len, flen, str, ev, x;
   
   ns := First(arg, IsNumericalSemigroup);
-  #a gobal variable is needed to EvalString...
+  #a global variable is needed to EvalString...
   AuxiliaryGlobalVariableForTikzCodeForNumericalSemigroup := ns;
 
   m := Multiplicity(ns);
@@ -44,7 +44,7 @@ InstallGlobalFunction(TikzCodeForNumericalSemigroup,
   allowed_options_list := ["pseudo_frobenius", "min_generators", "frobenius_number", "conductor", "special_gaps", "fundamental_gaps", "small_elements", "ns_table"];  
   for o in options do
     if IsString(o) and not (o in allowed_options_list) then
-      Info(InfoWarning,1,"The option ", o, " is perhaps mispelled and will be ignored\n");
+      Info(InfoWarning,1,"The option ", o, " is perhaps misspelled and will be ignored\n");
       #, unless it is the name of a function, it will cause an error to be signaled.");
     fi;
   od;

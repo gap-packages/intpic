@@ -26,12 +26,12 @@ BindGlobal("IP_TikzDefaultOptionsForArraysOfIntegers",
                       # between the width of the cells when there are numbers
                       #with different number of digits to be printed)         
                       #When the user sets the option cell_width, then 
-                      #allow_adjust_cell_width is automaticaly set to "false" 
+                      #allow_adjust_cell_width is automatically set to "false" 
            scale := "1", # scale
            inner_sep := "3", #inner sep
            line_width := "0", # line width
            line_color := "black", # draw (the color of the cell borders)
-#           ns_table := false, # to draw numerical semigroups as tables, the highest row correspondig to the threshold interval
+#           ns_table := false, # to draw numerical semigroups as tables, the highest row corresponding to the threshold interval
            negatives := true, #to write the negative numbers
            #####other#####           
            other := [] 
@@ -87,7 +87,7 @@ BindGlobal("DotIP_DefaultOptionsForArraysOfIntegers",
                       #is highlighted with a different color; in cases of elements
                       #that appear in more than one list are highlighted the
                       #background an the number -- the colors corresponding to the
-                      #first two appearences are used)  
+                      #first two appearances are used)  
                       ));
 
 

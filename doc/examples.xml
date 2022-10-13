@@ -127,8 +127,8 @@ gap> tkz := IP_TikzArrayOfIntegers(flen,rec(colors := cls,highlights:=arr));;
       <Heading>The banner</Heading>
       The code in the following example has been used to produce one possible banner for the homepage of the &IntPic; package. A nice picture to give an idea about the primes less than <M>10000</M>. Of course, other ranges could be chosen. I warn the user that pictures involving a large amount of data may face the problem of exceeding &TeX; capacity...
       <Example><![CDATA[
-gap> row_length := 200;; # the legth of each row
-gap> columns := 50;; # the number of colums
+gap> row_length := 200;; # the length of each row
+gap> columns := 50;; # the number of columns
 gap> n := row_length*columns;
 10000
 gap> 

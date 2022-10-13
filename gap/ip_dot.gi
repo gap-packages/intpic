@@ -1,11 +1,11 @@
-## not optimized nor mantained... for the moment we concentrate our efforts in the corresponding functions that make use of tikz
+## not optimized nor maintained... for the moment we concentrate our efforts in the corresponding functions that make use of tikz
 #################
 ## This function aims to produce dot code for displaying arrays of integers.
 ##
 ## Input: the arguments (at most 4) are: 
 #a range or a table of integers,
 #an integer (indicating the length of the floors; it is only needed when a range is given as first argument.
-#an array of integers (all the elements of each of the lists in the array is highlighted with a different color; in cases of elements that appear in more than one list are highlighted the background an the number -- the colors corresponding to the first two appearences are used) 
+#an array of integers (all the elements of each of the lists in the array is highlighted with a different color; in cases of elements that appear in more than one list are highlighted the background an the number -- the colors corresponding to the first two appearances are used) 
 #a record of options. For details on these see the default options...
 InstallGlobalFunction(IP_DotArrayOfIntegers,
 function(arg)

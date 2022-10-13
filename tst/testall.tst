@@ -2,7 +2,7 @@
 ##
 #A  testall.tst        IntPic package                   Manuel Delgado
 ##                                                    
-##  (based on the cooresponding file of the 'example' package, 
+##  (based on the corresponding file of the 'example' package, 
 ##   by Alexander Konovalov) 
 ##
 ##  To create a test file, place GAP prompts, input and output exactly as
@@ -385,7 +385,7 @@ line width=0pt,draw=black!20}]
 #############################################################################
 #############################################################################
 # Examples from the manual
-# (These examples use at least a funtion from each file)
+# (These examples use at least a function from each file)
 
 ## functions.xml ##
 
@@ -596,8 +596,8 @@ gap> arr := [SmallElementsOfNumericalSemigroup(ns),
 gap> 
 gap> tkz := IP_TikzArrayOfIntegers(flen,rec(colors := cls,highlights:=arr));;
 
-gap> row_length := 200;; # the legth of each row
-gap> columns := 50;; # the number of colums
+gap> row_length := 200;; # the length of each row
+gap> columns := 50;; # the number of columns
 gap> n := row_length*columns;
 10000
 gap> 

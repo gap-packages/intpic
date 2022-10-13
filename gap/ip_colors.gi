@@ -3,7 +3,7 @@
 #F PickElementsFromList
 ##
 #input: source is a list; n is the number of elements to be picked
-#the distance between the elements picked is aproximately the number of
+#the distance between the elements picked is approximately the number of
 #remaining elements by the number of deserts.
 #the first element is always picked.
 #############################################################################
