@@ -1,7 +1,7 @@
 ## Some examples in the manual have been produced by using the code below
 ## The GAP session was started inside the folder "images"
 ##
-## Note that for each case we save the tikz code into a file and and a complete latex document wich includes the tikz code. The reason for this document is that we want to produce the image in jpg format in order to include it in the html version of the manual. Using the pdf version instead of the tikz code for the pdf version of the manual also happens sometimes: the reason is that it saves processing time.  
+## Note that for each case we save the tikz code into a file and and a complete latex document which includes the tikz code. The reason for this document is that we want to produce the image in jpg format in order to include it in the html version of the manual. Using the pdf version instead of the tikz code for the pdf version of the manual also happens sometimes: the reason is that it saves processing time.  
 ######## primesandtwins ################
 tikzfile := "tikz_primesandtwins.tex";;
 file := "primesandtwins.tex";;
@@ -441,8 +441,8 @@ FileString(file,Concatenation(IP_Preamble,tkz,IP_Closing));
 tikzfile := "tikz_intpic_banner.tex";;
 file := "intpic_banner.tex";;
 
-row_length := 200; # the legth of each row
-columns := 50; # the number of colums
+row_length := 200; # the length of each row
+columns := 50; # the number of columns
 n := row_length*columns;
 
 ##compute the primes less than n

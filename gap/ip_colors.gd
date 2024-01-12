@@ -4,7 +4,7 @@
 #many, although (from our experience) sufficient for most examples. The reason
 #for being few is that we do not want to get confused with the
 #colors. Furthermore, when only a few of the available colors are used the
-#colors choosen are quite different... 
+#colors chosen are quite different... 
 
 #########
 # Lists of colors (with the same tone)

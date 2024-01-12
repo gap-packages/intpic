@@ -115,7 +115,7 @@ Executing something like
 pdflatex pic_for_complete_document.tex
 convert pic_for_complete_document.pdf pic_for_complete_document.jpg
 ]]></Listing>
-the <C>pdf</C> and the <C>jpg</C> formats of the image have been created. The <C>jpg</C> format is usefull to be included into an html document, for instance. 
+the <C>pdf</C> and the <C>jpg</C> formats of the image have been created. The <C>jpg</C> format is useful to be included into an html document, for instance. 
 <P/>
 Note that the tikz code has been saved into the file  <C>tikz_pic_for_complete_document.tex</C>. A complete example of a &LaTeX; document follows.
 <Listing Type="a LaTeX document"><![CDATA[      

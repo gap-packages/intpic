@@ -5,7 +5,7 @@
     Usage of <Package>IntPic</Package> in connection with the <Package>numericalsgps</Package> package
   </Heading>
 This chapter describes functions to be used in connection with the <Package>numericalsgps</Package> package.
-We found it particularly usefull to gain intuition that led to the obtention of the results stated in <Cite Key="DGSRP15"></Cite>. 
+We found it particularly useful to gain intuition that led to the obtention of the results stated in <Cite Key="DGSRP15"></Cite>. 
 
 <Section>
     <Heading>Tikz code for drawing numerical semigroups</Heading>
