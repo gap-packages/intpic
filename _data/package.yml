@@ -1,5 +1,6 @@
 name: IntPic
-version: 0.3.0
+version: "0.3.0"
+license: "GPL-2.0-or-later"
 date: 2022-06-02
 description: |
     A package for drawing integers
@@ -36,3 +37,31 @@ abstract: |
 status: deposited
 doc-html: doc/chap0.html
 doc-pdf: doc/manual.pdf
+keywords: |
+    emphasize, highlight, draw, integer, picture.
+citeas: |
+    <p class='BibEntry'>
+    [<span class='BibKey'>Del22</span>]   <b class='BibAuthor'>Delgado, M.</b>,
+     <i class='BibTitle'>IntPic, A package for drawing integers,
+             Version 0.3.0</i>
+     (<span class='BibYear'>2022</span>)<br />
+    (<span class='BibNote'>GAP package</span>),
+    <span class='BibHowpublished'><a href="https://gap-packages.github.io/intpic">https://gap-packages.github.io/intpic</a></span>.
+    </p>
+    
+
+bibtex: |
+    @misc{ IntPic0.3.0,
+      author =           {Delgado, M.},
+      title =            {{IntPic},  A  package  for drawing integers, {V}ersion
+                          0.3.0},
+      month =            {Jun},
+      year =             {2022},
+      note =             {GAP package},
+      howpublished =     {\href          {https://gap-packages.github.io/intpic}
+                          {\texttt{https://gap-packages.github.io/}\discretionary
+                          {}{}{}\texttt{intpic}}},
+      keywords =         {emphasize; highlight; draw; integer; picture},
+      printedkey =       {Del22}
+    }
+

@@ -140,7 +140,7 @@
   [4X[32X[104X
   
   [33X[0;0Ythe  [10Xpdf[110X  and the [10Xjpg[110X formats of the image have been created. The [10Xjpg[110X format
-  is usefull to be included into an html document, for instance.[133X
+  is useful to be included into an html document, for instance.[133X
   
   [33X[0;0YNote    that    the    tikz    code   has   been   saved   into   the   file
   [10Xtikz_pic_for_complete_document.tex[110X.  A  complete example of a LaTeX document
