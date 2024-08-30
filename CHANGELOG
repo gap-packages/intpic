@@ -8,9 +8,11 @@
 #############################################################################
 ##
 =============
- Version 0.3.0 dev  (03/06/2022)
+ Version 0.4.0  (30/08/2024)
 =============
- - manual updated (width of an image obtained using DrawNumericalSemigroup)
+- Updates related to CI and Codecov (Thanks, Max)
+- Simplify-splash (Thanks, Max)
+- manual updated (width of an image obtained using DrawNumericalSemigroup)
 =============
  Version 0.3.0  (03/06/2022)
 =============
