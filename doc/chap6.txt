@@ -2,8 +2,8 @@
   [1X6 [33X[0;0YUsage of [5XIntPic[105X[101X[1X in connection with the [5Xnumericalsgps[105X[101X[1X package[133X[101X
   
   [33X[0;0YThis  chapter  describes  functions  to  be  used  in  connection  with  the
-  [5Xnumericalsgps[105X  package.  We  found it particularly useful to gain intuition
-  that led to the obtention of the results stated in [DGSRP16].[133X
+  [5Xnumericalsgps[105X  package.  We  found  it particularly useful to gain intuition
+  that led to the obtention of the results stated in [DGR16].[133X
   
   
   [1X6.1 [33X[0;0YTikz code for drawing numerical semigroups[133X[101X

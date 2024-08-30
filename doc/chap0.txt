@@ -6,7 +6,7 @@
                    [1XA [5XGAP[105X package for drawing sets of integers[101X
   
   
-                                 Version 0.3.0
+                                 Version 0.4.0
   
   
                                  Manuel Delgado
@@ -59,7 +59,7 @@
   
   -------------------------------------------------------
   [1XColophon[101X
-  [33X[0;0YThis   manual  describes  the  [5XGAP[105X  package  [5XIntPic[105X  ,  Version  0.3.0,  for
+  [33X[0;0YThis   manual  describes  the  [5XGAP[105X  package  [5XIntPic[105X  ,  Version  0.4.0,  for
   visualizing and creating publication quality pictures of sets of integers.[133X
   
   

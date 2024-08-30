@@ -1,7 +1,7 @@
   
   [1X2 [33X[0;0YThe [5XIntPic[105X[101X[1X package main function[133X[101X
   
-  [33X[0;0YThis  chapter consists of two sections, the first of which describes the main
+  [33X[0;0YThis chapter consists of two sections, the first of which describes the main
   function of the package. The second one can be thought just as an example to
   produce a table where the integers appear ordered in a non standard way.[133X
   
@@ -97,7 +97,7 @@
   [33X[1;0Y[29X[2XIP_SimpleTikzArrayOfIntegers[102X( [3Xarg[103X ) [32X function[133X
   
   [33X[0;0YThe  argument  is  either  a  list  of integers or a matrix of integers. The
-  integers  involved  are  embedded  in  a  range  [3Xrg[103X  of  minimum  length  and
+  integers  involved  are  embedded  in  a  range  [3Xrg[103X  of  minimum  length and
   highlighted by using the list of default colors.[133X
   
   [4X[32X  Example  [32X[104X
@@ -121,7 +121,7 @@
   idea  to  write  some  code  to produce these tables. The following function
   (whose  code  is  part  of  the  file [13Xip_tables.gi[113X in the [13Xgap[113X folder of this
   package) is convenient to deal with numerical semigroups with two generators
-  and has been used to produce the images contained in [DFGSL14].[133X
+  and has been used to produce the images contained in [DFGL14].[133X
   
   [1X2.2-1 IP_TableWithModularOrder[101X
   
