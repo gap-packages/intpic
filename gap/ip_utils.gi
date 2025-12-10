@@ -25,7 +25,7 @@ end);
 InstallGlobalFunction(IntPicInfo, 
         function(n)
   SetInfoLevel(InfoIntPic, n);
-  Info(InfoIntPic,0, "Info Level for InfoIntPic is set to ",n, "\n");
+  Info(InfoIntPic,1, "Info Level for InfoIntPic is set to ",n, "\n");
 end);
 #######################################################################
 # InstallGlobalFunction(IntPicTest,
