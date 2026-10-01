@@ -33,7 +33,7 @@ directories:
 |:-----|:------|
 |README.md |   this file|
 |EXAMPLES|	some examples|
-|CHANGELOG|	changelog|
+|CHANGES.md|	changelog|
 |LICENSE|	Licensing information|
 |doc  |	the manual|
 |gap  |the GAP code|
